@@ -5,7 +5,7 @@
 ## Login   <gicque_p@epitech.net>
 ##
 ## Started on  Mon Mar 24 14:32:36 2014 Pierrick Gicquelais
-## Last update Thu Mar 27 14:14:08 2014 Pierrick Gicquelais
+## Last update Thu Mar 27 14:36:16 2014 Pierrick Gicquelais
 ##
 
 CC	=	gcc
@@ -16,7 +16,8 @@ NAME	=	42sh
 
 CFLAGS	+=	-I./ -W -Wall -Wextra
 
-SRC	=	main.c
+SRC	=	main.c		\
+		get_next_line.c
 
 OBJ	=	$(SRC:.c=.o)
 
