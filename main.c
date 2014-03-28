@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 **
 ** Started on  Mon Mar 24 14:31:46 2014 Pierrick Gicquelais
-** Last update Thu Mar 27 14:56:05 2014 Pierrick Gicquelais
+** Last update Fri Mar 28 11:19:14 2014 Pierrick Gicquelais
 */
 
 #include	<signal.h>
@@ -32,9 +32,11 @@ int		main()
   signal(SIGINT, SIG_IGN);
   while ((s = get_next_line(0)) != NULL)
     {
-      puts(s);
+      if (s[0] != '\0')
+	puts(s);
       putstr("42sh$> ");
       free(s);
     }
+  free(s);
   return (0);
 }
