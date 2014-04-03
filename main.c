@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 **
 ** Started on  Mon Mar 24 14:31:46 2014 Pierrick Gicquelais
-** Last update Fri Mar 28 11:19:14 2014 Pierrick Gicquelais
+** Last update Thu Apr  3 10:25:12 2014 Antoine Plaskowski
 */
 
 #include	<signal.h>
@@ -17,10 +17,7 @@
 void		putstr(char *s)
 {
   while (*s)
-    {
-      write(1, &(*s), 1);
-      s++;
-    }
+    write(1, &(*s++), 1);
 }
 
 int		main()
