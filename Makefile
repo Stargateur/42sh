@@ -1,35 +1,66 @@
 ##
-## Makefile for 42sh in /home/gicque_p/rendu/PSU_2013_42sh
+## Makefile for Makefile in /home/plasko_a/rendu/CPE_2014_corewar
+## 
+## Made by Antoine Plaskowski
+## Login   <plasko_a@epitech.net>
+## 
+## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
+## Last update Thu Apr  3 23:02:39 2014 Antoine Plaskowski
 ##
-## Made by Pierrick Gicquelais
-## Login   <gicque_p@epitech.net>
-##
-## Started on  Mon Mar 24 14:32:36 2014 Pierrick Gicquelais
-## Last update Thu Mar 27 14:36:16 2014 Pierrick Gicquelais
-##
 
-CC	=	gcc
+CC			?=	gcc
 
-RM	=	rm -f
+DEBUG			?=	0
 
-NAME	=	42sh
+ifeq ($(DEBUG), 1)
+CFLAGS			+=	-g
+endif
 
-CFLAGS	+=	-I./ -W -Wall -Wextra
+RM			=	rm -f
 
-SRC	=	main.c		\
-		get_next_line.c
+MKDIR			=	mkdir -p
 
-OBJ	=	$(SRC:.c=.o)
+CFLAGS			+=	-Wall -Wextra -O3
+CFLAGS			+=	-ansi -pedantic
+CFLAGS			+=	-I include/
 
-all:		$(NAME)
+LDFLAGS			+=
 
-$(NAME):	$(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+NAME			=	42sh
 
-clean:
-	$(RM) $(OBJ)
+SRC			+=	src/main.c
 
-fclean:		clean
-	$(RM) $(NAME)
+SRC			+=	src/standard/my_putchar.c
+SRC			+=	src/standard/my_strlen.c
+SRC			+=	src/standard/my_strcmp.c
+SRC			+=	src/standard/my_strncmp.c
+SRC			+=	src/standard/my_strcpy.c
+SRC			+=	src/standard/my_strncpy.c
+SRC			+=	src/standard/my_strdup.c
+SRC			+=	src/standard/my_strndup.c
+SRC			+=	src/standard/my_putstr.c
+SRC			+=	src/standard/my_putnbr.c
+SRC			+=	src/standard/my_putnbr_base.c
+SRC			+=	src/standard/my_getnbr.c
+SRC			+=	src/standard/my_malloc.c
+SRC			+=	src/standard/my_char_in_str.c
+SRC			+=	src/standard/my_epur_str.c
+SRC			+=	src/standard/my_put_error.c
+SRC			+=	src/standard/my_get_next_line.c
 
-re:		fclean all
+OBJ			=	$(SRC:.c=.o)
+
+all			:	$(NAME)
+
+$(NAME)			:	$(OBJ)
+				$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+
+clean			:
+				$(RM) $(OBJ)
+
+fclean			:	clean
+				$(RM) $(NAME)
+
+re			:	fclean all
+
+.PHONY			:	all clean fclean re

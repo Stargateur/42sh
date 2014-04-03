@@ -5,7 +5,7 @@
 ** Login   <costa_b@epitech.net>
 ** 
 ** Started on  Thu Feb 20 17:36:48 2014 Kevin Costa
-** Last update Fri Mar  7 18:21:42 2014 Kevin Costa
+** Last update Thu Apr  3 10:23:48 2014 Antoine Plaskowski
 */
 
 #include	<signal.h>
@@ -36,7 +36,10 @@ int		minishell2(char **env)
       check_buffer(buffer);
       pid = fork();
       if (pid == 0)
-	my_exec(wordtab, env, path);
+	{
+	  my_exec(wordtab, env, path);
+	  exit(1);
+	}
       else if (pid == -1)
 	my_put_error("Error\n");
       else
