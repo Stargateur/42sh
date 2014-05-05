@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Fri Apr 25 03:16:40 2014 Antoine Plaskowski
+** Last update Mon May  5 15:36:21 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
