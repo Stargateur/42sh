@@ -1,5 +1,7 @@
 SRC	+=	source/main.c
 
+SRC	+=	source/my_token/my_token.c
+
 SRC	+=	source/my_str/my_putchar.c
 SRC	+=	source/my_str/my_putstr.c
 SRC	+=	source/my_str/my_putnbr.c
