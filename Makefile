@@ -5,48 +5,36 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Thu Apr  3 23:02:39 2014 Antoine Plaskowski
+## Last update Mon May  5 14:44:03 2014 Antoine Plaskowski
 ##
 
-CC			?=	gcc
+CC			=	gcc
 
-DEBUG			?=	0
+DEBUG			=	no
 
-ifeq ($(DEBUG), 1)
-CFLAGS			+=	-g
-endif
+LEVEL			=	3
 
 RM			=	rm -f
 
 MKDIR			=	mkdir -p
 
-CFLAGS			+=	-Wall -Wextra -O3
+RMDIR			=	rmdir
+
+CFLAGS			=	-Wall -Wextra -O$(LEVEL)
 CFLAGS			+=	-ansi -pedantic
 CFLAGS			+=	-I include/
 
-LDFLAGS			+=
+ifeq ($(DEBUG), yes)
+CFLAGS			+=	-g
+endif
+
+LDFLAGS			=
+
+DFLAGS			=	-Yinclude/ -w80
 
 NAME			=	42sh
 
-SRC			+=	src/main.c
-
-SRC			+=	src/standard/my_putchar.c
-SRC			+=	src/standard/my_strlen.c
-SRC			+=	src/standard/my_strcmp.c
-SRC			+=	src/standard/my_strncmp.c
-SRC			+=	src/standard/my_strcpy.c
-SRC			+=	src/standard/my_strncpy.c
-SRC			+=	src/standard/my_strdup.c
-SRC			+=	src/standard/my_strndup.c
-SRC			+=	src/standard/my_putstr.c
-SRC			+=	src/standard/my_putnbr.c
-SRC			+=	src/standard/my_putnbr_base.c
-SRC			+=	src/standard/my_getnbr.c
-SRC			+=	src/standard/my_malloc.c
-SRC			+=	src/standard/my_char_in_str.c
-SRC			+=	src/standard/my_epur_str.c
-SRC			+=	src/standard/my_put_error.c
-SRC			+=	src/standard/my_get_next_line.c
+include				SRC.mk
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -63,4 +51,34 @@ fclean			:	clean
 
 re			:	fclean all
 
-.PHONY			:	all clean fclean re
+depend			:
+				makedepend $(SRC) $(DFLAGS)
+
+%.o			:	%.c
+				$(CC) -c $< -o $@ $(CFLAGS)
+
+%.s			:	%.c
+				$(CC) -S $< -o $@ $(CFLAGS)
+
+.PHONY			:	all clean fclean re %.o %.s
+
+.SUFFIXES		:	.o.c .s.c
+
+# DO NOT DELETE
+
+source/my_str/my_putchar.o: include/my_str.h
+source/my_str/my_putstr.o: include/my_str.h
+source/my_str/my_putnbr.o: include/my_str.h
+source/my_str/my_putnbr_base.o: include/my_str.h
+source/my_str/my_strdup.o: include/my_str.h
+source/my_str/my_strndup.o: include/my_str.h
+source/my_str/my_getnbr.o: include/my_str.h
+source/my_str/my_getnbr_base.o: include/my_str.h
+source/my_str/my_malloc.o: include/my_str.h
+source/my_str/my_epur_str.o: include/my_str.h
+source/my_str/my_str.o: include/my_str.h
+source/my_str/my_open.o: include/my_str.h
+source/my_str/my_get_next_line.o: include/my_str.h
+source/my_str/my_tab.o: include/my_str.h
+source/my_str/my_str_to_tab.o: include/my_str.h
+source/my_str/my_put_error.o: include/my_str.h
