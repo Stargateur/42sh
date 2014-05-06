@@ -66,19 +66,25 @@ depend			:
 
 # DO NOT DELETE
 
-source/my_str/my_putchar.o: include/my_str.h
-source/my_str/my_putstr.o: include/my_str.h
-source/my_str/my_putnbr.o: include/my_str.h
-source/my_str/my_putnbr_base.o: include/my_str.h
-source/my_str/my_strdup.o: include/my_str.h
-source/my_str/my_strndup.o: include/my_str.h
-source/my_str/my_getnbr.o: include/my_str.h
-source/my_str/my_getnbr_base.o: include/my_str.h
-source/my_str/my_malloc.o: include/my_str.h
-source/my_str/my_epur_str.o: include/my_str.h
-source/my_str/my_str.o: include/my_str.h
-source/my_str/my_open.o: include/my_str.h
-source/my_str/my_get_next_line.o: include/my_str.h
-source/my_str/my_tab.o: include/my_str.h
-source/my_str/my_str_to_tab.o: include/my_str.h
-source/my_str/my_put_error.o: include/my_str.h
+source/main.o: include/my_token.h include/my_str.h include/my_typedef.h
+source/my_token/my_token.o: include/my_token.h
+source/my_str/my_putchar.o: include/my_str.h include/my_typedef.h
+source/my_str/my_putstr.o: include/my_str.h include/my_typedef.h
+source/my_str/my_putnbr.o: include/my_str.h include/my_typedef.h
+source/my_str/my_putnbr_base.o: include/my_str.h include/my_typedef.h
+source/my_str/my_strlen.o: include/my_typedef.h
+source/my_str/my_strcmp.o: include/my_typedef.h
+source/my_str/my_strcpy.o: include/my_typedef.h
+source/my_str/my_strncpy.o: include/my_typedef.h
+source/my_str/my_strdup.o: include/my_str.h include/my_typedef.h
+source/my_str/my_strndup.o: include/my_str.h include/my_typedef.h
+source/my_str/my_getnbr.o: include/my_str.h include/my_typedef.h
+source/my_str/my_getnbr_base.o: include/my_str.h include/my_typedef.h
+source/my_str/my_malloc.o: include/my_typedef.h include/my_str.h
+source/my_str/my_epur_str.o: include/my_str.h include/my_typedef.h
+source/my_str/my_str.o: include/my_str.h include/my_typedef.h
+source/my_str/my_open.o: include/my_str.h include/my_typedef.h
+source/my_str/my_get_next_line.o: include/my_str.h include/my_typedef.h
+source/my_str/my_tab.o: include/my_str.h include/my_typedef.h
+source/my_str/my_str_to_tab.o: include/my_str.h include/my_typedef.h
+source/my_str/my_put_error.o: include/my_str.h include/my_typedef.h

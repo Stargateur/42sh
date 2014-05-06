@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Fri Nov 29 17:01:00 2013 Antoine Plaskowski
-** Last update Fri Apr 18 03:40:09 2014 Antoine Plaskowski
+** Last update Tue May  6 12:58:42 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,12 +19,12 @@ void		*my_malloc(t_uint size_octect)
   if (size_octect == 0)
     {
       my_putstr("Warning malloc of 0\n", 2);
-      exit(1);
+      return (NULL);
     }
   if ((pt = malloc(size_octect)) == NULL)
     {
       my_putstr("Insufficient memory\n", 2);
-      exit(1);
+      return (NULL);
     }
   return (pt);
 }
@@ -38,12 +38,12 @@ void		*my_calloc(t_uint size_octect)
   if (size_octect == 0)
     {
       my_putstr("Warning malloc of 0\n", 2);
-      exit(1);
+      return (NULL);
     }
   if ((pt = malloc(size_octect)) == NULL)
     {
       my_putstr("Insufficient memory\n", 2);
-      exit(1);
+      return (NULL);
     }
   tmp = pt;
   i = 0;

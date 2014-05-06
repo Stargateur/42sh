@@ -5,15 +5,22 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Mon May  5 15:41:44 2014 Antoine Plaskowski
+** Last update Tue May  6 13:16:05 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_token.h"
+#include	"my_str.h"
 
 t_token		*my_token(char *str)
 {
+  t_token	*token;
+
   if (str == NULL)
     return (NULL);
+  if ((token = my_malloc(sizeof(t_token))) == NULL)
+    return (NULL);
+  my_putnbr(NONE, 1);
+  my_putchar('\n', 1);
   return (NULL);
 }
