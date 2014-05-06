@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Thu Oct  3 10:36:52 2013 Antoine Plaskowski
-** Last update Fri Apr 18 03:48:04 2014 Antoine Plaskowski
+** Last update Tue May  6 16:59:01 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -19,10 +19,5 @@ int		my_putstr(const char *str, const int fd)
   if (str == NULL)
     return (1);
   len = my_strlen(str);
-  if (write(fd, str, len) != len)
-    {
-      write(2, "Sorry write fail\n", my_strlen("Sorry write fail\n"));
-      return (1);
-    }
-  return (0);
+  return (write(fd, str, len) != len);
 }
