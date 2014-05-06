@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Mon May  5 14:54:47 2014 Pierrick Gicquelais
+## Last update Tue May  6 23:19:48 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -34,7 +34,7 @@ DFLAGS			=	-Yinclude/ -w80
 
 NAME			=	42sh
 
-include				SRC.mk
+include				source.mk
 
 OBJ			=	$(SRC:.c=.o)
 

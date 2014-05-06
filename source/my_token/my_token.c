@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Tue May  6 13:16:05 2014 Antoine Plaskowski
+** Last update Tue May  6 23:09:32 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,9 +18,5 @@ t_token		*my_token(char *str)
 
   if (str == NULL)
     return (NULL);
-  if ((token = my_malloc(sizeof(t_token))) == NULL)
-    return (NULL);
-  my_putnbr(NONE, 1);
-  my_putchar('\n', 1);
   return (NULL);
 }
