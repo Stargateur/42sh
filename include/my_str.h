@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Tue May  6 13:30:13 2014 Antoine Plaskowski
+** Last update Tue May  6 23:34:47 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -15,12 +15,20 @@
 
 # include	"my_typedef.h"
 
-typedef	struct	s_str t_str;
+typedef	struct	s_str	t_str;
+
+typedef	struct	s_ptr	t_ptr;
+
+struct		s_ptr
+{
+  void		*prev;
+  void		*next;
+};
 
 struct		s_str
 {
-  t_str		*prev;
   char		*str;
+  t_str		*prev;
   t_str		*next;
 };
 
@@ -81,6 +89,9 @@ void		*my_malloc(t_uint size_octet);
 void		*my_calloc(t_uint size_octet);
 
 /*
+*/
+
+/*
 **		my_str.c
 */
 
@@ -95,12 +106,33 @@ void		my_free_all_str(t_str *str);
 int		my_aff_str(t_str *str);
 
 /*
+*/
+
+/*
+**		my_ptr.c
+*/
+
+t_ptr		*my_put_ptr(t_ptr *old, t_ptr *ptr);
+
+t_ptr		*my_sup_ptr(t_ptr *ptr);
+
+t_ptr		*my_first_ptr(t_ptr *ptr);
+
+t_ptr		*my_last_ptr(t_ptr *ptr);
+
+/*
+*/
+
+/*
 **		my_put_error.c
 */
 
 int		my_put_error(char *str);
 
 void		*my_put_error_null(char *str);
+
+/*
+*/
 
 /*
 **		my_tab.c
@@ -113,5 +145,8 @@ char		**my_cpy_tab(char **tab);
 t_uint		my_len_tab(char **tab);
 
 int		my_aff_tab(char **tab, const int fd);
+
+/*
+*/
 
 #endif		/* !MY_STR_ */
