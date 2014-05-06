@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Mon May  5 15:36:21 2014 Antoine Plaskowski
+** Last update Tue May  6 13:30:13 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -63,6 +63,14 @@ char		*my_epur_str(char *str);
 char		*my_get_next_line(const int fd);
 
 char		**my_str_to_tab(const char *str, const char *delim);
+
+int		my_open_rdonly(const char *str);
+
+int		my_open_wrap(const char *str);
+
+int		my_open_wrtr(const char *str);
+
+int		my_fork(void);
 
 /*
 **		my_malloc.c

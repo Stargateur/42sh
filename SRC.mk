@@ -1,3 +1,13 @@
+##
+## SRC.mk for SRC in /home/plasko_a/rendu/PSU_2013_42sh
+## 
+## Made by Antoine Plaskowski
+## Login   <plasko_a@epitech.eu>
+## 
+## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
+## Last update Tue May  6 13:27:18 2014 Antoine Plaskowski
+##
+
 PATH_STR =	source/my_str/
 PATH_TOK =	source/my_token/
 
@@ -23,6 +33,7 @@ SRC	+=	$(PATH_STR)my_char_in_str.c
 SRC	+=	$(PATH_STR)my_epur_str.c
 SRC	+=	$(PATH_STR)my_str.c
 SRC	+=	$(PATH_STR)my_open.c
+SRC	+=	$(PATH_STR)my_fork.c
 SRC	+=	$(PATH_STR)my_get_next_line.c
 SRC	+=	$(PATH_STR)my_tab.c
 SRC	+=	$(PATH_STR)my_str_to_tab.c

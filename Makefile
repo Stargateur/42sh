@@ -67,7 +67,8 @@ depend			:
 # DO NOT DELETE
 
 source/main.o: include/my_token.h include/my_str.h include/my_typedef.h
-source/my_token/my_token.o: include/my_token.h
+source/my_token/my_token.o: include/my_token.h include/my_str.h
+source/my_token/my_token.o: include/my_typedef.h
 source/my_str/my_putchar.o: include/my_str.h include/my_typedef.h
 source/my_str/my_putstr.o: include/my_str.h include/my_typedef.h
 source/my_str/my_putnbr.o: include/my_str.h include/my_typedef.h
