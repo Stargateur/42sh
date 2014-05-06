@@ -5,25 +5,79 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Wed May  7 00:17:34 2014 Pierrick Gicquelais
+** Last update Wed May  7 00:30:07 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
 #include	"my_token.h"
 #include	"my_str.h"
 
-void		token_free(t_token *token)
-{
-  t_token	*tmp;
-  t_token	*tmp2;
+void		my_parsing(t_token **, char *);
+void		check_token(t_token **, char);
+t_token		*append_list(t_token *, int);
+void		token_aff(t_token *);
+void		token_free(t_token *);
 
-  tmp = token;
-  while (tmp)
+int		main(int argc, char **argv)
+{
+  t_token	*token;
+  char		*str;
+
+  (void)argc;
+  (void)argv;
+  while ((str = my_get_next_line(0)) != NULL)
     {
-      tmp2 = tmp->next;
-      free(tmp);
-      tmp = tmp2;
+      token = NULL;
+      my_parsing(&token, str);
+      token_aff(token);
+      token_free(token);
+      free(str);
     }
+  return (0);
+}
+
+void		my_parsing(t_token **token, char *str)
+{
+  int		i;
+
+  i = 0;
+  while (str[i])
+    {
+      check_token(token, str[i]);
+      i++;
+    }
+}
+
+void		check_token(t_token **token, char c)
+{
+  if (c == '|')
+    *token = append_list(*token, PIPE);
+  else if (c == '>')
+    *token = append_list(*token, R_R);
+  else if (c == '<')
+    *token = append_list(*token, R_L);
+  else if (c == ';')
+    *token = append_list(*token, COMA);
+  else
+    *token = append_list(*token, WORD);
+}
+
+t_token		*append_list(t_token *token, int nbr)
+{
+  t_token	*new;
+  t_token	*tmp;
+
+  if ((new = malloc(sizeof(t_token))) == NULL)
+    return 0;
+  new->tok = nbr;
+  new->next = NULL;
+  if (token == NULL)
+    return (new);
+  tmp = token;
+  while (tmp->next != NULL)
+    tmp = tmp->next;
+  tmp->next = new;
+  return (token);
 }
 
 void		token_aff(t_token *token)
@@ -53,64 +107,16 @@ void		token_aff(t_token *token)
     }
 }
 
-t_token		*append_list(t_token *token, int nbr)
+void		token_free(t_token *token)
 {
-  t_token	*new;
   t_token	*tmp;
+  t_token	*tmp2;
 
-  if ((new = malloc(sizeof(t_token))) == NULL)
-    return 0;
-  new->tok = nbr;
-  new->next = NULL;
-  if (token == NULL)
-    return (new);
   tmp = token;
-  while (tmp->next != NULL)
-    tmp = tmp->next;
-  tmp->next = new;
-  return (token);
-}
-
-void		check_token(t_token **token, char c)
-{
-  if (c == '|')
-    *token = append_list(*token, PIPE);
-  else if (c == '>')
-    *token = append_list(*token, R_R);
-  else if (c == '<')
-    *token = append_list(*token, R_L);
-  else if (c == ';')
-    *token = append_list(*token, COMA);
-  else
-    *token = append_list(*token, WORD);
-}
-
-void		my_parsing(t_token **token, char *str)
-{
-  int		i;
-
-  i = 0;
-  while (str[i])
+  while (tmp)
     {
-      check_token(token, str[i]);
-      i++;
+      tmp2 = tmp->next;
+      free(tmp);
+      tmp = tmp2;
     }
-}
-
-int		main(int argc, char **argv)
-{
-  t_token	*token;
-  char		*str;
-
-  (void)argc;
-  (void)argv;
-  while ((str = my_get_next_line(0)) != NULL)
-    {
-      token = NULL;
-      my_parsing(&token, str);
-      token_aff(token);
-      token_free(token);
-      free(str);
-    }
-  return (0);
 }
