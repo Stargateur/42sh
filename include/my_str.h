@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Tue May  6 23:17:22 2014 Antoine Plaskowski
+** Last update Tue May  6 23:34:47 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -112,7 +112,13 @@ int		my_aff_str(t_str *str);
 **		my_ptr.c
 */
 
-int		my_link_ptr(t_ptr *ptr_1, t_ptr *ptr_2);
+t_ptr		*my_put_ptr(t_ptr *old, t_ptr *ptr);
+
+t_ptr		*my_sup_ptr(t_ptr *ptr);
+
+t_ptr		*my_first_ptr(t_ptr *ptr);
+
+t_ptr		*my_last_ptr(t_ptr *ptr);
 
 /*
 */
