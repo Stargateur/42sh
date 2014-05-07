@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 19:12:31 2014 Antoine Plaskowski
-** Last update Wed May  7 19:22:06 2014 Antoine Plaskowski
+** Last update Wed May  7 19:24:55 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -34,12 +34,12 @@ t_token		*my_word_token(char *str, int *i)
   if (str == NULL || i == NULL)
     return (NULL);
   n = 0;
-  while (str[*i] != '\0')
+  while (str[*i + n] != '\0')
     {
       j = 0;
       while (tab[j] != '\0')
 	{
-	  if (tab[j] == str[*i])
+	  if (tab[j] == str[*i + n])
 	    return (my_cpy_word(str, i, n));
 	  j++;
 	}
