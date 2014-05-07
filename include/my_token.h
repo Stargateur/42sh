@@ -5,13 +5,15 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May  7 19:08:40 2014 Antoine Plaskowski
+** Last update Wed May  7 19:32:16 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
 # define	MY_TOKEN_H_
 
 # define	TOKEN	"|&;<>"
+
+#include	"my_typedef.h"
 
 typedef	struct	s_token	t_token;
 
@@ -44,6 +46,8 @@ t_token		*my_last_token(t_token *token);
 t_token		*my_append_token(t_token *old, char *attribute, int type);
 
 t_token		*my_put_token(t_token *old, t_token *token);
+
+t_uint		my_len_token(t_token *token);
 
 t_token		*my_new_token(void);
 

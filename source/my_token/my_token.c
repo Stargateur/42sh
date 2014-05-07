@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Wed May  7 19:24:17 2014 Antoine Plaskowski
+** Last update Wed May  7 19:29:47 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -54,5 +54,5 @@ t_token		*my_token(char *str)
     if ((token = my_put_token(token, tmp)) == NULL)
       return (NULL);
     }
-  return (token);
+  return (my_first_token(token));
 }
