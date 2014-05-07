@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May  7 18:41:01 2014 Antoine Plaskowski
+** Last update Wed May  7 19:08:40 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -23,14 +23,14 @@ struct		s_token
   enum
     {
       WORD,
-      PIPE,
       O_OR,
       O_AND,
-      COMA,
-      R_L,
-      R_DL,
-      R_R,
-      R_DR,
+      O_COMA,
+      O_PIPE,
+      O_RLEFT,
+      O_RDLEFT,
+      O_RRIGHT,
+      O_RDRIGHT,
       NONE
     }		type;
 };
@@ -55,9 +55,13 @@ t_token		*my_esperluette_token(char *str, int *i);
 
 t_token		*my_coma_token(char *str, int *i);
 
-t_token		*my_left_redirection_token(char *str, int *i);
+t_token		*my_redirection_left_token(char *str, int *i);
 
-t_token		*my_right_redirection_token(char *str, int *i);
+t_token		*my_redirection_right_token(char *str, int *i);
+
+t_token		*my_redirection_double_left_token(char *str, int *i);
+
+t_token		*my_redirection_double_right_token(char *str, int *i);
 
 t_token		*my_or_token(char *str, int *i);
 
