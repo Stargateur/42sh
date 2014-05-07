@@ -5,13 +5,15 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May  7 19:32:16 2014 Antoine Plaskowski
+** Last update Wed May  7 19:40:58 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
 # define	MY_TOKEN_H_
 
-# define	TOKEN	"|&;<>"
+# define	TOKEN		"|&;<>"
+
+# define	SEPARATOR	" \t\n"
 
 #include	"my_typedef.h"
 
