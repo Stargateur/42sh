@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:16:42 2014 Antoine Plaskowski
-** Last update Wed May  7 18:20:57 2014 Antoine Plaskowski
+** Last update Wed May  7 18:42:12 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -21,5 +21,8 @@ t_token		*my_pipe_token(char *str, int *i)
     return (NULL);
   if (str[*i] == '|')
     return (my_or_token(str, i));
-  if ((
+  if ((token = my_new_token()) == NULL)
+    return (NULL);
+  token->type = PIPE;
+  return (token);
 }

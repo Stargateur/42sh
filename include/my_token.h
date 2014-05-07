@@ -5,13 +5,13 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May  7 18:38:49 2014 Antoine Plaskowski
+** Last update Wed May  7 18:41:01 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
 # define	MY_TOKEN_H_
 
-# define	TOKEN		"|&;<>"
+# define	TOKEN	"|&;<>"
 
 typedef	struct	s_token	t_token;
 
@@ -58,6 +58,10 @@ t_token		*my_coma_token(char *str, int *i);
 t_token		*my_left_redirection_token(char *str, int *i);
 
 t_token		*my_right_redirection_token(char *str, int *i);
+
+t_token		*my_or_token(char *str, int *i);
+
+t_token		*my_and_token(char *str, int *i);
 
 /*
 **		my_free_token.c
