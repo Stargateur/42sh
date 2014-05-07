@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Wed May  7 19:33:32 2014 Antoine Plaskowski
+** Last update Wed May  7 19:36:12 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,7 +22,6 @@ int		main(int argc, char **argv)
   while ((str = my_get_next_line(0)) != NULL)
     {
       token = my_token(str);
-      my_putnbr(my_len_token(token), 1);
       my_aff_all_token(token, 1);
       my_free_all_token(token);
       free(str);
