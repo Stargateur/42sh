@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Tue May  6 23:34:47 2014 Antoine Plaskowski
+** Last update Wed May  7 16:30:09 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -16,14 +16,6 @@
 # include	"my_typedef.h"
 
 typedef	struct	s_str	t_str;
-
-typedef	struct	s_ptr	t_ptr;
-
-struct		s_ptr
-{
-  void		*prev;
-  void		*next;
-};
 
 struct		s_str
 {
@@ -104,21 +96,6 @@ void		my_free_str(t_str *str);
 void		my_free_all_str(t_str *str);
 
 int		my_aff_str(t_str *str);
-
-/*
-*/
-
-/*
-**		my_ptr.c
-*/
-
-t_ptr		*my_put_ptr(t_ptr *old, t_ptr *ptr);
-
-t_ptr		*my_sup_ptr(t_ptr *ptr);
-
-t_ptr		*my_first_ptr(t_ptr *ptr);
-
-t_ptr		*my_last_ptr(t_ptr *ptr);
 
 /*
 */
