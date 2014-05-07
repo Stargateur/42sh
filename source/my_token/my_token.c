@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Wed May  7 19:29:47 2014 Antoine Plaskowski
+** Last update Wed May  7 19:35:18 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,7 +31,7 @@ static t_token	*my_check_char(char *str, int *i)
   while (tab[j] != '\0' && g_fct_token[j] != NULL)
     {
       if (tab[j] == str[*i])
-	g_fct_token[j](str, i);
+	return (g_fct_token[j](str, i));
       j++;
     }
   if (str[*i] != '\0')
