@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Wed May  7 16:32:40 2014 Antoine Plaskowski
+## Last update Wed May  7 16:34:43 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -22,10 +22,10 @@ MKDIR			=	mkdir -p
 
 RMDIR			=	rmdir
 
-GREEN			=	\033[01;32m
-YELLOW			=	\033[01;33m
-RED			=	\033[01;31m
-WHITE			=	\033[0m
+GREEN			=	\e[32m
+YELLOW			=	\e[33m
+RED			=	\e[31m
+WHITE			=	\e[m
 
 CFLAGS			=	-Wall -Wextra -O$(LEVEL)
 CFLAGS			+=	-ansi -pedantic
@@ -96,6 +96,7 @@ source/my_str/my_malloc.o: include/my_typedef.h include/my_str.h
 source/my_str/my_epur_str.o: include/my_str.h include/my_typedef.h
 source/my_str/my_str.o: include/my_str.h include/my_typedef.h
 source/my_str/my_open.o: include/my_str.h include/my_typedef.h
+source/my_str/my_fork.o: include/my_str.h include/my_typedef.h
 source/my_str/my_get_next_line.o: include/my_str.h include/my_typedef.h
 source/my_str/my_tab.o: include/my_str.h include/my_typedef.h
 source/my_str/my_str_to_tab.o: include/my_str.h include/my_typedef.h
