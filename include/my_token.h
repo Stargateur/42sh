@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Tue May  6 12:56:02 2014 Antoine Plaskowski
+** Last update Tue May  6 19:45:08 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_TOKEN_H_
@@ -28,6 +28,7 @@ struct		s_token
       R_DR,
       NONE
     }		token;
+  int		tok;
   char		*pattern;
   t_token	*next;
 };

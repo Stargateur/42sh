@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Tue May  6 23:19:48 2014 Antoine Plaskowski
+## Last update Wed May  7 16:32:40 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -16,9 +16,16 @@ LEVEL			=	3
 
 RM			=	rm -f
 
+ECHO			=	/bin/echo -e
+
 MKDIR			=	mkdir -p
 
 RMDIR			=	rmdir
+
+GREEN			=	\033[01;32m
+YELLOW			=	\033[01;33m
+RED			=	\033[01;31m
+WHITE			=	\033[0m
 
 CFLAGS			=	-Wall -Wextra -O$(LEVEL)
 CFLAGS			+=	-ansi -pedantic
@@ -41,13 +48,17 @@ OBJ			=	$(SRC:.c=.o)
 all			:	$(NAME)
 
 $(NAME)			:	$(OBJ)
+				@$(ECHO) "$(GREEN)\n\t>> COMPILATION SUCCESSFUL\n$(WHITE)"
 				$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+				@$(ECHO) "$(YELLOW)\n\t>> LINKING SUCCESSFUL\n$(WHITE)"
 
 clean			:
 				$(RM) $(OBJ)
+				@$(ECHO) "$(RED)\n\t>> CLEANING BINAIRIES SUCCESSFUL\n$(WHITE)"
 
 fclean			:	clean
 				$(RM) $(NAME)
+				@$(ECHO) "$(RED)\n\t>> CLEANING EXECUTABLE SUCCESSFUL\n$(WHITE)"
 
 re			:	fclean all
 
