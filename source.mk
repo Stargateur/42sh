@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Wed May  7 16:31:31 2014 Antoine Plaskowski
+## Last update Wed May  7 17:30:44 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -13,9 +13,14 @@ PATH_SRC	=	source/
 PATH_STR	=	$(PATH_SRC)my_str/
 PATH_TOK	=	$(PATH_SRC)my_token/
 
-SRC		=	source/main.c
+SRC		=	$(PATH_SRC)main.c
 
 SRC		+=	$(PATH_TOK)my_token.c
+SRC		+=	$(PATH_TOK)my_aff_token.c
+SRC		+=	$(PATH_TOK)my_append_token.c
+SRC		+=	$(PATH_TOK)my_free_token.c
+SRC		+=	$(PATH_TOK)my_first_token.c
+SRC		+=	$(PATH_TOK)my_last_token.c
 
 SRC		+=	$(PATH_STR)my_putchar.c
 SRC		+=	$(PATH_STR)my_putstr.c

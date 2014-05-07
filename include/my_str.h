@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Wed May  7 16:30:09 2014 Antoine Plaskowski
+** Last update Wed May  7 17:11:45 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -19,9 +19,9 @@ typedef	struct	s_str	t_str;
 
 struct		s_str
 {
-  char		*str;
   t_str		*prev;
   t_str		*next;
+  char		*str;
 };
 
 int		my_putchar(const char c, const int fd);
