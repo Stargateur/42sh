@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:16:42 2014 Antoine Plaskowski
-** Last update Fri May  9 11:21:51 2014 Antoine Plaskowski
+** Last update Fri May  9 11:23:03 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -24,6 +24,6 @@ t_token		*my_pipe_token(char *str, int *i)
   if ((token = my_new_token()) == NULL)
     return (NULL);
   token->type = O_PIPE;
-  token->priority = P_PIPE;
+  token->priority = P_O_PIPE;
   return (token);
 }
