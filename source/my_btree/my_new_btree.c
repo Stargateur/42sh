@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May  9 13:29:54 2014 Pierrick Gicquelais
-** Last update Fri May  9 13:32:12 2014 Pierrick Gicquelais
+** Last update Fri May  9 13:35:28 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -21,5 +21,5 @@ t_btree		*my_new_btree(void)
   btree->left = NULL;
   btree->right = NULL;
   btree->token = NULL;
-  return (btree)
+  return (btree);
 }
