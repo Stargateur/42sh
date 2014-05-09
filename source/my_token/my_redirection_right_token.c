@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May  7 19:03:47 2014 Antoine Plaskowski
-** Last update Wed May  7 19:10:51 2014 Antoine Plaskowski
+** Last update Fri May  9 10:15:29 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,7 +19,7 @@ t_token		*my_redirection_right_token(char *str, int *i)
     return (NULL);
   if (str[(*i)++] != '>')
     return (NULL);
-  if (str[*i] != '>')
+  if (str[*i] == '>')
     return (my_redirection_double_right_token(str, i));
   if ((token = my_new_token()) == NULL)
     return (NULL);
