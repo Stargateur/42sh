@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 19:12:31 2014 Antoine Plaskowski
-** Last update Wed May  7 19:46:32 2014 Antoine Plaskowski
+** Last update Fri May  9 11:15:51 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,6 +19,7 @@ static t_token	*my_cpy_word(char *str, int *i, int n)
   if ((token = my_new_token()) == NULL)
     return (NULL);
   token->type = WORD;
+  token->priority = P_WORD;
   if ((token->attribute = my_strndup(str + *i, n)) == NULL)
     return (NULL);
   *i += n;

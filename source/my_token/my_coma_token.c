@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:43:57 2014 Antoine Plaskowski
-** Last update Wed May  7 18:59:04 2014 Antoine Plaskowski
+** Last update Fri May  9 11:21:30 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,5 +22,6 @@ t_token		*my_coma_token(char *str, int *i)
   if ((token = my_new_token()) == NULL)
     return (NULL);
   token->type = O_COMA;
+  token->priority = P_O_COMA;
   return (token);
 }

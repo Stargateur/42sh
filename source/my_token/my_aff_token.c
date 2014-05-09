@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May  7 17:29:01 2014 Antoine Plaskowski
-** Last update Wed May  7 19:56:24 2014 Antoine Plaskowski
+** Last update Fri May  9 11:24:14 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -45,6 +45,8 @@ int		my_aff_token(t_token *token, const int fd)
     {
       my_putstr("type : ", fd);
       my_aff_type_token(token->type, fd);
+      my_putstr("\npriority : ", fd);
+      my_putnbr(token->priority, fd);
       if (token->attribute != NULL)
 	{
 	  my_putstr("\nattribute : ", fd);
