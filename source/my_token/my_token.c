@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Wed May  7 19:48:12 2014 Antoine Plaskowski
+** Last update Fri May  9 13:30:21 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,7 +16,7 @@ static t_token	*(*const g_fct_token[])(char *str, int *i) =
 {
   &my_pipe_token,
   &my_esperluette_token,
-  &my_coma_token,
+  &my_comma_token,
   &my_redirection_left_token,
   &my_redirection_right_token,
   NULL

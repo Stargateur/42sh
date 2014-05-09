@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Fri May  9 11:07:31 2014 Antoine Plaskowski
+** Last update Fri May  9 13:29:55 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -29,7 +29,7 @@ struct		s_token
       WORD,
       O_OR,
       O_AND,
-      O_COMA,
+      O_COMMA,
       O_PIPE,
       O_RLEFT,
       O_RDLEFT,
@@ -42,7 +42,7 @@ struct		s_token
       P_WORD = 0,
       P_O_OR = 2,
       P_O_AND = 2,
-      P_O_COMA = 1,
+      P_O_COMMA = 1,
       P_O_PIPE = 3,
       P_O_RLEFT = 0,
       P_O_RDLEFT = 0,
@@ -72,7 +72,7 @@ t_token		*my_pipe_token(char *str, int *i);
 
 t_token		*my_esperluette_token(char *str, int *i);
 
-t_token		*my_coma_token(char *str, int *i);
+t_token		*my_comma_token(char *str, int *i);
 
 t_token		*my_redirection_left_token(char *str, int *i);
 
