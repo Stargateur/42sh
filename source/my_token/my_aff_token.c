@@ -21,7 +21,7 @@ static int	my_aff_type_token(const int type, const int fd)
   else if (type == O_AND)
     my_putstr("AND", fd);
   else if (type == O_COMMA)
-    my_putstr("COMA", fd);
+    my_putstr("COMMA", fd);
   else if (type == O_PIPE)
     my_putstr("PIPE", fd);
   else if (type == O_RLEFT)
