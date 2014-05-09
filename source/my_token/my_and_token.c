@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May  7 19:05:27 2014 Antoine Plaskowski
-** Last update Fri May  9 10:18:12 2014 Antoine Plaskowski
+** Last update Fri May  9 11:20:19 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,5 +22,6 @@ t_token		*my_and_token(char *str, int *i)
   if ((token = my_new_token()) == NULL)
     return (NULL);
   token->type = O_AND;
+  token->priority = P_O_AND;
   return (token);
 }

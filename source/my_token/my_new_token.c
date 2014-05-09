@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:21:06 2014 Antoine Plaskowski
-** Last update Wed May  7 18:25:51 2014 Antoine Plaskowski
+** Last update Fri May  9 11:08:31 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,5 +22,6 @@ t_token		*my_new_token(void)
   token->next = NULL;
   token->attribute = NULL;
   token->type = NONE;
+  token->priority = P_NONE;
   return (token);
 }
