@@ -5,15 +5,18 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Fri May  9 14:20:25 2014 Pierrick Gicquelais
+## Last update Fri May  9 15:21:03 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
 PATH_STR	=	$(PATH_SRC)my_str/
 PATH_TOKEN	=	$(PATH_SRC)my_token/
 PATH_BTREE	=	$(PATH_SRC)my_btree/
+PATH_EXEC	=	$(PATH_SRC)my_exec/
 
 SRC		=	$(PATH_SRC)main.c
+
+SRC		+=	$(PATH_EXEC)my_exec.c
 
 SRC		+=	$(PATH_BTREE)my_btree.c
 SRC		+=	$(PATH_BTREE)my_new_btree.c
@@ -46,6 +49,7 @@ SRC		+=	$(PATH_STR)my_putstr.c
 SRC		+=	$(PATH_STR)my_putnbr.c
 SRC		+=	$(PATH_STR)my_putnbr_base.c
 SRC		+=	$(PATH_STR)my_strlen.c
+SRC		+=	$(PATH_STR)my_strcat.c
 SRC		+=	$(PATH_STR)my_strcmp.c
 SRC		+=	$(PATH_STR)my_strncmp.c
 SRC		+=	$(PATH_STR)my_strcpy.c

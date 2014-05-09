@@ -5,15 +5,16 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Fri May  9 14:32:53 2014 Antoine Plaskowski
+** Last update Fri May  9 15:25:20 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
 #include	"my_token.h"
 #include	"my_btree.h"
 #include	"my_str.h"
+#include	"my_exec.h"
 
-int		main(int argc, char **argv)
+int		main(int argc, char **argv, char **envp)
 {
   t_token	*token;
   t_btree	*btree;
@@ -26,6 +27,7 @@ int		main(int argc, char **argv)
       token = my_token(str);
       btree = my_btree(token);
       my_aff_all_btree(btree, 1);
+      my_exec(btree, envp);
       free(str);
     }
   return (0);
