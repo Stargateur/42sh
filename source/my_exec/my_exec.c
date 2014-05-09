@@ -5,8 +5,15 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Fri May  9 14:49:05 2014 Antoine Plaskowski
+** Last update Fri May  9 14:55:30 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
-#include
+#include	"my_btree.h"
+
+int		my_exec(t_btree *btree)
+{
+  if (btree == NULL)
+    return (1);
+  
+}
