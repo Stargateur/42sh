@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Apr 16 10:50:52 2014 Antoine Plaskowski
-** Last update Fri Apr 18 05:08:11 2014 Antoine Plaskowski
+** Last update Fri May  9 13:33:46 2014 Gabriele Marsili
 */
 
 #include	<stdlib.h>
@@ -58,7 +58,7 @@ int		my_aff_tab(char **tab, const int fd)
   return (0);
 }
 
-t_uint	my_len_tab(char **tab)
+t_uint		my_len_tab(char **tab)
 {
   t_uint	i;
 
