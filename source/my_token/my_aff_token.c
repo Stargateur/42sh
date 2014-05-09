@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May  7 17:29:01 2014 Antoine Plaskowski
-** Last update Fri May  9 11:24:14 2014 Antoine Plaskowski
+** Last update Fri May  9 13:30:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -20,7 +20,7 @@ static int	my_aff_type_token(const int type, const int fd)
     my_putstr("OR", fd);
   else if (type == O_AND)
     my_putstr("AND", fd);
-  else if (type == O_COMA)
+  else if (type == O_COMMA)
     my_putstr("COMA", fd);
   else if (type == O_PIPE)
     my_putstr("PIPE", fd);
