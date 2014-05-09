@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:15:39 2014 Antoine Plaskowski
-** Last update Fri May  9 13:45:43 2014 Antoine Plaskowski
+** Last update Fri May  9 14:10:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,7 +18,6 @@ static t_token	*my_give_high_priority(t_token *token)
   t_token	*tmp;
   t_uint	pri_tmp;
 
-  token = my_first_token(token);
   tmp = NULL;
   pri_tmp = 0;
   while (token != NULL)
@@ -35,22 +34,28 @@ static t_token	*my_give_high_priority(t_token *token)
 
 t_btree		*my_btree(t_token *token)
 {
+  t_btree	*btree;
   t_token	*tmp;
 
-  if (token == NULL)
+  if ((token = my_first_token(token)) == NULL)
     return (NULL);
   if ((tmp = my_give_high_priority(token)) == NULL)
+    return (my_new_btree_token(token));
+  if ((btree = my_new_btree()) == NULL)
     return (NULL);
-  my_aff_token(tmp, 1);
   if (tmp->prev != NULL)
     {
       tmp->prev->next = NULL;
-      my_btree(tmp->prev);
+      btree->left = my_btree(tmp->prev);
     }
+  else
+    return (NULL);
   if (tmp->next != NULL)
     {
       tmp->next->prev = NULL;
-      my_btree(tmp->next);
+      btree->right = my_btree(tmp->next);
     }
-  return (NULL);
+  else
+    return (NULL);
+  return (btree);
 }
