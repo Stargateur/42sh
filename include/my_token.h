@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May  7 19:40:58 2014 Antoine Plaskowski
+** Last update Fri May  9 10:46:47 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -35,7 +35,7 @@ struct		s_token
       O_RDLEFT,
       O_RRIGHT,
       O_RDRIGHT,
-      NONE
+      NONE = 0
     }		type;
 };
 
