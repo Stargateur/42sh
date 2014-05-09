@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:15:39 2014 Antoine Plaskowski
-** Last update Fri May  9 14:10:33 2014 Antoine Plaskowski
+** Last update Fri May  9 14:22:32 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -43,6 +43,7 @@ t_btree		*my_btree(t_token *token)
     return (my_new_btree_token(token));
   if ((btree = my_new_btree()) == NULL)
     return (NULL);
+  btree->token = tmp;
   if (tmp->prev != NULL)
     {
       tmp->prev->next = NULL;

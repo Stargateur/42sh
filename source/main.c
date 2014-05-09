@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Fri May  9 11:34:25 2014 Pierrick Gicquelais
+** Last update Fri May  9 14:21:51 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,6 +16,7 @@
 int		main(int argc, char **argv)
 {
   t_token	*token;
+  t_btree	*btree;
   char		*str;
 
   (void)argc;
@@ -24,8 +25,8 @@ int		main(int argc, char **argv)
     {
       token = my_token(str);
       my_aff_all_token(token, 1);
-      my_btree(token);
-      my_free_all_token(token);
+      btree = my_btree(token);
+      my_aff_all_btree(btree, 1);
       free(str);
     }
   return (0);
