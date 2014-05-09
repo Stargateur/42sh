@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:11:57 2014 Antoine Plaskowski
-** Last update Fri May  9 14:02:22 2014 Antoine Plaskowski
+** Last update Fri May  9 14:18:34 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_BTREE_H_
@@ -27,5 +27,9 @@ t_btree		*my_new_btree(void);
 t_btree		*my_new_btree_token(t_token *token);
 
 t_btree		*my_btree(t_token *token);
+
+int		my_aff_btree(t_btree *, const int);
+
+int		my_aff_all_btree(t_btree *, const int);
 
 #endif		/* !MY_BTREE_H_ */
