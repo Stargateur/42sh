@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Fri May  9 15:31:41 2014 Pierrick Gicquelais
+** Last update Mon May 12 09:47:05 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -18,14 +18,24 @@
 int		my_exec(t_btree *btree, char **envp)
 {
   char		**tab;
+  pid_t		pid;
 
   tab = malloc(2 * sizeof(char *));
   if (btree == NULL)
     return (1);
   while (btree->token)
     {
-      tab[0] = my_strdup(btree->token->attribute);
-      execve(my_strcat("/bin/", tab[0]), tab, envp);
+      tab = my_str_to_tab(btree->token->attribute, " ");
+      if ((pid = fork()) == 0)
+	{
+	  execve(my_strcat("/bin/", tab[0]), tab, envp);
+	  my_putstr(tab[0], 1);
+	  my_putstr(": command not found\n", 1);
+	}
+      else if (pid == -1)
+	return (1);
+      else
+	waitpid(pid, 0, WSTOPPED);
       btree->token = btree->token->next;
     }
   return (0);
