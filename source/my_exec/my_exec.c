@@ -5,11 +5,12 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Mon May 12 09:47:05 2014 Pierrick Gicquelais
+** Last update Mon May 12 10:09:26 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
+#include	<signal.h>
 #include	<stdlib.h>
 #include	<unistd.h>
 #include	"my_btree.h"
@@ -31,11 +32,16 @@ int		my_exec(t_btree *btree, char **envp)
 	  execve(my_strcat("/bin/", tab[0]), tab, envp);
 	  my_putstr(tab[0], 1);
 	  my_putstr(": command not found\n", 1);
+	  exit(EXIT_SUCCESS); /* AUTORISE SEULEMENT DANS FORK */
+	  return (1);
 	}
       else if (pid == -1)
 	return (1);
       else
-	waitpid(pid, 0, WSTOPPED);
+	{
+	  waitpid(pid, 0, WSTOPPED);
+	  my_putstr("42sh> ", 1);
+	}
       btree->token = btree->token->next;
     }
   return (0);
