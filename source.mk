@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Tue May 13 13:23:11 2014 Pierrick Gicquelais
+## Last update Tue May 13 13:45:24 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -20,7 +20,10 @@ SRC		=	$(PATH_SRC)main.c
 SRC		+=	$(PATH_EXEC)my_exec.c
 SRC		+=	$(PATH_EXEC)my_cmd.c
 SRC		+=	$(PATH_EXEC)my_redirection.c
+SRC		+=	$(PATH_EXEC)my_sright_redirection.c
+SRC		+=	$(PATH_EXEC)my_dright_redirection.c
 SRC		+=	$(PATH_EXEC)my_sleft_redirection.c
+SRC		+=	$(PATH_EXEC)my_dleft_redirection.c
 
 SRC		+=	$(PATH_ENV)my_env.c
 SRC		+=	$(PATH_ENV)my_new_env.c
