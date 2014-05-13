@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Tue May 13 18:27:27 2014 Antoine Plaskowski
+** Last update Tue May 13 18:56:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,6 +31,7 @@ int		main(int argc, char **argv, char **envp)
   (void)argc;
   (void)argv;
   env = my_env(envp);
+  (void)env;
   /* my_aff_all_env(env, 1); */
   while ((str = my_promt()) != NULL)
     {
