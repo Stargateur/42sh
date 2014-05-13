@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Tue May 13 21:49:21 2014 Antoine Plaskowski
+** Last update Wed May 14 00:50:46 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -26,6 +26,8 @@ int		my_exec_and(t_btree *btree, char **env);
 int		my_exec_word(t_btree *btree, char **env);
 
 int		my_cmd(t_btree *, char **);
+
+int		my_execve(t_btree *btree, char **env);
 
 int		my_redirection(char *, int);
 
