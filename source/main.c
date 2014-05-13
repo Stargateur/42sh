@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Tue May 13 20:27:25 2014 Antoine Plaskowski
+** Last update Tue May 13 20:29:05 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -33,7 +33,6 @@ int		main(int argc, char **argv, char **envp)
   env = my_env(envp);
   my_aff_all_env(env, 1);
   my_free_all_env(env);
-  /* my_aff_all_env(env, 1); */
   while ((str = my_promt()) != NULL)
     {
       token = my_token(str);
