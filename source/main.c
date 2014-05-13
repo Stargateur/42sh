@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Tue May 13 13:52:07 2014 Pierrick Gicquelais
+** Last update Tue May 13 18:27:27 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,6 +14,12 @@
 #include	"my_str.h"
 #include	"my_exec.h"
 #include	"my_env.h"
+
+static char	*my_promt(void)
+{
+  my_putstr("42sh> ", 1);
+  return (my_get_next_line(0));
+}
 
 int		main(int argc, char **argv, char **envp)
 {
@@ -25,10 +31,8 @@ int		main(int argc, char **argv, char **envp)
   (void)argc;
   (void)argv;
   env = my_env(envp);
-  (void)env;
   /* my_aff_all_env(env, 1); */
-  my_putstr("42sh> ", 1);
-  while ((str = my_get_next_line(0)) != NULL)
+  while ((str = my_promt()) != NULL)
     {
       token = my_token(str);
       btree = my_btree(token);

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Tue May 13 13:51:52 2014 Pierrick Gicquelais
+** Last update Tue May 13 18:28:08 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -36,7 +36,6 @@ int		my_cmd(t_btree *btree, char **envp)
   else
     {
       waitpid(pid, 0, WSTOPPED);
-      my_putstr("42sh> ", 1);
     }
   return (0);
 }
