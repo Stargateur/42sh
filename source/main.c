@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Tue May 13 20:29:05 2014 Antoine Plaskowski
+** Last update Tue May 13 23:09:59 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -39,6 +39,7 @@ int		main(int argc, char **argv, char **envp)
       btree = my_btree(token);
       my_aff_all_btree(btree, 1);
       my_exec(btree, envp);
+      my_free_all_btree(btree);
       free(str);
     }
   return (0);

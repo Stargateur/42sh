@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 13:17:22 2014 Antoine Plaskowski
-** Last update Fri May  9 13:24:26 2014 Antoine Plaskowski
+** Last update Tue May 13 23:10:53 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,7 +14,10 @@
 void		my_free_btree(t_btree *btree)
 {
   if (btree != NULL)
-    free(btree);
+    {
+      my_free_all_token(btree->token);
+      free(btree);
+    }
 }
 
 void		my_free_all_btree(t_btree *btree)
