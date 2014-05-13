@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Apr 16 10:50:52 2014 Antoine Plaskowski
-** Last update Fri May  9 13:33:46 2014 Gabriele Marsili
+** Last update Tue May 13 18:03:07 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,7 +31,7 @@ char		**my_cpy_tab(char **tab)
 
   if (tab == NULL)
     return (NULL);
-  if ((new_tab = my_calloc(sizeof(char *) * (my_len_tab(tab) + 1))) == NULL)
+  if ((new_tab = my_malloc(sizeof(char *) * (my_len_tab(tab) + 1))) == NULL)
     return (NULL);
   i = 0;
   while (tab[i] != NULL)

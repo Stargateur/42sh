@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue Feb 25 19:06:12 2014 Antoine Plaskowski
-** Last update Fri Apr 18 05:08:24 2014 Antoine Plaskowski
+** Last update Tue May 13 18:03:26 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -24,7 +24,7 @@ t_str		*my_put_str(t_str *old, char *str)
 {
   t_str		*new;
 
-  if ((new = my_calloc(sizeof(t_str))) == NULL)
+  if ((new = my_malloc(sizeof(t_str))) == NULL)
     return (NULL);
   new->str = str;
   new->next = NULL;

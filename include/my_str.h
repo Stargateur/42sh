@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Wed May  7 17:11:45 2014 Antoine Plaskowski
+** Last update Sun May 11 08:23:55 2014 Anthony Bury
 */
 
 #ifndef		MY_STR_H_
@@ -54,9 +54,15 @@ char		*my_strcat(const char *str1, const char *str2);
 
 int		my_strcmp(const char *s1, const char *s2);
 
+int		my_strcmp_icase(const char *s1, const char *s2);
+
 int		my_strncmp(const char *s1, const char *s2, const int n);
 
 int		my_char_in_str(const char c, const char *str);
+
+int		my_str_in_tab(char **tab, const char *str);
+
+int		my_str_in_tab_icase(char **tab, const char *str);
 
 char		*my_epur_str(char *str);
 
@@ -71,6 +77,8 @@ int		my_open_wrap(const char *str);
 int		my_open_wrtr(const char *str);
 
 int		my_fork(void);
+
+int		my_check_overflow_int(const char *str);
 
 /*
 **		my_malloc.c
@@ -96,6 +104,8 @@ void		my_free_str(t_str *str);
 void		my_free_all_str(t_str *str);
 
 int		my_aff_str(t_str *str);
+
+char		*my_nb_to_str(int nb);
 
 /*
 */

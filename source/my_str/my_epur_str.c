@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon Mar 10 18:23:06 2014 Antoine Plaskowski
-** Last update Fri May  2 03:24:52 2014 Antoine Plaskowski
+** Last update Tue May 13 18:03:35 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -40,7 +40,7 @@ char		*my_epur_str(char *str)
     return (NULL);
   while (*str == ' ' || *str == '\t')
     str++;
-  if ((epur = my_calloc(my_len_epur_str(str))) == NULL)
+  if ((epur = my_malloc(my_len_epur_str(str))) == NULL)
     return (NULL);
   i = 0;
   while (*str != '\0')

@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Feb 12 15:22:30 2014 Antoine Plaskowski
-** Last update Fri Apr 18 06:08:29 2014 Antoine Plaskowski
+** Last update Tue May 13 18:02:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -27,7 +27,7 @@ static char	*my_str_new_line(t_str *str)
       i++;
       str = str->prev;
     }
-  if ((new_line = my_calloc(sizeof(char) * (i * BUF + len + 1))) == NULL)
+  if ((new_line = my_malloc(sizeof(char) * (i * BUF + len + 1))) == NULL)
     return (NULL);
   return (new_line);
 }
@@ -68,7 +68,7 @@ static char	*my_new_line(const char *buf, int *i, int max)
   j = 0;
   while (buf[*i + j] != '\n' && *i + j < max)
     j++;
-  if ((str = my_calloc(sizeof(char) * (j + 1))) == NULL)
+  if ((str = my_malloc(sizeof(char) * (j + 1))) == NULL)
     return (NULL);
   j = 0;
   while (buf[*i] != '\n' && *i < max)

@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Oct  9 23:29:57 2013 Antoine Plaskowski
-** Last update Fri Apr 18 05:07:39 2014 Antoine Plaskowski
+** Last update Tue May 13 18:02:54 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -47,7 +47,7 @@ char		**my_str_to_tab(const char *str, const char *delim)
 
   if (str == NULL)
     return (NULL);
-  if ((tab = my_calloc(my_calc_len_tab(str, delim))) == NULL)
+  if ((tab = my_malloc(my_calc_len_tab(str, delim))) == NULL)
     return (NULL);
   i = 0;
   while (*str != '\0')
@@ -56,7 +56,7 @@ char		**my_str_to_tab(const char *str, const char *delim)
 	str++;
       if (*str != '\0')
 	{
-	  if ((tab[i] = my_calloc(my_calc_len_word(str, delim))) == NULL)
+	  if ((tab[i] = my_malloc(my_calc_len_word(str, delim))) == NULL)
 	    return (NULL);
 	  j = 0;
 	  while (my_char_in_str(*str, delim) == -1 && *str != '\0')

@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Feb 19 22:47:44 2014 Antoine Plaskowski
-** Last update Fri Apr 18 05:09:11 2014 Antoine Plaskowski
+** Last update Tue May 13 18:03:47 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -20,7 +20,7 @@ char		*my_strndup(const char *str, t_uint n)
     return (NULL);
   if ((len = my_strlen(str)) < n)
     n = len;
-  if ((cpy = my_calloc(sizeof(char) * (n + 1))) == NULL)
+  if ((cpy = my_malloc(sizeof(char) * (n + 1))) == NULL)
     return (NULL);
   if (my_strncpy(cpy, str, n))
     {
