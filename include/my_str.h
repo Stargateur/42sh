@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Tue May 13 23:25:36 2014 Antoine Plaskowski
+** Last update Wed May 14 01:03:43 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -81,6 +81,8 @@ int		my_fork(void);
 int		my_check_overflow_int(const char *str);
 
 int		my_pipe(int *fd_pipe);
+
+int		my_dup2(int src, int dest);
 
 /*
 **		my_malloc.c
