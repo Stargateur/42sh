@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Tue May 13 21:58:56 2014 Antoine Plaskowski
+** Last update Tue May 13 22:13:02 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,8 +13,8 @@
 
 int		my_exec_pipe(t_btree *btree, char **env)
 {
-  int		ret;
-
+  if (btree == NULL || btree->token == NULL || btree->token->type != O_PIPE)
+    return (1);
   my_exec(btree->left, env);
   my_exec(btree->right, env);
   return (0);
