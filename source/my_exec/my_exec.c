@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Tue May 13 20:05:34 2014 Antoine Plaskowski
+** Last update Tue May 13 22:04:34 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -17,35 +17,29 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-int		my_exec(t_btree *btree, char **envp)
+static int	(*g_fct_exec[])(t_btree *btree, char **env) =
 {
-  int		ret;
+  &my_exec_pipe,
+  &my_exec_comma,
+  &my_exec_and,
+  &my_exec_or,
+  &my_exec_word,
+  NULL,
+};
+
+int		my_exec(t_btree *btree, char **env)
+{
+  static t_uint	tab[] = {O_PIPE, O_COMMA, O_AND, O_OR, WORD, 0};
+  t_uint	i;
 
   if (btree == NULL || btree->token == NULL)
     return (0);
-  if (btree->token->type == WORD)
-    return (my_cmd(btree, envp));
-  else if (btree->token->type == O_OR)
+  i = 0;
+  while (tab[i] != 0 && g_fct_exec[i] != NULL)
     {
-      if ((ret = my_exec(btree->left, envp)))
-	return (my_exec(btree->right, envp));
-      return (0);
+      if (tab[i] == btree->token->type)
+	return (g_fct_exec[i](btree, env));
+      i++;
     }
-  else if (btree->token->type == O_AND)
-    {
-      if (my_exec(btree->left, envp))
-	return (0);
-      return (my_exec(btree->right, envp));
-    }
-  else if (btree->token->type == O_COMMA)
-    {
-      my_exec(btree->left, envp);
-      my_exec(btree->right, envp);
-    }
-  else if (btree->token->type == O_PIPE)
-    {
-      my_exec(btree->left, envp);
-      my_exec(btree->right, envp);
-    }
-  return (1);
+  return (my_put_error("you can't be here... 42sh>git blame\n"));
 }

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Tue May 13 19:22:05 2014 Antoine Plaskowski
+** Last update Tue May 13 22:03:13 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -26,15 +26,15 @@ struct		s_token
   char		*attribute;
   enum
     {
-      WORD,
-      O_OR,
-      O_AND,
-      O_COMMA,
-      O_PIPE,
-      O_RLEFT,
-      O_RDLEFT,
-      O_RRIGHT,
-      O_RDRIGHT,
+      WORD = 1,
+      O_OR = 2,
+      O_AND = 3,
+      O_COMMA = 4,
+      O_PIPE = 5,
+      O_RLEFT = 6,
+      O_RDLEFT = 7,
+      O_RRIGHT = 8,
+      O_RDRIGHT = 9,
       NONE = 0
     }		type;
   enum
