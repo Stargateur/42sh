@@ -5,13 +5,14 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Tue May 13 13:33:35 2014 Pierrick Gicquelais
+** Last update Tue May 13 13:51:52 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
 #include	<stdlib.h>
 #include	<unistd.h>
+#include	"my_exec.h"
 #include	"my_btree.h"
 #include	"my_str.h"
 

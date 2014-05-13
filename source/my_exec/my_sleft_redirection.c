@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:40:32 2014 Pierrick Gicquelais
-** Last update Tue May 13 13:40:57 2014 Pierrick Gicquelais
+** Last update Tue May 13 13:49:52 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -13,5 +13,6 @@
 
 int		my_sleft_redirection(char *file)
 {
+  (void)file;
   return (0);
 }

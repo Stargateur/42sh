@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Tue May 13 12:59:15 2014 Pierrick Gicquelais
+** Last update Tue May 13 13:51:40 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -13,6 +13,7 @@
 #include	<signal.h>
 #include	<stdlib.h>
 #include	<unistd.h>
+#include	"my_exec.h"
 #include	"my_btree.h"
 #include	"my_str.h"
 
