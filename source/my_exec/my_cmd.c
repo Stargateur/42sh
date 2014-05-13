@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Tue May 13 22:37:52 2014 Antoine Plaskowski
+** Last update Tue May 13 23:14:37 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -25,7 +25,6 @@ static int	my_son(t_btree *btree, char **env)
     return (1);
   /* my_redirection(btree->token->next->next->attribute, btree->token->next->type); */
   execvp(tab[0], tab);
-  my_free_tab(tab);
   my_putstr(tab[0], 1);
   my_putstr(": command not found\n", 1);
   exit(EXIT_SUCCESS); /* AUTORISE SEULEMENT DANS FORK */
