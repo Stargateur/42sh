@@ -5,13 +5,13 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:18:01 2014 Pierrick Gicquelais
-** Last update Mon May 12 10:31:48 2014 Pierrick Gicquelais
+** Last update Tue May 13 20:11:02 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_ENV_H_
 # define	MY_ENV_H_
 
-typedef struct	s_env	t_env;
+typedef	struct	s_env	t_env;
 
 struct		s_env
 {
@@ -21,7 +21,7 @@ struct		s_env
 };
 
 t_env		*my_env(char **);
-t_env		*my_new_env();
+t_env		*my_new_env(void);
 t_env		*my_first_env(t_env *);
 t_env		*my_last_env(t_env *);
 t_env		*my_append_env(t_env *, char *);

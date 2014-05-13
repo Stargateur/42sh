@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:13:13 2014 Pierrick Gicquelais
-** Last update Mon May 12 10:14:25 2014 Pierrick Gicquelais
+** Last update Tue May 13 20:28:21 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,15 +14,21 @@
 void		my_free_env(t_env *env)
 {
   if (env != NULL)
-    free(env);
+    {
+      free(env->name);
+      free(env);
+    }
 }
 
 void		my_free_all_env(t_env *env)
 {
-  if (env != NULL)
+  t_env		*tmp;
+
+  env = my_first_env(env);
+  while (env != NULL)
     {
-      my_free_all_env(env->prev);
-      my_free_all_env(env->next);
-      my_free_env(env);
+      tmp = env;
+      env = env->next;
+      my_free_env(tmp);
     }
 }

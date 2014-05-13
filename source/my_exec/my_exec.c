@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Tue May 13 19:07:05 2014 Antoine Plaskowski
+** Last update Tue May 13 20:05:34 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -19,11 +19,33 @@
 
 int		my_exec(t_btree *btree, char **envp)
 {
+  int		ret;
+
   if (btree == NULL || btree->token == NULL)
-    return (1);
-  my_exec(btree->left, envp);
-  my_exec(btree->right, envp);
+    return (0);
   if (btree->token->type == WORD)
-    my_cmd(btree, envp);
-  return (0);
+    return (my_cmd(btree, envp));
+  else if (btree->token->type == O_OR)
+    {
+      if ((ret = my_exec(btree->left, envp)))
+	return (my_exec(btree->right, envp));
+      return (0);
+    }
+  else if (btree->token->type == O_AND)
+    {
+      if (my_exec(btree->left, envp))
+	return (0);
+      return (my_exec(btree->right, envp));
+    }
+  else if (btree->token->type == O_COMMA)
+    {
+      my_exec(btree->left, envp);
+      my_exec(btree->right, envp);
+    }
+  else if (btree->token->type == O_PIPE)
+    {
+      my_exec(btree->left, envp);
+      my_exec(btree->right, envp);
+    }
+  return (1);
 }

@@ -5,25 +5,22 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:23:43 2014 Pierrick Gicquelais
-** Last update Mon May 12 10:42:31 2014 Pierrick Gicquelais
+** Last update Tue May 13 20:25:25 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_env.h"
+#include	"my_str.h"
 
 t_env		*my_env(char **envp)
 {
   t_env		*env;
-  int		i;
 
-  i = 0;
-  if (envp == NULL)
-    return (NULL);
   env = NULL;
-  while (envp[i])
-    {
-      env = my_append_env(env, envp[i]);
-      i++;
-    }
-  return (env);
+  if (envp != NULL)
+    while (*envp != NULL)
+      {
+	env = my_append_env(env, my_strdup(*envp++));
+      }
+  return (my_first_env(env));
 }
