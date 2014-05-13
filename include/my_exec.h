@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Fri May  9 15:19:34 2014 Pierrick Gicquelais
+** Last update Mon May 12 10:46:00 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_EXEC_H_
@@ -13,6 +13,6 @@
 
 # include	"my_btree.h"
 
-int		my_exec(t_btree *btree, char **);
+int		my_exec(t_btree *, char **);
 
 #endif		/* !MY_EXEC_H_ */
