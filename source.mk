@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Tue May 13 21:56:28 2014 Antoine Plaskowski
+## Last update Tue May 13 23:25:09 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -95,3 +95,4 @@ SRC		+=	$(PATH_STR)my_check_overflow_int.c
 SRC		+=	$(PATH_STR)my_nbr_to_str.c
 SRC		+=	$(PATH_STR)my_str_in_tab.c
 SRC		+=	$(PATH_STR)my_strcmp_icase.c
+SRC		+=	$(PATH_STR)my_pipe.c
