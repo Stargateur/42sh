@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Wed May  7 16:34:43 2014 Antoine Plaskowski
+## Last update Wed May 14 06:35:51 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -16,7 +16,7 @@ LEVEL			=	3
 
 RM			=	rm -f
 
-ECHO			=	/bin/echo -e
+ECHO			=	/bin/echo
 
 MKDIR			=	mkdir -p
 
@@ -48,17 +48,17 @@ OBJ			=	$(SRC:.c=.o)
 all			:	$(NAME)
 
 $(NAME)			:	$(OBJ)
-				@$(ECHO) "$(GREEN)\n\t>> COMPILATION SUCCESSFUL\n$(WHITE)"
+				@$(ECHO) -e "$(GREEN)\n\t>> COMPILATION SUCCESSFUL\n$(WHITE)"
 				$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
-				@$(ECHO) "$(YELLOW)\n\t>> LINKING SUCCESSFUL\n$(WHITE)"
+				@$(ECHO) -e "$(YELLOW)\n\t>> LINKING SUCCESSFUL\n$(WHITE)"
 
 clean			:
 				$(RM) $(OBJ)
-				@$(ECHO) "$(RED)\n\t>> CLEANING BINAIRIES SUCCESSFUL\n$(WHITE)"
+				@$(ECHO) -e "$(RED)\n\t>> CLEANING OBJECTS SUCCESSFUL\n$(WHITE)"
 
 fclean			:	clean
 				$(RM) $(NAME)
-				@$(ECHO) "$(RED)\n\t>> CLEANING EXECUTABLE SUCCESSFUL\n$(WHITE)"
+				@$(ECHO) -e "$(RED)\n\t>> CLEANING BINAIRIE SUCCESSFUL\n$(WHITE)"
 
 re			:	fclean all
 
