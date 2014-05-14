@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Tue May 13 23:14:37 2014 Antoine Plaskowski
+** Last update Wed May 14 06:20:39 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -16,32 +16,15 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, char **env)
-{
-  char		**tab;
-
-  (void)env;
-  if ((tab = my_token_word_to_tab(btree->token)) == NULL)
-    return (1);
-  /* my_redirection(btree->token->next->next->attribute, btree->token->next->type); */
-  execvp(tab[0], tab);
-  my_putstr(tab[0], 1);
-  my_putstr(": command not found\n", 1);
-  exit(EXIT_SUCCESS); /* AUTORISE SEULEMENT DANS FORK */
-  return (1);
-}
-
 int		my_cmd(t_btree *btree, char **env)
 {
   int		pid;
   int		ret;
 
   if ((pid = my_fork()) == 0)
-    return (my_son(btree, env));
-  else if (pid != -1)
-    {
-      waitpid(pid, &ret, WSTOPPED);
-      return (WEXITSTATUS(ret));
-    }
-  return (1);
+    return (my_execve(btree, env));
+  else if (pid == -1)
+    return (1);
+  waitpid(pid, &ret, WSTOPPED);
+  return (WEXITSTATUS(ret));
 }
