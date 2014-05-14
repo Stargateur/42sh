@@ -84,6 +84,7 @@ source/my_exec/my_exec.o: include/my_token.h include/my_typedef.h
 source/my_exec/my_exec.o: include/my_str.h
 source/my_exec/my_exec_pipe.o: include/my_exec.h include/my_btree.h
 source/my_exec/my_exec_pipe.o: include/my_token.h include/my_typedef.h
+source/my_exec/my_exec_pipe.o: include/my_str.h
 source/my_exec/my_exec_comma.o: include/my_exec.h include/my_btree.h
 source/my_exec/my_exec_comma.o: include/my_token.h include/my_typedef.h
 source/my_exec/my_exec_or.o: include/my_exec.h include/my_btree.h
@@ -95,6 +96,9 @@ source/my_exec/my_exec_word.o: include/my_token.h include/my_typedef.h
 source/my_exec/my_cmd.o: include/my_exec.h include/my_btree.h
 source/my_exec/my_cmd.o: include/my_token.h include/my_typedef.h
 source/my_exec/my_cmd.o: include/my_str.h
+source/my_exec/my_execve.o: include/my_exec.h include/my_btree.h
+source/my_exec/my_execve.o: include/my_token.h include/my_typedef.h
+source/my_exec/my_execve.o: include/my_str.h
 source/my_exec/my_redirection.o: include/my_exec.h include/my_btree.h
 source/my_exec/my_redirection.o: include/my_token.h include/my_typedef.h
 source/my_exec/my_redirection.o: include/my_str.h
@@ -179,3 +183,5 @@ source/my_str/my_put_error.o: include/my_str.h include/my_typedef.h
 source/my_str/my_check_overflow_int.o: include/my_str.h include/my_typedef.h
 source/my_str/my_nbr_to_str.o: include/my_typedef.h
 source/my_str/my_str_in_tab.o: include/my_str.h include/my_typedef.h
+source/my_str/my_pipe.o: include/my_str.h include/my_typedef.h
+source/my_str/my_dup2.o: include/my_str.h include/my_typedef.h
