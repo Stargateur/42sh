@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Wed May 14 06:20:39 2014 Antoine Plaskowski
+** Last update Wed May 14 14:48:30 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -25,6 +25,6 @@ int		my_cmd(t_btree *btree, char **env)
     return (my_execve(btree, env));
   else if (pid == -1)
     return (1);
-  waitpid(pid, &ret, WSTOPPED);
+  waitpid(pid, &ret, WUNTRACED);
   return (WEXITSTATUS(ret));
 }
