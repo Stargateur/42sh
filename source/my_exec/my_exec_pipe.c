@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Wed May 14 06:14:50 2014 Antoine Plaskowski
+** Last update Wed May 14 06:18:37 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,6 +13,27 @@
 #include        <sys/wait.h>
 #include	"my_exec.h"
 #include	"my_str.h"
+
+static int	my_close_fd(int fd_0, int fd_1)
+{
+  if (fd_0 != -1)
+    close(fd_0);
+  if (fd_1 != -1)
+    close(fd_1);
+  return (0);
+}
+
+static int	my_son(t_btree *btree, char **env, int fd_0, int fd_1)
+{
+  if (fd_0 != -1)
+    my_dup2(fd_0, 0);
+  if (fd_1 != -1)
+    {
+      my_dup2(fd_1, 1);
+      return (my_execve(btree, env));
+    }
+  return (my_execve(btree, env));
+}
 
 static int	my_exec_dup(t_btree *btree, char **env, int fd_0, int fd_1)
 {
@@ -22,21 +43,12 @@ static int	my_exec_dup(t_btree *btree, char **env, int fd_0, int fd_1)
   if (btree == NULL || btree->token == NULL || btree->token->type != WORD)
     return (1);
   if ((pid = my_fork()) == 0)
-    {
-      if (fd_0 != -1)
-	my_dup2(fd_0, 0);
-      if (fd_1 != -1)
-	{
-	  my_dup2(fd_1, 1);
-	  return (my_execve(btree, env));
-	}
-      return (my_execve(btree, env));
-    }
+    return (my_son(btree, env, fd_0, fd_1));
   else if (pid == -1)
     return (1);
+  my_close_fd(fd_0, fd_1);
   if (fd_1 == -1)
     {
-      close(fd_0);
       waitpid(pid, &ret, WUNTRACED);
       return (WEXITSTATUS(ret));
     }
@@ -50,17 +62,13 @@ static int	my_recur_pipe(t_btree *btree, char **env, int fd_0)
   if (btree == NULL || btree->token == NULL)
     return (1);
   if (btree->token->type == WORD)
-    {
-      return (my_exec_dup(btree, env, fd_0, -1));
-    }
+    return (my_exec_dup(btree, env, fd_0, -1));
   else if (btree->token->type == O_PIPE)
     {
       if (my_pipe(fd_pipe))
 	return (1);
       if (my_exec_dup(btree->left, env, fd_0, fd_pipe[1]))
 	return (1);
-      close(fd_pipe[1]);
-      close(fd_0);
       return (my_recur_pipe(btree->right, env, fd_pipe[0]));
     }
   return (1);
@@ -76,6 +84,5 @@ int		my_exec_pipe(t_btree *btree, char **env)
     return (1);
   if (my_exec_dup(btree->left, env, -1, fd_pipe[1]))
     return (1);
-  close(fd_pipe[1]);
   return (my_recur_pipe(btree->right, env, fd_pipe[0]));
 }
