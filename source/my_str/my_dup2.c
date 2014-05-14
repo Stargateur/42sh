@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May 14 01:00:06 2014 Antoine Plaskowski
-** Last update Wed May 14 01:33:29 2014 Antoine Plaskowski
+** Last update Wed May 14 06:12:19 2014 Antoine Plaskowski
 */
 
 #include	<unistd.h>
@@ -17,6 +17,6 @@ int		my_dup2(int src, int dest)
 
   if ((fd = dup2(src, dest)) != dest)
     my_putstr("can't dup2\n", 2);
-  /* close(src); */
+  close(src);
   return (fd);
 }
