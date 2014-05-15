@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May  9 14:08:10 2014 Pierrick Gicquelais
-** Last update Tue May 13 23:55:34 2014 Antoine Plaskowski
+** Last update Thu May 15 23:21:59 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -15,7 +15,7 @@
 int		my_aff_btree(t_btree *btree, const int fd)
 {
   if (btree != NULL)
-    my_aff_token(btree->token, fd);
+    my_aff_all_token(btree->token, fd);
   return (0);
 }
 

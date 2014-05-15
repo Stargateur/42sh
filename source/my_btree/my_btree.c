@@ -5,13 +5,27 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:15:39 2014 Antoine Plaskowski
-** Last update Tue May 13 23:11:42 2014 Antoine Plaskowski
+** Last update Thu May 15 23:16:52 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_btree.h"
 #include	"my_token.h"
+#include	"my_str.h"
 #include	"my_typedef.h"
+
+static t_fct_b	g_fct_btree[] =
+  {
+    {&my_btree_normal, O_OR},
+    {&my_btree_normal, O_AND},
+    {&my_btree_comma, O_COMMA},
+    {&my_btree_normal, O_PIPE},
+    {&my_btree_redirection, O_RLEFT},
+    {&my_btree_redirection, O_RDLEFT},
+    {&my_btree_redirection, O_RRIGHT},
+    {&my_btree_redirection, O_RDRIGHT},
+    {NULL, 0}
+  };
 
 static t_token	*my_give_high_priority(t_token *token)
 {
@@ -32,25 +46,25 @@ static t_token	*my_give_high_priority(t_token *token)
   return (tmp);
 }
 
-static int	my_create(t_token *token, t_btree *btree)
+static t_btree	*my_loop_fct(t_token *token, t_btree *btree)
 {
-  if (token->prev != NULL)
+  t_uint	i;
+
+  i = 0;
+  while (g_fct_btree[i].fct != NULL)
     {
-      token->prev->next = NULL;
-      btree->left = my_btree(token->prev);
-      token->prev = NULL;
+      if (token->type == g_fct_btree[i].type)
+	{
+	  if (g_fct_btree[i].fct(token, btree))
+	    {
+	      my_free_all_btree(btree);
+	      return (NULL);
+	    }
+	  return (btree);
+	}
+      i++;
     }
-  else
-    return (1);
-  if (token->next != NULL)
-    {
-      token->next->prev = NULL;
-      btree->right = my_btree(token->next);
-      token->next = NULL;
-    }
-  else
-    return (1);
-  return (0);
+  return (my_put_error_null("WTF GIT BLAME NOW\n"));
 }
 
 t_btree		*my_btree(t_token *token)
@@ -65,10 +79,5 @@ t_btree		*my_btree(t_token *token)
   if ((btree = my_new_btree()) == NULL)
     return (NULL);
   btree->token = tmp;
-  if (my_create(tmp, btree))
-    {
-      my_free_all_btree(btree);
-      return (NULL);
-    }
-  return (btree);
+  return (my_loop_fct(tmp, btree));
 }

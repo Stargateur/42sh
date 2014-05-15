@@ -5,14 +5,14 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May 14 07:41:55 2014 Antoine Plaskowski
-** Last update Wed May 14 07:43:40 2014 Antoine Plaskowski
+** Last update Thu May 15 19:59:02 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_btree.h"
 #include	"my_typedef.h"
 
-static int	my_btree_comma(t_token *token, t_btree *btree)
+int		my_btree_comma(t_token *token, t_btree *btree)
 {
   if (token == NULL || btree == NULL)
     return (1);

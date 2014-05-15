@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Wed May 14 07:38:20 2014 Antoine Plaskowski
+** Last update Thu May 15 22:55:38 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -19,37 +19,41 @@
 
 typedef	struct	s_token	t_token;
 
+typedef	enum	s_type
+  {
+    WORD = 1,
+    O_OR = 2,
+    O_AND = 3,
+    O_COMMA = 4,
+    O_PIPE = 5,
+    O_RLEFT = 6,
+    O_RDLEFT = 7,
+    O_RRIGHT = 8,
+    O_RDRIGHT = 9,
+    NONE = 0
+  }		t_type;
+
+typedef	enum	s_priority
+  {
+    P_WORD = 0,
+    P_O_OR = 2,
+    P_O_AND = 2,
+    P_O_COMMA = 1,
+    P_O_PIPE = 3,
+    P_O_RLEFT = 4,
+    P_O_RDLEFT = 4,
+    P_O_RRIGHT = 4,
+    P_O_RDRIGHT = 4,
+    P_NONE = 0
+  }		t_priority;
+
 struct		s_token
 {
   t_token	*prev;
   t_token	*next;
+  t_type	type;
+  t_priority	priority;
   char		*attribute;
-  enum
-    {
-      WORD = 1,
-      O_OR = 2,
-      O_AND = 3,
-      O_COMMA = 4,
-      O_PIPE = 5,
-      O_RLEFT = 6,
-      O_RDLEFT = 7,
-      O_RRIGHT = 8,
-      O_RDRIGHT = 9,
-      NONE = 0
-    }		type;
-  enum
-    {
-      P_WORD = 0,
-      P_O_OR = 2,
-      P_O_AND = 2,
-      P_O_COMMA = 1,
-      P_O_PIPE = 3,
-      P_O_RLEFT = 4,
-      P_O_RDLEFT = 4,
-      P_O_RRIGHT = 4,
-      P_O_RDRIGHT = 4,
-      P_NONE = 0
-    }		priority;
 };
 
 t_token		*my_token(char *str);

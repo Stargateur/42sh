@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:11:57 2014 Antoine Plaskowski
-** Last update Tue May 13 23:18:12 2014 Antoine Plaskowski
+** Last update Thu May 15 23:09:07 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_BTREE_H_
@@ -14,12 +14,19 @@
 # include	"my_token.h"
 
 typedef	struct	s_btree	t_btree;
+typedef	struct	s_fct_b	t_fct_b;
 
 struct		s_btree
 {
   t_btree	*left;
   t_btree	*right;
   t_token	*token;
+};
+
+struct		s_fct_b
+{
+  int		(*fct)(t_token *token, t_btree *btree);
+  t_type	type;
 };
 
 t_btree		*my_new_btree(void);
@@ -35,5 +42,11 @@ int		my_aff_all_btree(t_btree *, const int);
 void		my_free_btree(t_btree *btree);
 
 void		my_free_all_btree(t_btree *btree);
+
+int		my_btree_normal(t_token *token, t_btree *btree);
+
+int		my_btree_comma(t_token *token, t_btree *btree);
+
+int		my_btree_redirection(t_token *token, t_btree *btree);
 
 #endif		/* !MY_BTREE_H_ */
