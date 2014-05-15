@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May 14 07:41:55 2014 Antoine Plaskowski
-** Last update Thu May 15 19:59:45 2014 Antoine Plaskowski
+** Last update Thu May 15 23:57:51 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -33,16 +33,20 @@ static t_token	*my_sup_token_redic(t_token *token)
 int		my_btree_redirection(t_token *token, t_btree *btree)
 {
   t_token	*word;
+  int		ret;
 
   if (token == NULL || token->next == NULL || btree == NULL)
     return (1);
   if ((word = my_sup_token_redic(token)) == NULL)
     return (1);
-  btree->left = my_btree(word);
+  if ((btree->left = my_btree(word)) == NULL)
+    return (1);
+  ret = 0;
   token->prev = NULL;
   token->next->prev = NULL;
   token->next->next = NULL;
-  btree->right = my_btree(token->next);
+  if ((btree->right = my_btree(token->next)) == NULL)
+    ret = 1;
   token->next = NULL;
-  return (0);
+  return (ret);
 }

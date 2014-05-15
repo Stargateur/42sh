@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Tue May 13 23:09:59 2014 Antoine Plaskowski
+** Last update Fri May 16 00:13:16 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -35,11 +35,14 @@ int		main(int argc, char **argv, char **envp)
   my_free_all_env(env);
   while ((str = my_promt()) != NULL)
     {
-      token = my_token(str);
-      btree = my_btree(token);
-      my_aff_all_btree(btree, 1);
-      my_exec(btree, envp);
-      my_free_all_btree(btree);
+      if ((token = my_token(str)) != NULL && (btree = my_btree(token)) != NULL)
+	{
+	  my_aff_all_btree(btree, 1);
+	  my_exec(btree, envp);
+	  my_free_all_btree(btree);
+	}
+      else
+	my_putstr("error parsing\n", 2);	
       free(str);
     }
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May 14 07:41:55 2014 Antoine Plaskowski
-** Last update Thu May 15 19:59:36 2014 Antoine Plaskowski
+** Last update Thu May 15 23:58:13 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,12 +14,16 @@
 
 int		my_btree_normal(t_token *token, t_btree *btree)
 {
+  int		ret;
+
   if (token == NULL || btree == NULL)
     return (1);
+  ret = 0;
   if (token->prev != NULL)
     {
       token->prev->next = NULL;
-      btree->left = my_btree(token->prev);
+      if ((btree->left = my_btree(token->prev)) == NULL)
+	ret = 1;
       token->prev = NULL;
     }
   else
@@ -27,10 +31,11 @@ int		my_btree_normal(t_token *token, t_btree *btree)
   if (token->next != NULL)
     {
       token->next->prev = NULL;
-      btree->right = my_btree(token->next);
+      if ((btree->right = my_btree(token->prev)) == NULL)
+	return (1);
       token->next = NULL;
     }
   else
     return (1);
-  return (0);
+  return (ret);
 }

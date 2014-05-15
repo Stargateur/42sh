@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Fri May  9 13:30:21 2014 Antoine Plaskowski
+** Last update Fri May 16 00:14:40 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -49,6 +49,9 @@ t_token		*my_token(char *str)
     if ((token = my_put_token(token, tmp)) == NULL)
       return (NULL);
   if (str[i] != '\0')
-    return (my_put_error_null("parsing_error\n"));
+    {
+      my_free_all_token(token);
+      return (NULL);
+    }
   return (my_first_token(token));
 }
