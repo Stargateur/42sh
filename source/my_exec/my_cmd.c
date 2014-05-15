@@ -5,8 +5,10 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Wed May 14 14:48:30 2014 Antoine Plaskowski
+** Last update Thu May 15 14:45:49 2014 Antoine Plaskowski
 */
+
+#define		_BSD_SOURCE
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
@@ -21,10 +23,10 @@ int		my_cmd(t_btree *btree, char **env)
   int		pid;
   int		ret;
 
-  if ((pid = my_fork()) == 0)
+  if ((pid = vfork()) == 0)
     return (my_execve(btree, env));
   else if (pid == -1)
-    return (1);
+    return (my_put_error("can't vfork... \n"));
   waitpid(pid, &ret, WUNTRACED);
   return (WEXITSTATUS(ret));
 }

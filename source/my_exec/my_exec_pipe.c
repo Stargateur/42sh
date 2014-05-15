@@ -5,8 +5,10 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Wed May 14 06:18:37 2014 Antoine Plaskowski
+** Last update Thu May 15 14:47:27 2014 Antoine Plaskowski
 */
+
+#define		_BSD_SOURCE
 
 #include	<stdlib.h>
 #include	<unistd.h>
@@ -42,10 +44,10 @@ static int	my_exec_dup(t_btree *btree, char **env, int fd_0, int fd_1)
 
   if (btree == NULL || btree->token == NULL || btree->token->type != WORD)
     return (1);
-  if ((pid = my_fork()) == 0)
+  if ((pid = vfork()) == 0)
     return (my_son(btree, env, fd_0, fd_1));
   else if (pid == -1)
-    return (1);
+    return (my_put_error("can't vfork ...\n"));
   my_close_fd(fd_0, fd_1);
   if (fd_1 == -1)
     {
