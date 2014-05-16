@@ -1,11 +1,11 @@
 /*
-** my_sleft_redirection.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
+** my_exec_dright.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
 ** 
 ** Made by Pierrick Gicquelais
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:20:49 2014 Pierrick Gicquelais
-** Last update Fri May 16 10:51:11 2014 Pierrick Gicquelais
+** Last update Fri May 16 13:54:17 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>

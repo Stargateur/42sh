@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Fri May 16 10:35:47 2014 Pierrick Gicquelais
+** Last update Fri May 16 13:51:20 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -25,13 +25,14 @@ static int	(*g_fct_exec[])(t_btree *btree, char **env) =
   &my_exec_or,
   &my_exec_sright,
   &my_exec_dright,
+  &my_exec_sleft,
   &my_exec_word,
   NULL,
 };
 
 int		my_exec(t_btree *btree, char **env)
 {
-  static t_uint	tab[] = {O_PIPE, O_COMMA, O_AND, O_OR, O_RRIGHT, O_RDRIGHT, WORD, 0};
+  static t_uint	tab[] = {O_PIPE, O_COMMA, O_AND, O_OR, O_RRIGHT, O_RDRIGHT, O_RLEFT, WORD, 0};
   t_uint	i;
 
   if (btree == NULL || btree->token == NULL)
