@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:20:49 2014 Pierrick Gicquelais
-** Last update Tue May 13 13:46:52 2014 Pierrick Gicquelais
+** Last update Fri May 16 10:36:38 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -15,14 +15,23 @@
 #include	<unistd.h>
 #include	"my_btree.h"
 #include	"my_str.h"
+#include	"my_exec.h"
 
-int		my_sright_redirection(char *file)
+int		my_exec_dright(t_btree *btree, char **env)
 {
   int		fd;
+  int		save_fd;
 
-  if ((fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, \
-		 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1)
+  save_fd = dup(1);
+  if (btree == NULL || btree->token == NULL || btree->token->type != O_RRIGHT)
     return (1);
+  fd = my_open_wrap(btree->right->token->attribute);
   dup2(fd, 1);
+  if (my_exec(btree->left, env))
+    {
+      dup2(save_fd, 1);
+      return (1);
+    }
+  dup2(save_fd, 1);
   return (0);
 }
