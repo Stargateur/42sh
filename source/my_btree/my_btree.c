@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:15:39 2014 Antoine Plaskowski
-** Last update Fri May 16 04:48:52 2014 Antoine Plaskowski
+** Last update Fri May 16 05:37:40 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -24,7 +24,7 @@ static t_fct_b	g_fct_btree[] =
     {&my_btree_redirection, O_RDLEFT},
     {&my_btree_redirection, O_RRIGHT},
     {&my_btree_redirection, O_RDRIGHT},
-    {NULL, 0}
+    {NULL, NONE}
   };
 
 static t_token	*my_give_high_priority(t_token *token)
