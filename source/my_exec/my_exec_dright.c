@@ -1,11 +1,11 @@
 /*
-** my_sleft_redirection.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
+** my_exec_dirght.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
 ** 
 ** Made by Pierrick Gicquelais
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:20:49 2014 Pierrick Gicquelais
-** Last update Fri May 16 10:36:38 2014 Pierrick Gicquelais
+** Last update Fri May 16 10:51:04 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -23,7 +23,7 @@ int		my_exec_dright(t_btree *btree, char **env)
   int		save_fd;
 
   save_fd = dup(1);
-  if (btree == NULL || btree->token == NULL || btree->token->type != O_RRIGHT)
+  if (btree == NULL || btree->token == NULL || btree->token->type != O_RDRIGHT)
     return (1);
   fd = my_open_wrap(btree->right->token->attribute);
   dup2(fd, 1);
