@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 12:05:23 2014 Nayden Makusa
-** Last update Fri May 16 13:22:15 2014 Nayden Makusa
+** Last update Fri May 16 13:59:47 2014 Pierrick Gicquelais
 */
 
 #include	<sys/types.h>
@@ -41,6 +41,10 @@ int		my_prompt(char *av)
       printf("Error: the prompt's string is empty.\n");
       return (1);
     }
+  int		a = -1;
+  while (str[++a] != '\0')
+    my_putchar(str[a]);
+  my_putchar('\n');
   return (0);
 }
 
