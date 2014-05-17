@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sat May 17 20:04:33 2014 Antoine Plaskowski
+** Last update Sat May 17 20:21:29 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,7 +19,7 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
   t_str		*str;
   char		*tmp;
 
-  if ((token == my_found_token(token, O_RDLEFT)) || fd == NULL)
+  if ((token = my_found_token(token, O_RDLEFT)) == NULL || fd == NULL)
     return (1);
   if ((token = token->next) == NULL || token->type != WORD)
     return (1);

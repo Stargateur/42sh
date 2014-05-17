@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sat May 17 19:58:36 2014 Antoine Plaskowski
+## Last update Sat May 17 20:25:58 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -44,7 +44,6 @@ SRC		+=	$(PATH_BTREE)my_new_btree_token.c
 SRC		+=	$(PATH_BTREE)my_aff_btree.c
 SRC		+=	$(PATH_BTREE)my_free_btree.c
 SRC		+=	$(PATH_BTREE)my_btree_comma.c
-SRC		+=	$(PATH_BTREE)my_btree_redirection.c
 SRC		+=	$(PATH_BTREE)my_btree_normal.c
 
 SRC		+=	$(PATH_TOKEN)my_token.c
