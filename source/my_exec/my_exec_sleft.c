@@ -5,33 +5,45 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 16 13:45:57 2014 Pierrick Gicquelais
-** Last update Fri May 16 13:49:36 2014 Pierrick Gicquelais
+** Last update Sat May 17 03:12:07 2014 Antoine Plaskowski
 */
 
-#include	<sys/types.h>
-#include	<sys/stat.h>
-#include	<fcntl.h>
-#include	<stdlib.h>
+#define		_BSD_SOURCE
+
 #include	<unistd.h>
-#include	"my_btree.h"
+#include	<stdlib.h>
+#include	<sys/wait.h>
+#include        <signal.h>
 #include	"my_str.h"
 #include	"my_exec.h"
 
+static int      my_open_file_and_dup(t_btree *btree)
+{
+  int           fd;
+
+  if (btree == NULL || btree->token == NULL || btree->token->type != WORD)
+    return (1);
+  if ((fd = my_open_rdonly(btree->token->attribute)) == -1)
+    return (1);
+  if (my_dup2(fd, 0) != 0)
+    return (1);
+  return (0);
+}
+
 int		my_exec_sleft(t_btree *btree, char **env)
 {
-  int		fd;
-  int		save_fd;
+  int		pid;
+  int		ret;
 
-  save_fd = dup(0);
   if (btree == NULL || btree->token == NULL || btree->token->type != O_RLEFT)
     return (1);
-  fd = my_open_rdonly(btree->right->token->attribute);
-  dup2(fd, 0);
-  if (my_exec(btree->left, env))
+  if ((pid = vfork()) == 0)
     {
-      dup2(save_fd, 0);
-      return (1);
+      my_open_file_and_dup(btree->right);
+      return (my_execve(btree->left, env));
     }
-  dup2(save_fd, 0);
-  return (0);
+  else if (pid == -1)
+    return (1);
+  waitpid(pid, &ret, WUNTRACED);
+  return (WEXITSTATUS(ret));
 }

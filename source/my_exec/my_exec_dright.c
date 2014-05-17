@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:20:49 2014 Pierrick Gicquelais
-** Last update Sat May 17 03:01:51 2014 Antoine Plaskowski
+** Last update Sat May 17 03:12:42 2014 Antoine Plaskowski
 */
 
 #define		_BSD_SOURCE
@@ -23,9 +23,9 @@ static int	my_open_file_and_dup(t_btree *btree)
 
   if (btree == NULL || btree->token == NULL || btree->token->type != WORD)
     return (1);
-  if ((fd = my_open_wrtr(btree->token->attribute)) == -1)
+  if ((fd = my_open_wrap(btree->token->attribute)) == -1)
     return (1);
-  if (my_dup2(fd, 1))
+  if (my_dup2(fd, 1) != 1)
     return (1);
   return (0);
 }
