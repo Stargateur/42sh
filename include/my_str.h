@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Sat May 17 00:49:45 2014 Antoine Plaskowski
+** Last update Sat May 17 02:40:37 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -84,6 +84,8 @@ int		my_pipe(int *fd_pipe);
 
 int		my_dup2(int src, int dest);
 
+char		*my_nbr_to_str(int nbr);
+
 /*
 **		my_malloc.c
 */
@@ -95,13 +97,15 @@ void		*my_calloc(t_uint size_octet);
 /*
 */
 
-/*
-**		my_str.c
-*/
+t_str		*my_new_str(void);
 
-t_str		*my_put_str(t_str *old, char *str);
+t_str		*my_put_str(t_str *old, t_str *str);
 
-t_str		*my_first_elem_str(t_str *str);
+t_str		*my_append_str(t_str *old, char *str);
+
+t_str		*my_first_str(t_str *str);
+
+t_str		*my_last_str(t_str *str);
 
 void		my_free_str(t_str *str);
 
@@ -109,10 +113,8 @@ void		my_free_all_str(t_str *str);
 
 int		my_aff_str(t_str *str, const int fd);
 
-char		*my_nb_to_str(int nb);
+int		my_aff_all_str(t_str *str, const int fd);
 
-/*
-*/
 
 /*
 **		my_put_error.c

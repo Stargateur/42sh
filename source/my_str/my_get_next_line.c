@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Feb 12 15:22:30 2014 Antoine Plaskowski
-** Last update Tue May 13 18:02:33 2014 Antoine Plaskowski
+** Last update Sat May 17 02:36:20 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -43,7 +43,7 @@ static char	*my_cat_str(t_str *str)
     return (NULL);
   if ((new_line = my_str_new_line(str)) == NULL)
     return (NULL);
-  str = my_first_elem_str(str);
+  str = my_first_str(str);
   i = 0;
   while (str != NULL)
     {
@@ -97,7 +97,7 @@ char		*my_get_next_line(const int fd)
       if ((new_line = my_new_line(buf, &i, max)) == NULL)
 	return (my_cat_str(str));
       else
-	str = my_put_str(str, new_line);
+	str = my_append_str(str, new_line);
       if (buf[i++] == '\n')
 	return (my_cat_str(str));
     }

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sat May 17 01:51:28 2014 Antoine Plaskowski
+** Last update Sat May 17 02:41:03 2014 Antoine Plaskowski
 */
 
 #define		_BSD_SOURCE
@@ -28,7 +28,7 @@ static int	my_father(t_btree *btree, int fd)
     my_putstr("can't set ignore sigpipe\n", 2);
   str = NULL;
   while ((tmp = my_get_next_line(0)) && my_strcmp(tmp, btree->token->attribute))
-    str = my_put_str(str, tmp);
+    str = my_append_str(str, tmp);
   free(tmp);
   my_aff_str(str, fd);
   my_free_str(str);

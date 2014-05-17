@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sat May 17 00:42:02 2014 Antoine Plaskowski
+## Last update Sat May 17 02:39:17 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -86,7 +86,13 @@ SRC		+=	$(PATH_STR)my_getnbr_base.c
 SRC		+=	$(PATH_STR)my_malloc.c
 SRC		+=	$(PATH_STR)my_char_in_str.c
 SRC		+=	$(PATH_STR)my_epur_str.c
-SRC		+=	$(PATH_STR)my_str.c
+SRC		+=	$(PATH_STR)my_put_str.c
+SRC		+=	$(PATH_STR)my_new_str.c
+SRC		+=	$(PATH_STR)my_append_str.c
+SRC		+=	$(PATH_STR)my_free_str.c
+SRC		+=	$(PATH_STR)my_aff_str.c
+SRC		+=	$(PATH_STR)my_first_str.c
+SRC		+=	$(PATH_STR)my_last_str.c
 SRC		+=	$(PATH_STR)my_open.c
 SRC		+=	$(PATH_STR)my_fork.c
 SRC		+=	$(PATH_STR)my_get_next_line.c
