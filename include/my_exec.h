@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Fri May 16 14:28:33 2014 Pierrick Gicquelais
+** Last update Sat May 17 03:17:49 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -13,22 +13,13 @@
 
 # include	"my_btree.h"
 
-typedef	struct	s_list	t_list;
+typedef	struct	s_fct_e	t_fct_e;
 
-struct		s_list
+struct          s_fct_e
 {
-  t_list	*prev;
-  t_list	*next;
-  char		*att;
+  int		(*fct)(t_btree *btree, char **env);
+  t_type	type;
 };
-
-t_list		*my_new_list();
-
-t_list		*my_first_elem(t_list *);
-
-t_list		*my_last_elem(t_list *);
-
-t_list		*my_append_list(t_list *, char *);
 
 int		my_exec(t_btree *, char **);
 
@@ -55,9 +46,5 @@ int		my_cmd(t_btree *, char **);
 int		my_execve(t_btree *btree, char **env);
 
 int		my_redirection(char *, int);
-
-void		my_aff_all_list(t_list *);
-
-void		my_free_all_list(t_list *);
 
 #endif		/* !MY_EXEC_H_ */

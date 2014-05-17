@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Fri May 16 14:36:06 2014 Pierrick Gicquelais
+** Last update Sat May 17 03:22:43 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -17,33 +17,31 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static int	(*g_fct_exec[])(t_btree *btree, char **env) =
+static t_fct_e	g_fct_exec[] =
 {
-  &my_exec_pipe,
-  &my_exec_comma,
-  &my_exec_and,
-  &my_exec_or,
-  &my_exec_sright,
-  &my_exec_dright,
-  &my_exec_sleft,
-  &my_exec_dleft,
-  &my_exec_word,
-  NULL,
+  {&my_exec_pipe, O_PIPE},
+  {&my_exec_comma, O_COMMA},
+  {&my_exec_and, O_AND},
+  {&my_exec_or, O_OR},
+  {&my_exec_sright, O_RRIGHT},
+  {&my_exec_dright, O_RDRIGHT},
+  {&my_exec_sleft, O_RLEFT},
+  {&my_exec_dleft, O_RDLEFT},
+  {&my_exec_word, WORD},
+  {NULL, NONE}
 };
 
 int		my_exec(t_btree *btree, char **env)
 {
-  static t_uint	tab[] = {O_PIPE, O_COMMA, O_AND, O_OR, \
-			 O_RRIGHT, O_RDRIGHT, O_RLEFT, O_RDLEFT, WORD, 0};
   t_uint	i;
 
   if (btree == NULL || btree->token == NULL)
     return (0);
   i = 0;
-  while (tab[i] != 0 && g_fct_exec[i] != NULL)
+  while (g_fct_exec[i].fct != NULL)
     {
-      if (tab[i] == btree->token->type)
-	return (g_fct_exec[i](btree, env));
+      if (g_fct_exec[i].type == btree->token->type)
+	return (g_fct_exec[i].fct(btree, env));
       i++;
     }
   return (my_put_error("you can't be here... 42sh>git blame\n"));
