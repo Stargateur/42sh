@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Sat May 17 03:04:21 2014 Antoine Plaskowski
+** Last update Sat May 17 03:29:35 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -22,12 +22,14 @@ int		my_execve(t_btree *btree, char **env)
 
   (void)env;
   if (btree == NULL)
-    return (1);
+    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
   if ((tab = my_token_word_to_tab(btree->token)) == NULL)
-    return (1);
+    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
+  if (tab[0] == NULL)
+    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
   execvp(tab[0], tab);
   my_putstr(tab[0], 1);
   my_putstr(": command not found\n", 1);
-  exit(EXIT_SUCCESS); /* AUTORISE SEULEMENT DANS FORK */
+  exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
   return (1);
 }
