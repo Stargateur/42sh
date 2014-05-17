@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Sat May 17 03:17:49 2014 Antoine Plaskowski
+** Last update Sat May 17 19:37:31 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -14,11 +14,26 @@
 # include	"my_btree.h"
 
 typedef	struct	s_fct_e	t_fct_e;
+typedef	struct	s_fct_r	t_fct_r;
+typedef	struct	s_fd	t_fd;
 
-struct          s_fct_e
+struct		s_fct_e
 {
   int		(*fct)(t_btree *btree, char **env);
   t_type	type;
+};
+
+struct		s_fct_r
+{
+  int		(*fct)(t_token *token, t_fd *fd);
+  t_type	type;
+};
+
+struct		s_fd
+{
+  int		fd_0;
+  int		fd_1;
+  int		fd_pipe[2];
 };
 
 int		my_exec(t_btree *, char **);
@@ -31,17 +46,15 @@ int		my_exec_or(t_btree *btree, char **env);
 
 int		my_exec_and(t_btree *btree, char **env);
 
-int		my_exec_sright(t_btree *, char **);
+int		my_redir_right(t_token *token, t_fd *fd);
 
-int		my_exec_dright(t_btree *, char **);
+int		my_redir_dright(t_token *token, t_fd *fd);
 
-int		my_exec_sleft(t_btree *, char **);
+int		my_redir_left(t_token *token, t_fd *fd);
 
-int		my_exec_dleft(t_btree *, char **);
+int		my_redir_dleft(t_token *token, t_fd *fd);
 
-int		my_exec_word(t_btree *btree, char **env);
-
-int		my_cmd(t_btree *, char **);
+int		my_exec_cmd(t_btree *btree, char **env);
 
 int		my_execve(t_btree *btree, char **env);
 

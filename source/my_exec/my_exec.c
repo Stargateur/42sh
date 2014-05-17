@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Sat May 17 03:22:43 2014 Antoine Plaskowski
+** Last update Sat May 17 19:27:24 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -18,18 +18,18 @@
 #include	"my_str.h"
 
 static t_fct_e	g_fct_exec[] =
-{
-  {&my_exec_pipe, O_PIPE},
-  {&my_exec_comma, O_COMMA},
-  {&my_exec_and, O_AND},
-  {&my_exec_or, O_OR},
-  {&my_exec_sright, O_RRIGHT},
-  {&my_exec_dright, O_RDRIGHT},
-  {&my_exec_sleft, O_RLEFT},
-  {&my_exec_dleft, O_RDLEFT},
-  {&my_exec_word, WORD},
-  {NULL, NONE}
-};
+  {
+    {&my_exec_pipe, O_PIPE},
+    {&my_exec_comma, O_COMMA},
+    {&my_exec_and, O_AND},
+    {&my_exec_or, O_OR},
+    {&my_exec_cmd, O_RRIGHT},
+    {&my_exec_cmd, O_RDRIGHT},
+    {&my_exec_cmd, O_RLEFT},
+    {&my_exec_cmd, O_RDLEFT},
+    {&my_exec_cmd, WORD},
+    {NULL, NONE}
+  };
 
 int		my_exec(t_btree *btree, char **env)
 {

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Thu May 15 22:55:38 2014 Antoine Plaskowski
+** Last update Sat May 17 19:20:43 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -40,10 +40,10 @@ typedef	enum	s_priority
     P_O_AND = 2,
     P_O_COMMA = 1,
     P_O_PIPE = 3,
-    P_O_RLEFT = 4,
-    P_O_RDLEFT = 4,
-    P_O_RRIGHT = 4,
-    P_O_RDRIGHT = 4,
+    P_O_RLEFT = 0,
+    P_O_RDLEFT = 0,
+    P_O_RRIGHT = 0,
+    P_O_RDRIGHT = 0,
     P_NONE = 0
   }		t_priority;
 
@@ -57,6 +57,8 @@ struct		s_token
 };
 
 t_token		*my_token(char *str);
+
+t_token		*my_found_token(t_token *token, t_type type);
 
 char		**my_token_word_to_tab(t_token *token);
 

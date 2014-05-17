@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:15:39 2014 Antoine Plaskowski
-** Last update Fri May 16 05:37:40 2014 Antoine Plaskowski
+** Last update Sat May 17 18:43:57 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -20,10 +20,6 @@ static t_fct_b	g_fct_btree[] =
     {&my_btree_normal, O_AND},
     {&my_btree_comma, O_COMMA},
     {&my_btree_normal, O_PIPE},
-    {&my_btree_redirection, O_RLEFT},
-    {&my_btree_redirection, O_RDLEFT},
-    {&my_btree_redirection, O_RRIGHT},
-    {&my_btree_redirection, O_RDRIGHT},
     {NULL, NONE}
   };
 

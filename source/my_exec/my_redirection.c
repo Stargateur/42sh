@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:12:19 2014 Pierrick Gicquelais
-** Last update Tue May 13 13:44:54 2014 Pierrick Gicquelais
+** Last update Sat May 17 19:48:11 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,33 +13,28 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static	int	(g_fct[5]) =
-{
-  O_RRIGHT,
-  O_RDRIGHT,
-  O_RLEFT,
-  O_RDLEFT,
-  0
-};
+static s_fct_r	g_fct_redir[] =
+  {
+    {my_redir_left, O_RLEFT},
+    {my_redir_dleft, O_RDLEFT},
+    {my_redir_right, O_RRIGHT},
+    {my_redir_dright, O_RDRIGHT},
+    {NULL, NONE}
+  };
 
-static	int	(*g_ptr[5])(char *) =
+int		my_redirection(t_token *token, t_fd *fd)
 {
-  &my_sright_redirection,
-  &my_dright_redirection,
-  &my_sleft_redirection,
-  &my_dright_redirection,
-  NULL
-};
-
-int		my_redirection(char *att, int type)
-{
+  t_token	*tmp;
   int		i;
 
-  i = 0;
-  while (g_fct[i] && g_fct[i] != type)
-    i++;
-  if (g_ptr[i] == NULL)
+  if (token == NULL || fd == NULL)
     return (1);
-  g_ptr[i](att);
+  i = 0;
+  while (g_fct_redir[i].fct != NULL)
+    {
+      if ((tmp = my_found_token(token, g_fct_redir[i].type)) != NULL)
+	g_fct_redir[i].fct(tmp->next, fd);
+      i++;
+    }
   return (0);
 }

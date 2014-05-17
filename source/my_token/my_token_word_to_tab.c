@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 18:43:59 2014 Antoine Plaskowski
-** Last update Tue May 13 18:55:24 2014 Antoine Plaskowski
+** Last update Sat May 17 18:55:10 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -17,10 +17,14 @@ static t_uint	my_len_token_word(t_token *token)
   t_uint	i;
 
   i = 1;
-  while (token != NULL && token->type == WORD)
+  while (token != NULL)
     {
-      i++;
-      token = token->next;
+      if (token->type == WORD)
+	i++;
+      else
+	token = token->next;
+      if (token != NULL)
+	token = token->next;
     }
   return (sizeof(char *) * i);
 }
@@ -33,11 +37,17 @@ char		**my_token_word_to_tab(t_token *token)
   if ((tab = my_malloc(my_len_token_word(token))) == NULL)
     return (NULL);
   i = 0;
-  while (token != NULL && token->type == WORD)
+  while (token != NULL)
     {
-      if ((tab[i++] = my_strdup(token->attribute)) == NULL)
-	return (NULL);
-      token = token->next;
+      if (token->type == WORD)
+	{
+	  if ((tab[i++] = my_strdup(token->attribute)) == NULL)
+	    return (NULL);
+	}
+      else
+	token = token->next;
+      if (token != NULL)
+	token = token->next;
     }
   tab[i] = NULL;
   return (tab);
