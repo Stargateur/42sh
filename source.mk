@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sat May 17 02:39:17 2014 Antoine Plaskowski
+## Last update Sat May 17 03:00:33 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -94,7 +94,6 @@ SRC		+=	$(PATH_STR)my_aff_str.c
 SRC		+=	$(PATH_STR)my_first_str.c
 SRC		+=	$(PATH_STR)my_last_str.c
 SRC		+=	$(PATH_STR)my_open.c
-SRC		+=	$(PATH_STR)my_fork.c
 SRC		+=	$(PATH_STR)my_get_next_line.c
 SRC		+=	$(PATH_STR)my_tab.c
 SRC		+=	$(PATH_STR)my_str_to_tab.c

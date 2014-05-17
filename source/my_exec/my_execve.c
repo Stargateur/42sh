@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Wed May 14 01:18:09 2014 Antoine Plaskowski
+** Last update Sat May 17 03:04:21 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -21,6 +21,8 @@ int		my_execve(t_btree *btree, char **env)
   char		**tab;
 
   (void)env;
+  if (btree == NULL)
+    return (1);
   if ((tab = my_token_word_to_tab(btree->token)) == NULL)
     return (1);
   execvp(tab[0], tab);

@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Sat May 17 02:40:37 2014 Antoine Plaskowski
+** Last update Sat May 17 02:55:35 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -75,8 +75,6 @@ int		my_open_rdonly(const char *str);
 int		my_open_wrap(const char *str);
 
 int		my_open_wrtr(const char *str);
-
-int		my_fork(void);
 
 int		my_check_overflow_int(const char *str);
 
