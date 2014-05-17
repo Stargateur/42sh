@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Thu May 15 14:47:27 2014 Antoine Plaskowski
+** Last update Sat May 17 20:02:02 2014 Antoine Plaskowski
 */
 
 #define		_BSD_SOURCE
@@ -32,9 +32,9 @@ static int	my_son(t_btree *btree, char **env, int fd_0, int fd_1)
   if (fd_1 != -1)
     {
       my_dup2(fd_1, 1);
-      return (my_execve(btree, env));
+      return (my_execve(btree, NULL, env));
     }
-  return (my_execve(btree, env));
+  return (my_execve(btree, NULL, env));
 }
 
 static int	my_exec_dup(t_btree *btree, char **env, int fd_0, int fd_1)

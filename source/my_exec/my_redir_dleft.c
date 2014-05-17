@@ -5,13 +5,14 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sat May 17 19:52:33 2014 Antoine Plaskowski
+** Last update Sat May 17 20:04:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
+#include	<unistd.h>
 #include        <signal.h>
+#include	"my_exec.h"
 #include	"my_str.h"
-#include	"my_redir.h"
 
 int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
 {
@@ -20,7 +21,7 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
 
   if ((token == my_found_token(token, O_RDLEFT)) || fd == NULL)
     return (1);
-  if ((token = token->next) == NULL || token->type != O_WORD)
+  if ((token = token->next) == NULL || token->type != WORD)
     return (1);
   if ((signal(SIGPIPE, SIG_IGN)) == SIG_ERR)
     my_putstr("can't set ignore sigpipe\n", 2);
@@ -37,7 +38,7 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
 
 int		my_redir_dleft(t_token *token, t_fd *fd)
 {
-  if (token == NULL || token->type != O_WORD || fd == NULL)
+  if (token == NULL || token->type != WORD || fd == NULL)
     return (1);
   if (fd->fd_pipe[0] != -1)
     close(fd->fd_pipe[0]);

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:12:19 2014 Pierrick Gicquelais
-** Last update Sat May 17 19:48:11 2014 Antoine Plaskowski
+** Last update Sat May 17 20:03:14 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,7 +13,7 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static s_fct_r	g_fct_redir[] =
+static t_fct_r	g_fct_redir[] =
   {
     {my_redir_left, O_RLEFT},
     {my_redir_dleft, O_RDLEFT},
