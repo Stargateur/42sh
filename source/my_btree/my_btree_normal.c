@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May 14 07:41:55 2014 Antoine Plaskowski
-** Last update Thu May 15 23:58:13 2014 Antoine Plaskowski
+** Last update Fri May 16 23:14:06 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,8 +31,8 @@ int		my_btree_normal(t_token *token, t_btree *btree)
   if (token->next != NULL)
     {
       token->next->prev = NULL;
-      if ((btree->right = my_btree(token->prev)) == NULL)
-	return (1);
+      if ((btree->right = my_btree(token->next)) == NULL)
+	ret = 1;
       token->next = NULL;
     }
   else

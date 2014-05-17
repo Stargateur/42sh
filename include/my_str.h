@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Wed May 14 01:03:43 2014 Antoine Plaskowski
+** Last update Sat May 17 00:49:45 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -107,7 +107,7 @@ void		my_free_str(t_str *str);
 
 void		my_free_all_str(t_str *str);
 
-int		my_aff_str(t_str *str);
+int		my_aff_str(t_str *str, const int fd);
 
 char		*my_nb_to_str(int nb);
 

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue Feb 25 19:06:12 2014 Antoine Plaskowski
-** Last update Tue May 13 18:03:26 2014 Antoine Plaskowski
+** Last update Sat May 17 01:37:40 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -59,13 +59,13 @@ void		my_free_str(t_str *str)
   free(str);
 }
 
-int		my_aff_str(t_str *str)
+int		my_aff_str(t_str *str, const int fd)
 {
   str = my_first_elem_str(str);
   while (str != NULL)
     {
-      my_putstr(str->str, 1);
-      my_putchar('\n', 1);
+      my_putstr(str->str, fd);
+      my_putchar('\n', fd);
       str = str->next;
     }
   return (0);

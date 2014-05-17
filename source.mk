@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Fri May 16 14:25:37 2014 Pierrick Gicquelais
+## Last update Sat May 17 00:42:02 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -30,11 +30,6 @@ SRC		+=	$(PATH_EXEC)my_exec_word.c
 SRC		+=	$(PATH_EXEC)my_cmd.c
 SRC		+=	$(PATH_EXEC)my_execve.c
 #SRC		+=	$(PATH_EXEC)my_redirection.c
-SRC		+=	$(PATH_EXEC)my_new_list.c
-SRC		+=	$(PATH_EXEC)my_node_list.c
-SRC		+=	$(PATH_EXEC)my_append_list.c
-SRC		+=	$(PATH_EXEC)my_aff_list.c
-SRC		+=	$(PATH_EXEC)my_free_list.c
 
 SRC		+=	$(PATH_ENV)my_env.c
 SRC		+=	$(PATH_ENV)my_new_env.c
