@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 18 05:39:20 2014 Antoine Plaskowski
+** Last update Sun May 18 05:44:28 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,8 +16,11 @@
 
 static int	my_son(t_btree *btree, char **env, t_fd *fd)
 {
-  close(fd->fd_redir[1]);
-  fd->fd_redir[1] = -1;
+  if (fd->fd_redir[1] != -1)
+    {
+      close(fd->fd_redir[1]);
+      fd->fd_redir[1] = -1;
+    }
   return (my_execve(btree, fd, env));
 }
 

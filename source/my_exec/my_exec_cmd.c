@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 18 05:40:09 2014 Antoine Plaskowski
+** Last update Sun May 18 05:43:25 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -18,7 +18,8 @@
 
 static int	my_son(t_btree *btree, t_fd *fd, char **env)
 {
-  close(fd->fd_redir[1]);
+  if (fd->fd_redir[1] != -1)
+    close(fd->fd_redir[1]);
   fd->fd_redir[1] = -1;
   return (my_execve(btree, fd, env));
 }
