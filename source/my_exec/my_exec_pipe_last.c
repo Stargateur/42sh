@@ -1,11 +1,11 @@
 /*
-** my_exec_cmd.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
+** my_exec_pipe_last.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_exec
 ** 
 ** Made by Pierrick Gicquelais
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 18 05:40:09 2014 Antoine Plaskowski
+** Last update Sun May 18 05:42:23 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -34,18 +34,16 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid)
   return (WEXITSTATUS(ret));
 }
 
-int		my_exec_cmd(t_btree *btree, char **env)
+int		my_exec_pipe_last(t_btree *btree, t_fd *fd, char **env)
 {
-  t_fd		fd;
   int		pid;
 
-  if (btree == NULL || btree->token == NULL)
+  if (btree == NULL || fd == NULL)
     return (1);
-  my_init_fd(&fd);
-  my_redirection(btree->token, &fd);
+  my_redirection(btree->token, fd);
   if ((pid = fork()) == 0)
-    return (my_son(btree, &fd, env));
+    return (my_son(btree, fd, env));
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
-  return (my_father(btree, &fd, pid));
+  return (my_father(btree, fd, pid));
 }

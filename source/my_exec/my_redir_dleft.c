@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sat May 17 20:21:29 2014 Antoine Plaskowski
+** Last update Sun May 18 04:43:37 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -29,7 +29,7 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
   while ((tmp = my_get_next_line(0)) && my_strcmp(tmp, token->attribute))
     str = my_append_str(str, tmp);
   free(tmp);
-  my_aff_all_str(str, fd->fd_pipe[1]);
+  my_aff_all_str(str, fd->fd_redir[1]);
   my_free_all_str(str);
   if ((signal(SIGPIPE, SIG_DFL)) == SIG_ERR)
     my_putstr("can't set default sigpipe\n", 2);
@@ -40,11 +40,11 @@ int		my_redir_dleft(t_token *token, t_fd *fd)
 {
   if (token == NULL || token->type != WORD || fd == NULL)
     return (1);
-  if (fd->fd_pipe[0] != -1)
-    close(fd->fd_pipe[0]);
-  if (fd->fd_pipe[1] != -1)
-    close(fd->fd_pipe[1]);
-  if (my_pipe(fd->fd_pipe))
+  if (fd->fd_redir[0] != -1)
+    close(fd->fd_redir[0]);
+  if (fd->fd_redir[1] != -1)
+    close(fd->fd_redir[1]);
+  if (my_pipe(fd->fd_redir))
     return (1);
   return (0);
 }
