@@ -5,16 +5,12 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Sat May 17 19:27:24 2014 Antoine Plaskowski
+** Last update Sun May 18 23:02:35 2014 Antoine Plaskowski
 */
 
-#include	<sys/types.h>
-#include	<sys/wait.h>
-#include	<signal.h>
 #include	<stdlib.h>
-#include	<unistd.h>
+#include	"my_shell.h"
 #include	"my_exec.h"
-#include	"my_btree.h"
 #include	"my_str.h"
 
 static t_fct_e	g_fct_exec[] =
@@ -31,7 +27,7 @@ static t_fct_e	g_fct_exec[] =
     {NULL, NONE}
   };
 
-int		my_exec(t_btree *btree, char **env)
+int		my_exec(t_btree *btree, t_shell *shell)
 {
   t_uint	i;
 
@@ -41,7 +37,7 @@ int		my_exec(t_btree *btree, char **env)
   while (g_fct_exec[i].fct != NULL)
     {
       if (g_fct_exec[i].type == btree->token->type)
-	return (g_fct_exec[i].fct(btree, env));
+	return (g_fct_exec[i].fct(btree, shell));
       i++;
     }
   return (my_put_error("you can't be here... 42sh>git blame\n"));

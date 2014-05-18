@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 18 05:43:25 2014 Antoine Plaskowski
+** Last update Sun May 18 23:02:09 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -16,12 +16,12 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, t_fd *fd, char **env)
+static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   if (fd->fd_redir[1] != -1)
     close(fd->fd_redir[1]);
   fd->fd_redir[1] = -1;
-  return (my_execve(btree, fd, env));
+  return (my_execve(btree, fd, shell));
 }
 
 static int	my_father(t_btree *btree, t_fd *fd, int pid)
@@ -35,7 +35,7 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid)
   return (WEXITSTATUS(ret));
 }
 
-int		my_exec_cmd(t_btree *btree, char **env)
+int		my_exec_cmd(t_btree *btree, t_shell *shell)
 {
   t_fd		fd;
   int		pid;
@@ -45,7 +45,7 @@ int		my_exec_cmd(t_btree *btree, char **env)
   my_init_fd(&fd);
   my_redirection(btree->token, &fd);
   if ((pid = fork()) == 0)
-    return (my_son(btree, &fd, env));
+    return (my_son(btree, &fd, shell));
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
   return (my_father(btree, &fd, pid));

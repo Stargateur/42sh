@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 18 22:32:28 2014 Antoine Plaskowski
+** Last update Sun May 18 23:02:54 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -47,7 +47,7 @@ int		main(int argc, char **argv, char **env)
     {
       if ((btree = my_shining_force(str)) != NULL)
 	{
-	  my_exec(btree, env);
+	  my_exec(btree, &shell);
 	  my_free_all_btree(btree);
 	}
       free(str);

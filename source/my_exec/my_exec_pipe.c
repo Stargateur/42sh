@@ -5,23 +5,23 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 18 05:44:28 2014 Antoine Plaskowski
+** Last update Sun May 18 23:01:29 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	<unistd.h>
-#include        <sys/wait.h>
+#include	"my_shell.h"
 #include	"my_exec.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, char **env, t_fd *fd)
+static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
 {
   if (fd->fd_redir[1] != -1)
     {
       close(fd->fd_redir[1]);
       fd->fd_redir[1] = -1;
     }
-  return (my_execve(btree, fd, env));
+  return (my_execve(btree, fd, shell));
 }
 
 static int      my_father(t_btree *btree, t_fd *fd)
@@ -38,7 +38,7 @@ static int      my_father(t_btree *btree, t_fd *fd)
   return (0);
 }
 
-static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, char **env)
+static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   int		pid;
   int		fd_pipe[2];
@@ -50,7 +50,7 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, char **env)
   fd->fd_pipe[1] = fd_pipe[1];
   my_redirection(btree->token, fd);
   if ((pid = fork()) == 0)
-    return (my_son(btree, env, fd));
+    return (my_son(btree, shell, fd));
   else if (pid == -1)
     return (my_put_error("can't fork ...\n"));
   close(fd->fd_pipe[0]);
@@ -58,26 +58,26 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, char **env)
   return (my_father(btree, fd));
 }
 
-static int	my_recur_pipe(t_btree *btree, t_fd *fd, char **env)
+static int	my_recur_pipe(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   if (btree == NULL || fd == NULL)
     return (1);
   if (btree->token->type == O_PIPE)
     {
-      if (my_exec_pipe_fork(btree->left, fd, env))
+      if (my_exec_pipe_fork(btree->left, fd, shell))
 	return (1);
-      return (my_recur_pipe(btree->right, fd, env));
+      return (my_recur_pipe(btree->right, fd, shell));
     }
-  return (my_exec_pipe_last(btree, fd, env));
+  return (my_exec_pipe_last(btree, fd, shell));
 }
 
-int		my_exec_pipe(t_btree *btree, char **env)
+int		my_exec_pipe(t_btree *btree, t_shell *shell)
 {
   t_fd		fd;
 
   if (btree == NULL || btree->token == NULL || btree->token->type != O_PIPE)
     return (1);
   my_init_fd(&fd);
-  my_exec_pipe_first(btree->left, &fd, env);
-  return (my_recur_pipe(btree->right, &fd, env));
+  my_exec_pipe_first(btree->left, &fd, shell);
+  return (my_recur_pipe(btree->right, &fd, shell));
 }
