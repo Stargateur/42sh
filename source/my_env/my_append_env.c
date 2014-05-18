@@ -5,13 +5,13 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:16:21 2014 Pierrick Gicquelais
-** Last update Tue May 13 20:22:06 2014 Antoine Plaskowski
+** Last update Sun May 18 22:24:45 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_env.h"
 
-t_env		*my_append_env(t_env *old, char *name)
+t_env		*my_append_env(t_env *old, char *name, char *value)
 {
   t_env		*new;
 
@@ -20,6 +20,7 @@ t_env		*my_append_env(t_env *old, char *name)
   if ((old = my_last_env(old)) != NULL)
     old->next = new;
   new->name = name;
+  new->value = value;
   new->prev = old;
   return (new);
 }

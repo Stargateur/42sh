@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Fri May 16 00:14:40 2014 Antoine Plaskowski
+** Last update Sun May 18 22:35:54 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -30,7 +30,7 @@ static t_token	*my_check_char(char *str, int *i)
     (*i)++;
   if ((j = my_char_in_str(str[*i], TOKEN)) != -1)
     return (g_fct_token[j](str, i));
-  if (str[*i] != '\0')
+  else if (str[*i] != '\0')
     return (my_word_token(str, i));
   return (NULL);
 }
@@ -51,7 +51,7 @@ t_token		*my_token(char *str)
   if (str[i] != '\0')
     {
       my_free_all_token(token);
-      return (NULL);
+      return (my_put_error_null("syntax error\n"));
     }
   return (my_first_token(token));
 }

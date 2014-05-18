@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:11:23 2014 Pierrick Gicquelais
-** Last update Mon May 12 10:12:48 2014 Pierrick Gicquelais
+** Last update Sun May 18 22:24:23 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -21,5 +21,6 @@ t_env		*my_new_env(void)
   env->prev = NULL;
   env->next = NULL;
   env->name = NULL;
+  env->value = NULL;
   return (env);
 }

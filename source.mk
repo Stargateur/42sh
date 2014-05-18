@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sun May 18 05:31:19 2014 Antoine Plaskowski
+## Last update Sun May 18 22:42:08 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -14,8 +14,11 @@ PATH_TOKEN	=	$(PATH_SRC)my_token/
 PATH_BTREE	=	$(PATH_SRC)my_btree/
 PATH_ENV	=	$(PATH_SRC)my_env/
 PATH_EXEC	=	$(PATH_SRC)my_exec/
+PATH_SHELL	=	$(PATH_SRC)my_shell/
 
 SRC		=	$(PATH_SRC)main.c
+
+SRC		+=	$(PATH_SHELL)my_shell.c
 
 SRC		+=	$(PATH_EXEC)my_exec.c
 SRC		+=	$(PATH_EXEC)my_exec_pipe.c
@@ -42,6 +45,8 @@ SRC		+=	$(PATH_ENV)my_last_env.c
 SRC		+=	$(PATH_ENV)my_append_env.c
 SRC		+=	$(PATH_ENV)my_aff_env.c
 SRC		+=	$(PATH_ENV)my_free_env.c
+SRC		+=	$(PATH_ENV)my_len_env.c
+SRC		+=	$(PATH_ENV)my_env_to_tab.c
 
 SRC		+=	$(PATH_BTREE)my_btree.c
 SRC		+=	$(PATH_BTREE)my_new_btree.c

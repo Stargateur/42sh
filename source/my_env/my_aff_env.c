@@ -5,23 +5,26 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:27:01 2014 Pierrick Gicquelais
-** Last update Mon May 12 10:35:34 2014 Pierrick Gicquelais
+** Last update Sun May 18 22:43:35 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_env.h"
 #include	"my_str.h"
 
-void		my_aff_env(t_env *env, const int fd)
+int		my_aff_env(t_env *env, const int fd)
 {
   if (env != NULL)
     {
       my_putstr(env->name, fd);
+      my_putchar('=', fd);
+      my_putstr(env->value, fd);
       my_putchar('\n', fd);
     }
+  return (0);
 }
 
-void		my_aff_all_env(t_env *env, const int fd)
+int		my_aff_all_env(t_env *env, const int fd)
 {
   env = my_first_env(env);
   while (env != NULL)
@@ -29,4 +32,5 @@ void		my_aff_all_env(t_env *env, const int fd)
       my_aff_env(env, fd);
       env = env->next;
     }
+  return (0);
 }
