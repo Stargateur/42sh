@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Sat May 17 02:55:35 2014 Antoine Plaskowski
+** Last update Sun May 18 05:47:43 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_STR_H_
@@ -112,7 +112,6 @@ void		my_free_all_str(t_str *str);
 int		my_aff_str(t_str *str, const int fd);
 
 int		my_aff_all_str(t_str *str, const int fd);
-
 
 /*
 **		my_put_error.c
