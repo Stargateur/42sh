@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 18 23:02:54 2014 Antoine Plaskowski
+** Last update Mon May 19 03:21:59 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,6 +31,11 @@ static t_btree	*my_shining_force(char *str)
     return (NULL);
   if ((btree = my_btree(token)) == NULL)
     return (my_put_error_null("gramaire error\n"));
+  if (my_check_btree(btree))
+    {
+      my_free_all_btree(btree);
+      return (my_put_error_null("message will come\n"));
+    }
   return (btree);
 }
 
@@ -43,7 +48,7 @@ int		main(int argc, char **argv, char **env)
   (void)argc;
   (void)argv;
   my_shell(&shell, env);
-  while ((str = my_promt()) != NULL)
+  while (shell.exit == 0 && (str = my_promt()) != NULL)
     {
       if ((btree = my_shining_force(str)) != NULL)
 	{
@@ -52,5 +57,6 @@ int		main(int argc, char **argv, char **env)
 	}
       free(str);
     }
-  return (0);
+  my_putstr("exit\n", 1);
+  return (shell.exit_value);
 }

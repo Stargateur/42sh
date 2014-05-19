@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 18 23:02:09 2014 Antoine Plaskowski
+** Last update Mon May 19 03:13:20 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -39,11 +39,14 @@ int		my_exec_cmd(t_btree *btree, t_shell *shell)
 {
   t_fd		fd;
   int		pid;
+  int		builtin;
 
   if (btree == NULL || btree->token == NULL)
     return (1);
   my_init_fd(&fd);
   my_redirection(btree->token, &fd);
+  if ((builtin = my_check_builtin(btree->token)) != -1)
+    return (my_builtin(shell, btree->token, &fd));
   if ((pid = fork()) == 0)
     return (my_son(btree, &fd, shell));
   else if (pid == -1)

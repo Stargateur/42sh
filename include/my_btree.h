@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 20:11:57 2014 Antoine Plaskowski
-** Last update Sat May 17 20:26:07 2014 Antoine Plaskowski
+** Last update Mon May 19 02:25:34 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_BTREE_H_
@@ -46,5 +46,11 @@ void		my_free_all_btree(t_btree *btree);
 int		my_btree_normal(t_token *token, t_btree *btree);
 
 int		my_btree_comma(t_token *token, t_btree *btree);
+
+int		my_check_btree(t_btree *btree);
+
+int		my_check_cmd_btree(t_token *token);
+
+int		my_check_pipe_btree(t_btree *btree);
 
 #endif		/* !MY_BTREE_H_ */

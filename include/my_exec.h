@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Sun May 18 23:01:42 2014 Antoine Plaskowski
+** Last update Mon May 19 03:06:08 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -16,7 +16,6 @@
 
 typedef	struct	s_fct_e	t_fct_e;
 typedef	struct	s_fct_r	t_fct_r;
-typedef	struct	s_fd	t_fd;
 
 struct		s_fct_e
 {
@@ -28,14 +27,6 @@ struct		s_fct_r
 {
   int		(*fct)(t_token *token, t_fd *fd);
   t_type	type;
-};
-
-struct		s_fd
-{
-  int		fd_0;
-  int		fd_1;
-  int		fd_pipe[2];
-  int		fd_redir[2];
 };
 
 int		my_exec(t_btree *btree, t_shell *shell);

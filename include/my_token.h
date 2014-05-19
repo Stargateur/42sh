@@ -5,31 +5,33 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Sat May 17 19:20:43 2014 Antoine Plaskowski
+** Last update Mon May 19 02:41:11 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
 # define	MY_TOKEN_H_
 
-# define	TOKEN		"|&;<>"
+# define	TYPE	"|&;<>"
 
-# define	SEPARATOR	" \t\n"
+# define	CMD	(WORD | O_RLEFT | O_RDLEFT | O_RRIGHT | O_RDRIGHT)
 
-#include	"my_typedef.h"
+# define	SEP	" \t\n"
+
+# include	"my_typedef.h"
 
 typedef	struct	s_token	t_token;
 
 typedef	enum	s_type
   {
     WORD = 1,
-    O_OR = 2,
-    O_AND = 3,
-    O_COMMA = 4,
-    O_PIPE = 5,
-    O_RLEFT = 6,
-    O_RDLEFT = 7,
-    O_RRIGHT = 8,
-    O_RDRIGHT = 9,
+    O_OR = WORD * 2,
+    O_AND = O_OR * 2,
+    O_COMMA = O_AND * 2,
+    O_PIPE = O_COMMA * 2,
+    O_RLEFT = O_PIPE * 2,
+    O_RDLEFT = O_RLEFT * 2,
+    O_RRIGHT = O_RDLEFT * 2,
+    O_RDRIGHT = O_RRIGHT * 2,
     NONE = 0
   }		t_type;
 

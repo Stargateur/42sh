@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Sun May 18 22:35:54 2014 Antoine Plaskowski
+** Last update Sun May 18 23:18:16 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -26,9 +26,9 @@ static t_token	*my_check_char(char *str, int *i)
 {
   int		j;
 
-  while (my_char_in_str(str[*i], SEPARATOR) != -1)
+  while (my_char_in_str(str[*i], SEP) != -1)
     (*i)++;
-  if ((j = my_char_in_str(str[*i], TOKEN)) != -1)
+  if ((j = my_char_in_str(str[*i], TYPE)) != -1)
     return (g_fct_token[j](str, i));
   else if (str[*i] != '\0')
     return (my_word_token(str, i));
