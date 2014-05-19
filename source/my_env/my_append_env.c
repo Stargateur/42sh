@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:16:21 2014 Pierrick Gicquelais
-** Last update Sun May 18 22:24:45 2014 Antoine Plaskowski
+** Last update Mon May 19 14:09:37 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -22,5 +22,6 @@ t_env		*my_append_env(t_env *old, char *name, char *value)
   new->name = name;
   new->value = value;
   new->prev = old;
+  new->next = NULL;
   return (new);
 }
