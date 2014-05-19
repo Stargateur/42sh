@@ -15,7 +15,6 @@ NAME		=	my_conf
 
 SRCS		=	my_conf.c \
 			get_next_line.c \
-			my_strcmp_maj.c \
 			my_str.c
 
 OBJS		=	$(SRCS:.c=.o)

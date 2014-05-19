@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 12:05:23 2014 Nayden Makusa
-** Last update Fri May 16 16:44:35 2014 Nayden Makusa
+** Last update Mon May 19 09:56:42 2014 Nayden Makusa
 */
 
 #include	<sys/types.h>
@@ -44,16 +44,36 @@ int		my_check_empty_string(char *av)
   return (0);
 }
 
+char		*my_prompt(int count_prompt, char *str)
+{
+  if (str == NULL)
+    return (NULL);
+  my_putstr(str);
+  return (str);
+}
+
 int		my_conf(char *av)
 {
   int		fd;
+  int		count_prompt;
   char		*str;
 
   fd = open(av, O_RDONLY);
+  count_prompt = 0;
   while ((str = get_next_line(fd)) != NULL)
     {
-      my_putchar('.');
-      my_putstr(str);
+      if (count_prompt == 1)
+	{
+	  my_prompt(count_prompt, str);
+	  count_prompt = 2;
+	}
+      if (my_strcmp_maj(str, "prompt") == 0)
+	count_prompt = 1;
+    }
+  if (count_prompt == 1 || count_prompt == 0)
+    {
+      my_putstr("Error: problem with the prompt.\n");
+      exit(1);
     }
   close(fd);
   my_putchar('\n');
