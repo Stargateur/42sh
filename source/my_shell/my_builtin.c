@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:50:18 2014 Antoine Plaskowski
-** Last update Mon May 19 03:20:24 2014 Antoine Plaskowski
+** Last update Mon May 19 03:47:02 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -50,5 +50,6 @@ int		my_builtin(t_shell *shell, t_token *token, t_fd *fd)
     return (1);
   ret = g_builtin[i].fct(shell, fd, tab);
   my_free_tab(tab);
+  my_close_fd(fd);
   return (ret);
 }
