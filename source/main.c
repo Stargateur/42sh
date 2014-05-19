@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Mon May 19 03:21:59 2014 Antoine Plaskowski
+** Last update Mon May 19 03:55:46 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -57,6 +57,7 @@ int		main(int argc, char **argv, char **env)
 	}
       free(str);
     }
+  my_free_all_env(shell.env);
   my_putstr("exit\n", 1);
   return (shell.exit_value);
 }
