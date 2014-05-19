@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 18 22:58:42 2014 Antoine Plaskowski
+** Last update Mon May 19 03:30:25 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -40,11 +40,14 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid)
 
 int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
 {
+  int		builtin;
   int		pid;
 
   if (btree == NULL || fd == NULL)
     return (1);
   my_redirection(btree->token, fd);
+  if ((builtin = my_check_builtin(btree->token)) != -1)
+    return (my_builtin(shell, btree->token, fd));
   if ((pid = fork()) == 0)
     return (my_son(btree, fd, shell));
   else if (pid == -1)

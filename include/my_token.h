@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Mon May 19 02:41:11 2014 Antoine Plaskowski
+** Last update Mon May 19 03:32:47 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -38,10 +38,10 @@ typedef	enum	s_type
 typedef	enum	s_priority
   {
     P_WORD = 0,
-    P_O_OR = 2,
+    P_O_OR = 3,
     P_O_AND = 2,
     P_O_COMMA = 1,
-    P_O_PIPE = 3,
+    P_O_PIPE = 4,
     P_O_RLEFT = 0,
     P_O_RDLEFT = 0,
     P_O_RRIGHT = 0,

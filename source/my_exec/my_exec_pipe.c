@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 18 23:01:29 2014 Antoine Plaskowski
+** Last update Mon May 19 03:30:37 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,11 +16,15 @@
 
 static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
 {
+  int		builtin;
+
   if (fd->fd_redir[1] != -1)
     {
       close(fd->fd_redir[1]);
       fd->fd_redir[1] = -1;
     }
+  if ((builtin = my_check_builtin(btree->token)) != -1)
+    return (my_builtin(shell, btree->token, fd));
   return (my_execve(btree, fd, shell));
 }
 
@@ -40,8 +44,8 @@ static int      my_father(t_btree *btree, t_fd *fd)
 
 static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
 {
-  int		pid;
   int		fd_pipe[2];
+  int		pid;
 
   if (btree == NULL || fd == NULL)
     return (1);
