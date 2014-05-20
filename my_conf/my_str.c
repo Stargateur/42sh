@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 15:54:37 2014 Nayden Makusa
-** Last update Mon May 19 10:02:53 2014 Nayden Makusa
+** Last update Mon May 19 15:20:40 2014 Nayden Makusa
 */
 
 #include	<unistd.h>
@@ -38,5 +38,22 @@ int		my_strcmp_maj(char *s1, char *s2)
 	return (1);
       a++;
     }
+  return (0);
+}
+
+int		my_check_equal(char *str)
+{
+  int		i;
+  int		equal_nbr;
+
+  i = -1;
+  equal_nbr = 0;
+  while (str[++a] != '\0')
+    {
+      if (str[a] == '=')
+	equal_nbr++;
+    }
+  if (equal_nbr != 1)
+    return (1);
   return (0);
 }
