@@ -5,7 +5,7 @@
 ** Login   <marsil_g@epitech.net>
 ** 
 ** Started on  Thu Dec 19 22:08:23 2013 Gabriele Marsili
-** Last update Thu May 22 16:21:08 2014 Gabriele Marsili
+** Last update Thu May 22 20:05:46 2014 Gabriele Marsili
 */
 
 #ifndef		__INCLUDES_H__
@@ -30,7 +30,7 @@ typedef struct	s_echo
   int		start;
 }		t_echo;
 
-void	check_slash(char **, t_echo *);
+int	check_slash(char **, t_echo *);
 
 char	*get_next_line(const int);
 
