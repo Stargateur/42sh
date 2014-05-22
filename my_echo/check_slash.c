@@ -5,14 +5,14 @@
 ** Login   <marsil_g@epitech.net>
 ** 
 ** Started on  Mon May 19 10:24:28 2014 Gabriele Marsili
-** Last update Thu May 22 20:46:31 2014 Gabriele Marsili
+** Last update Thu May 22 21:30:52 2014 Gabriele Marsili
 */
 
 #include	<stdlib.h>
 #include	"includes.h"
 #include	"my_str.h"
 
-int		print_escape(int x)
+int		print_escape(int x, t_echo *opt)
 {
   if (x == 1)
     my_putchar('\a', 1);
@@ -25,7 +25,10 @@ int		print_escape(int x)
   else if (x == 4)
     my_putchar('\f', 1);
   else if (x == 5)
-    my_putchar('\n', 1);
+    {
+      if (opt->t_n == 0)
+	my_putchar('\n', 1);
+    }
   else if (x == 6)
     my_putchar('\r', 1);
   else if (x == 7)
@@ -35,7 +38,7 @@ int		print_escape(int x)
   return (1);
 }
 
-int		print_echo(char *tab)
+int		print_echo(char *tab, t_echo *opt)
 {
   char		*str;
   int		i;
@@ -49,13 +52,11 @@ int		print_echo(char *tab)
 	{
 	  x = my_char_in_str(tab[i++], str);
 	  if (x == -1)
-	    my_putchar(tab[i - 1], 1);
+	    my_putchar(tab[i -1], 1);
 	  else
-	    {
-	      if (print_escape(x) == FAIL)
-		return (FAIL);
-	      i--;
-	    }
+	    if (print_escape(x, opt) == FAIL)
+	      return (FAIL);
+	  i--;
 	}
       else
       	my_putchar(tab[i], 1);
@@ -70,8 +71,12 @@ int		check_slash(char **tab, t_echo *opt)
   k = opt->start - 1;
   while (tab[++k] != NULL)
     {
-      if (print_echo(tab[k]) == FAIL)
-	return (FAIL);
+      if (print_echo(tab[k], opt) == FAIL)
+	{
+	  if (opt->t_n == 0)
+	    my_putchar('\n', 1);
+	  return (FAIL);
+	}
       my_putchar(' ', 1);
     }
   if (opt->t_n == 0)
