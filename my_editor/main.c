@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 20 17:10:41 2014 Pierrick Gicquelais
-** Last update Wed May 21 08:22:25 2014 Pierrick Gicquelais
+** Last update Wed May 21 16:39:30 2014 Pierrick Gicquelais
 */
 
 #include		<stdlib.h>
@@ -15,44 +15,36 @@
 t_edit			*get_char(t_edit *editor)
 {
   char			buf[4];
-  int			cmp;
 
-  cmp = 8;
   while (read(0, buf, 3) > 0)
     {
       if (!is_printable(buf[0]))
-	{
-	  editor = my_append_char(editor, buf[0]);
-	  my_putchar(buf[0]);
-	}
+      	{
+      	  tputs(tgetstr("me", NULL), 1, my_putchar);
+      	  editor = my_append_char(editor, buf[0]);
+      	  my_putchar(buf[0]);
+      	}
       if (!is_enter(buf[0]))
-	return (editor);
+      	return (editor);
       else if (!is_delete(buf[0]))
-	tputs(tgetstr("dc", NULL), 1, my_putchar);
+      	tputs(tgetstr("dc", NULL), 1, my_putchar);
       else if (!is_left(buf))
-	{
-	  if (editor->prev)
+      	{
+      	  if (editor && editor->prev)
 	    {
-	      cmp--;
+	      my_putchar('\b');
+	      //	      tputs(tgetstr("LE", NULL), 1, my_putchar);
 	      editor = editor->prev;
-	      tputs(tgoto(tgetstr("cm", NULL), cmp, 1), 1, my_putchar);
 	    }
-	}
+      	}
       else if (!is_right(buf))
-	{
-	  if (editor->next)
+      	{
+      	  if (editor && editor->next)
 	    {
-	      cmp++;
+	      tputs(tgetstr("nd", NULL), 1, my_putchar);
 	      editor = editor->next;
-	      tputs(tgoto(tgetstr("cm", NULL), cmp, 1), 1, my_putchar);
 	    }
-	}
-      else if (buf[0] == 11)
-	tputs(tgetstr("ce", NULL), 1, my_putchar);
-      else if (buf[0] == 21)
-	tputs(tgetstr("cb", NULL), 1, my_putchar);
-      else
-	cmp++;
+      	}
     }
   return (NULL);
 }

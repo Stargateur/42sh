@@ -5,18 +5,22 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:50:18 2014 Antoine Plaskowski
-** Last update Mon May 19 03:53:19 2014 Antoine Plaskowski
+** Last update Thu May 22 16:41:52 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
 #include	"my_token.h"
 #include	"my_shell.h"
 #include	"my_exec.h"
+#include	"my_env.h"
 #include	"my_str.h"
 
 static t_fbuil	g_builtin[] =
   {
     {&my_exit, "exit"},
+    {&my_env, "env"},
+    {&my_setenv, "setenv"},
+    {&my_unsetenv, "unsetenv"},
     {NULL, NULL}
   };
 
@@ -31,7 +35,7 @@ int		my_check_builtin(t_token *token)
     return (-1);
   i = 0;
   while (g_builtin[i].fct != NULL)
-    {    
+    {
       if (my_strcmp(g_builtin[i].name, token->attribute) == 0)
 	return (i);
       i++;

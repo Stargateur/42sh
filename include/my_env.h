@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:18:01 2014 Pierrick Gicquelais
-** Last update Sun May 18 22:43:13 2014 Antoine Plaskowski
+** Last update Thu May 22 16:34:18 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_ENV_H_
@@ -23,11 +23,14 @@ struct		s_env
   char		*value;
 };
 
-t_env		*my_env(char **env_tab);
 t_env		*my_new_env(void);
 t_env		*my_first_env(t_env *env);
 t_env		*my_last_env(t_env *env);
+t_env		*my_copy_env(char **env_tab);
 t_env		*my_append_env(t_env *env, char *name, char *value);
+t_env		*my_add_env(t_env *env, char *name, char *value);
+t_env		*my_found_env(t_env *env, char *name);
+t_env		*my_sup_env(t_env *, char *);
 int		my_aff_all_env(t_env *env, const int fd);
 int		my_aff_env(t_env *env, const int fd);
 void		my_free_env(t_env *env);

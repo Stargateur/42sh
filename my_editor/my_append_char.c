@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 20 17:05:33 2014 Pierrick Gicquelais
-** Last update Tue May 20 17:07:49 2014 Pierrick Gicquelais
+** Last update Wed May 21 16:41:46 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -19,7 +19,7 @@ t_edit		*my_append_char(t_edit *old, char c)
     return (NULL);
   if ((old = my_last_char(old)) != NULL)
     old->next = new;
-  new->c = c;
+    new->c = c;
   new->prev = old;
   new->next = NULL;
   return (new);

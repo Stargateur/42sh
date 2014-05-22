@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:13:17 2014 Antoine Plaskowski
-** Last update Sun May 18 22:15:53 2014 Antoine Plaskowski
+** Last update Thu May 22 14:35:32 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -15,7 +15,7 @@ int		my_shell(t_shell *shell, char **env)
 {
   if (shell == NULL)
     return (1);
-  shell->env = my_env(env);
+  shell->env = my_copy_env(env);
   shell->exit = 0;
   shell->exit_value = 0;
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Mon May 19 03:11:29 2014 Antoine Plaskowski
+** Last update Thu May 22 16:34:50 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_SHELL_H_
@@ -42,6 +42,12 @@ struct		s_fbuil
 int		my_shell(t_shell *shell, char **env_tab);
 
 int		my_exit(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_env(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_setenv(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_unsetenv(t_shell *shell, t_fd *fd, char **argv);
 
 int		my_check_builtin(t_token *token);
 

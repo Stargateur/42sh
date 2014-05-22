@@ -4,42 +4,53 @@
 ** Made by Pierrick Gicquelais
 ** Login   <gicque_p@epitech.net>
 ** 
-** Started on  Mon May 12 10:23:43 2014 Pierrick Gicquelais
-** Last update Sun May 18 22:31:14 2014 Antoine Plaskowski
+** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
+** Last update Thu May 22 16:40:44 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
+#include	"my_shell.h"
 #include	"my_env.h"
 #include	"my_str.h"
 
-static char	*my_name(char *env)
+static int	check_option(t_shell *shell, char **argv, int *i)
 {
-  t_uint	i;
-
-  i = 0;
-  while (env[i] != '=' && env[i] != '\0')
-    i++;
-  return (my_strndup(env, i));
+  if (argv[*i] && my_strcmp(argv[*i], "-i") == 0)
+    my_putstr("Env -i !\n", 1);
+  else if (argv[*i] && my_strcmp(argv[*i], "-u") == 0)
+    {
+      if (!argv[*i + 1])
+	{
+	  my_putstr("env: option requires an argument -- 'u'\n", 1);
+	  return (1);
+	}
+      (*i)++;
+      shell->env = my_sup_env(shell->env, argv[*i]);
+    }
+  else
+    {
+      my_putstr("env: invalid option -- ", 1);
+      my_putstr(argv[*i], 1);
+      my_putchar('\n', 1);
+      return (1);
+    }
+  (*i)++;
+  return (0);
 }
 
-static char	*my_value(char *env)
+int		my_env(t_shell *shell, t_fd *fd, char **argv)
 {
-  while (*env != '=' && *env != '\0')
-    env++;
-  return (my_strdup(env));
-}
+  int		len;
+  int		i;
 
-t_env		*my_env(char **env_tab)
-{
-  t_env		*env;
-
-  env = NULL;
-  if (env_tab != NULL)
-    while (*env_tab != NULL)
-      {
-	if ((env = my_append_env(env, my_name(*env_tab), my_value(*env_tab))) == NULL)
-	  return (NULL);
-	env_tab++;
-      }
-  return (my_first_env(env));
+  (void)fd;
+  i = 1;
+  len = my_len_tab(argv);
+  if (len == 1)
+    my_aff_all_env(shell->env, 1);
+  else
+    while (argv[i])
+      if (check_option(shell, argv, &i))
+	return (1);
+  return (0);
 }

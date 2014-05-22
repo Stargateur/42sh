@@ -5,21 +5,25 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 20 17:00:16 2014 Pierrick Gicquelais
-** Last update Wed May 21 08:03:12 2014 Pierrick Gicquelais
+** Last update Wed May 21 15:52:31 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_EDITOR_H_
 # define	MY_EDITOR_H_
 
 # include	<termios.h>
+# define	FALSE	(0)
+# define	TRUE	(1)
 
 typedef	struct	s_edit	t_edit;
+typedef		int	bool;
 
 struct		s_edit
 {
   t_edit	*prev;
   t_edit	*next;
   char		c;
+  bool		flag;
 };
 
 t_edit		*my_new_editor();

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 20 17:02:38 2014 Pierrick Gicquelais
-** Last update Tue May 20 17:03:49 2014 Pierrick Gicquelais
+** Last update Wed May 21 15:51:55 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -20,5 +20,6 @@ t_edit		*my_new_editor(void)
   editor->prev = NULL;
   editor->next = NULL;
   editor->c = 0;
+  editor->flag = TRUE;
   return (editor);
 }
