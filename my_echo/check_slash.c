@@ -5,7 +5,7 @@
 ** Login   <marsil_g@epitech.net>
 ** 
 ** Started on  Mon May 19 10:24:28 2014 Gabriele Marsili
-** Last update Thu May 22 20:21:46 2014 Gabriele Marsili
+** Last update Thu May 22 20:46:31 2014 Gabriele Marsili
 */
 
 #include	<stdlib.h>
@@ -49,7 +49,7 @@ int		print_echo(char *tab)
 	{
 	  x = my_char_in_str(tab[i++], str);
 	  if (x == -1)
-	    my_putchar(tab[++i], 1);
+	    my_putchar(tab[i - 1], 1);
 	  else
 	    {
 	      if (print_escape(x) == FAIL)
