@@ -5,7 +5,7 @@
 ** Login   <marsil_g@epitech.net>
 ** 
 ** Started on  Thu Dec 19 22:08:23 2013 Gabriele Marsili
-** Last update Sun May 18 23:39:28 2014 Gabriele Marsili
+** Last update Thu May 22 16:21:08 2014 Gabriele Marsili
 */
 
 #ifndef		__INCLUDES_H__
@@ -30,12 +30,11 @@ typedef struct	s_echo
   int		start;
 }		t_echo;
 
+void	check_slash(char **, t_echo *);
 
 char	*get_next_line(const int);
 
 void	get_opt(char *,  t_echo *);
-
-void	my_fputchar(int, char );
 
 void	my_echo();
 
@@ -43,25 +42,11 @@ int	my_get_flag(char *, t_echo *, int);
 
 int	my_check_echo(char **,  t_echo *);
 
-void	norm_echo(char **, t_echo *);
-
-char	*epur_str(char *);
+int	norm_echo(char **, t_echo *);
 
 void	my_err_mall(char *);
 
-char	**my_str_to_wordtab(char *);
-
-int	my_fputstr(int, char *);
-
-int	my_strlen(char *);
-
 int	my_put_nbr(int );
-
-char	*my_strcat(char *, char *);
-
-int	my_strcmp(char *, char *);
-
-int	my_getnbr(char *);
 
 void	my_free(char **);
 

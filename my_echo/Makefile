@@ -5,24 +5,27 @@
 ## Login   <marsil_g@epitech.net>
 ## 
 ## Started on  Thu Dec 19 22:08:53 2013 Gabriele Marsili
-## Last update Sun May 18 14:54:34 2014 Gabriele Marsili
+## Last update Thu May 22 16:12:59 2014 Gabriele Marsili
 ##
 
 SRC	=		lib/get_next_line.c 	\
-			lib/functions.c 	\
-			lib/func2.c 		\
+			../source/my_str/my_putchar.c\
+			../source/my_str/my_putstr.c\
+			../source/my_str/my_strcmp.c\
+			../source/my_str/my_epur_str.c\
+			../source/my_str/my_str_to_tab.c\
+			../source/my_str/my_char_in_str.c\
+			../source/my_str/my_malloc.c\
+			../source/my_str/my_strlen.c\
 			main.c			\
 			echo.c			\
 			norm_echo.c		\
-			lib/my_fputstr.c	\
-			lib/my_fputchar.c	\
-			lib/str_to_wordtab.c	\
 			check.c			\
-			my_free.c		\
+			check_slash.c		\
 
 CC	=		gcc
 
-CFLAGS	=		-Wall -W -g -Wextra -I .
+CFLAGS	=		-Wall -W -g -Wextra -I . -I ../include/
 
 NAME	=		echo
 

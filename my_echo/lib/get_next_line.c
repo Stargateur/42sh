@@ -5,7 +5,7 @@
 ** Login   <marsil_g@epitech.net>
 ** 
 ** Started on  Thu Dec 19 10:48:14 2013 Gabriele Marsili
-** Last update Fri May 16 14:25:42 2014 Gabriele Marsili
+** Last update Thu May 22 16:15:44 2014 Gabriele Marsili
 */
 
 #include	<unistd.h>
@@ -49,7 +49,7 @@ char		*get_next_line(const int fd)
   int		rd;
 
   if ((str = malloc(READ_MAX * sizeof(*str))) == NULL)
-    my_err_mall("get_next_line");
+    return (NULL);
   verif_buff(buffer, str, &i, &j);
   rd = 1;
   while (j < READ_MAX && buffer[i] != '\n' && rd)
