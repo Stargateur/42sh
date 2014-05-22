@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 15:54:37 2014 Nayden Makusa
-** Last update Mon May 19 15:20:40 2014 Nayden Makusa
+** Last update Tue May 20 14:48:51 2014 Nayden Makusa
 */
 
 #include	<unistd.h>
@@ -48,9 +48,9 @@ int		my_check_equal(char *str)
 
   i = -1;
   equal_nbr = 0;
-  while (str[++a] != '\0')
+  while (str[++i] != '\0')
     {
-      if (str[a] == '=')
+      if (str[i] == '=')
 	equal_nbr++;
     }
   if (equal_nbr != 1)

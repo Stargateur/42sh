@@ -1,3 +1,5 @@
-prompt
-alias
-ls=pp
+PROMPT
+42sh $>
+ALIAS
+ls=lol
+pwd=ww
