@@ -14,34 +14,36 @@
 #include	<dirent.h>
 #include	<unistd.h>
 #include	<stdio.h>
-/* #include	"my_shell.h" */
-/* #include	"my_str.h" */
+#include	"my_shell.h"
+#include	"my_str.h"
 
-/* int		my_cd(t_shell *shell, t_fd *fd, char **argv) */
-/* { */
-/*   return (0); */
-/* } */
-
-void		my_putchar(char c)
+int		my_cd(t_shell *shell, t_fd *fd, char **argv)
 {
-  write(1, &c, 1);
-}
+  char		*old;
+  char		*new;
 
-void		my_putstr(char *str)
-{
-  while (*str)
-    my_putchar(*str++);
-}
-
-int		main(int ac, char **argv)
-{
+  if (!(old = malloc(sizeof(char) * 2048)))
+    return (1);
+  if (!(new = malloc(sizeof(char) * 2048)))
+    return (1);
+  old = getcwd(old, 2048);
   if (argv[1] == NULL)
-    argv[1] = "/home/costa_b"; /* a la base ici c'est la variable Home de l'env */
+    argv[1] = "/home"; /* remplacer le dossier par le home */
+  else if ((my_strcmp(argv[1], "-")) == -1)
+    {
+      my_putstr("Wrong option for cd\n");
+      return (-1);
+    }
+  if (argv[1] == '-')
+    argv[1] = old;      
   if (chdir(argv[1]) == -1)
     {
       my_putstr("Wrong direction\n");
       return (-1);
     }
-  system("pwd");
+  new = getcwd(new, 2048);
+  /* printf("\033[31mje suis le old :%s\n", old); */
+  /* printf("\033[34mje suis le new :%s\n\033[0m", new); */
   return (0);
 }
+  
