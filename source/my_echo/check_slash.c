@@ -1,15 +1,16 @@
+
 /*
-** check_slash.c for check slash in /home/marsil_g/rendu/PSU_2013_42sh/my_echo
+** check_slash.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_echo
 ** 
-** Made by Gabriele Marsili
-** Login   <marsil_g@epitech.net>
+** Made by Pierrick Gicquelais
+** Login   <gicque_p@epitech.net>
 ** 
-** Started on  Mon May 19 10:24:28 2014 Gabriele Marsili
-** Last update Thu May 22 21:33:15 2014 Gabriele Marsili
+** Started on  Fri May 23 16:50:08 2014 Pierrick Gicquelais
+** Last update Fri May 23 17:34:52 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
-#include	"includes.h"
+#include	"my_echo.h"
 #include	"my_str.h"
 
 int		print_escape(int x, t_echo *opt)
@@ -21,7 +22,7 @@ int		print_escape(int x, t_echo *opt)
   else if (x == 2)
     return (FAIL);
   else if (x == 3)
-    my_putchar('\e', 1);
+    my_putchar(' ', 1);
   else if (x == 4)
     my_putchar('\f', 1);
   else if (x == 5)

@@ -1,15 +1,15 @@
 /*
-** norm_echo.c for echo norm in /home/marsil_g/Documents/PSU/42sh
+** norm_echo.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_echo
 ** 
-** Made by Gabriele Marsili
-** Login   <marsil_g@epitech.net>
+** Made by Pierrick Gicquelais
+** Login   <gicque_p@epitech.net>
 ** 
-** Started on  Fri May 16 14:52:12 2014 Gabriele Marsili
-** Last update Thu May 22 18:25:07 2014 Gabriele Marsili
+** Started on  Fri May 23 16:49:44 2014 Pierrick Gicquelais
+** Last update Fri May 23 16:51:38 2014 Pierrick Gicquelais
 */
 
 #include	<stdio.h>
-#include	"includes.h"
+#include	"my_echo.h"
 #include	"my_str.h"
 
 int		norm_echo(char **tab, t_echo *opt)

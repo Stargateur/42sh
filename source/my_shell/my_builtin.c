@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:50:18 2014 Antoine Plaskowski
-** Last update Thu May 22 16:41:52 2014 Pierrick Gicquelais
+** Last update Fri May 23 17:42:00 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -13,6 +13,7 @@
 #include	"my_shell.h"
 #include	"my_exec.h"
 #include	"my_env.h"
+#include	"my_echo.h"
 #include	"my_str.h"
 
 static t_fbuil	g_builtin[] =
@@ -21,6 +22,8 @@ static t_fbuil	g_builtin[] =
     {&my_env, "env"},
     {&my_setenv, "setenv"},
     {&my_unsetenv, "unsetenv"},
+    {&my_echo, "echo"},
+    {&my_cd, "cd"},
     {NULL, NULL}
   };
 

@@ -1,15 +1,16 @@
 /*
-** check.c for check in /home/marsil_g/Documents/PSU/42sh
+** check.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_echo
 ** 
-** Made by Gabriele Marsili
-** Login   <marsil_g@epitech.net>
+** Made by Pierrick Gicquelais
+** Login   <gicque_p@epitech.net>
 ** 
-** Started on  Sun May 18 13:37:27 2014 Gabriele Marsili
-** Last update Mon May 19 00:20:52 2014 Gabriele Marsili
+** Started on  Fri May 23 16:50:32 2014 Pierrick Gicquelais
+** Last update Fri May 23 16:51:11 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
-#include	"includes.h"
+#include	"my_echo.h"
+#include	"my_str.h"
 
 int		my_get_flag(char *str, t_echo *opt, int x)
 {

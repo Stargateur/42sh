@@ -1,17 +1,17 @@
 /*
-** my.h for my.h in /home/marsil_g/Documents/PSU/PSU-MS1/MS
+** my_echo.h for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/include
 ** 
-** Made by Gabriele Marsili
-** Login   <marsil_g@epitech.net>
+** Made by Pierrick Gicquelais
+** Login   <gicque_p@epitech.net>
 ** 
-** Started on  Thu Dec 19 22:08:23 2013 Gabriele Marsili
-** Last update Thu May 22 20:05:46 2014 Gabriele Marsili
+** Started on  Fri May 23 16:52:02 2014 Pierrick Gicquelais
+** Last update Fri May 23 17:29:52 2014 Pierrick Gicquelais
 */
 
-#ifndef		__INCLUDES_H__
-# define	__INCLUDES_H__
+#ifndef		MY_ECHO_H_
+# define	MY_ECHO_H_
 
-# include	<stdarg.h>
+# include	"my_shell.h"
 
 # define	OK		1
 # define	FAIL		-1
@@ -35,8 +35,6 @@ int	check_slash(char **, t_echo *);
 char	*get_next_line(const int);
 
 void	get_opt(char *,  t_echo *);
-
-void	my_echo();
 
 int	my_get_flag(char *, t_echo *, int);
 

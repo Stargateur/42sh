@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Fri May 23 10:40:31 2014 Pierrick Gicquelais
+## Last update Fri May 23 17:41:17 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -13,6 +13,7 @@ PATH_STR	=	$(PATH_SRC)my_str/
 PATH_TOKEN	=	$(PATH_SRC)my_token/
 PATH_BTREE	=	$(PATH_SRC)my_btree/
 PATH_ENV	=	$(PATH_SRC)my_env/
+PATH_ECHO	=	$(PATH_SRC)my_echo/
 PATH_EXEC	=	$(PATH_SRC)my_exec/
 PATH_SHELL	=	$(PATH_SRC)my_shell/
 
@@ -20,6 +21,7 @@ SRC		=	$(PATH_SRC)main.c
 
 SRC		+=	$(PATH_SHELL)my_shell.c
 SRC		+=	$(PATH_SHELL)my_exit.c
+SRC		+=	$(PATH_SHELL)my_cd.c
 SRC		+=	$(PATH_SHELL)my_builtin.c
 
 SRC		+=	$(PATH_EXEC)my_exec.c
@@ -39,6 +41,11 @@ SRC		+=	$(PATH_EXEC)my_dup_fd.c
 SRC		+=	$(PATH_EXEC)my_exec_pipe_first.c
 SRC		+=	$(PATH_EXEC)my_exec_pipe_last.c
 SRC		+=	$(PATH_EXEC)my_init_fd.c
+
+SRC		+=	$(PATH_ECHO)echo.c
+SRC		+=	$(PATH_ECHO)check.c
+SRC		+=	$(PATH_ECHO)check_slash.c
+SRC		+=	$(PATH_ECHO)norm_echo.c
 
 SRC		+=	$(PATH_ENV)my_env.c
 SRC		+=	$(PATH_ENV)my_new_env.c

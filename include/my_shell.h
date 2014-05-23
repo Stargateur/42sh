@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Thu May 22 16:34:50 2014 Pierrick Gicquelais
+** Last update Fri May 23 17:40:54 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_SHELL_H_
@@ -48,6 +48,10 @@ int		my_env(t_shell *shell, t_fd *fd, char **argv);
 int		my_setenv(t_shell *shell, t_fd *fd, char **argv);
 
 int		my_unsetenv(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_echo(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_cd(t_shell *shell, t_fd *fd, char **argv);
 
 int		my_check_builtin(t_token *token);
 
