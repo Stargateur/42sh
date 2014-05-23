@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 **
 ** Started on  Mon May 19 02:32:40 2014 Antoine Plaskowski
-** Last update Mon May 19 03:04:23 2014 Antoine Plaskowski
+** Last update Fri May 23 10:41:45 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -35,7 +35,7 @@ int		my_cd(t_shell *shell, t_fd *fd, char **argv)
       return (-1);
     }
   if (argv[1] == '-')
-    argv[1] = old;      
+    argv[1] = old;
   if (chdir(argv[1]) == -1)
     {
       my_putstr("Wrong direction\n");
@@ -46,4 +46,3 @@ int		my_cd(t_shell *shell, t_fd *fd, char **argv)
   /* printf("\033[34mje suis le new :%s\n\033[0m", new); */
   return (0);
 }
-  

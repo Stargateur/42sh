@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:16:42 2014 Antoine Plaskowski
-** Last update Sun May 18 22:35:37 2014 Antoine Plaskowski
+** Last update Fri May 23 10:43:55 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -13,8 +13,6 @@
 
 t_token		*my_esperluette_token(char *str, int *i)
 {
-  /* t_token	*token; */
-
   if (str == NULL || i == NULL)
     return (NULL);
   if (str[(*i)++] != '&')

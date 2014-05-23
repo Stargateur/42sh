@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 22 16:41:21 2014 Pierrick Gicquelais
+## Last update Fri May 23 10:40:31 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -17,7 +17,6 @@ PATH_EXEC	=	$(PATH_SRC)my_exec/
 PATH_SHELL	=	$(PATH_SRC)my_shell/
 
 SRC		=	$(PATH_SRC)main.c
-#SRC		=	source/my_env/main.c
 
 SRC		+=	$(PATH_SHELL)my_shell.c
 SRC		+=	$(PATH_SHELL)my_exit.c

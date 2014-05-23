@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 12 10:23:43 2014 Pierrick Gicquelais
-** Last update Thu May 22 14:34:13 2014 Pierrick Gicquelais
+** Last update Fri May 23 10:42:31 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -26,6 +26,8 @@ static char	*my_value(char *env)
 {
   while (*env != '=' && *env != '\0')
     env++;
+  if (*env == '=')
+    env++;
   return (my_strdup(env));
 }
 
@@ -37,7 +39,8 @@ t_env		*my_copy_env(char **env_tab)
   if (env_tab != NULL)
     while (*env_tab != NULL)
       {
-	if ((env = my_append_env(env, my_name(*env_tab), my_value(*env_tab))) == NULL)
+	if ((env = my_append_env(env, my_name(*env_tab), my_value(*env_tab))) \
+	    == NULL)
 	  return (NULL);
 	env_tab++;
       }
