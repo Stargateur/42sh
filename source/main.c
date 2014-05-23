@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Mon May 19 03:55:46 2014 Antoine Plaskowski
+** Last update Fri May 23 13:18:09 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -30,7 +30,7 @@ static t_btree	*my_shining_force(char *str)
   if ((token = my_token(str)) == NULL)
     return (NULL);
   if ((btree = my_btree(token)) == NULL)
-    return (my_put_error_null("gramaire error\n"));
+    return (my_put_error_null("Syntax error\n"));
   if (my_check_btree(btree))
     {
       my_free_all_btree(btree);

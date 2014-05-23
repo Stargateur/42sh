@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 15:36:41 2014 Pierrick Gicquelais
-** Last update Thu May 22 16:35:04 2014 Pierrick Gicquelais
+** Last update Fri May 23 11:55:06 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>

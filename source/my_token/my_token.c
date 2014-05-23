@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:13:19 2014 Antoine Plaskowski
-** Last update Sun May 18 23:18:16 2014 Antoine Plaskowski
+** Last update Fri May 23 13:16:29 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -51,7 +51,7 @@ t_token		*my_token(char *str)
   if (str[i] != '\0')
     {
       my_free_all_token(token);
-      return (my_put_error_null("syntax error\n"));
+      return (my_put_error_null("Syntax error\n"));
     }
   return (my_first_token(token));
 }

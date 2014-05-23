@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Thu May 22 16:40:44 2014 Pierrick Gicquelais
+** Last update Fri May 23 12:02:18 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -16,7 +16,7 @@
 static int	check_option(t_shell *shell, char **argv, int *i)
 {
   if (argv[*i] && my_strcmp(argv[*i], "-i") == 0)
-    my_putstr("Env -i !\n", 1);
+    my_putstr("Env not implemented !\n", 1);
   else if (argv[*i] && my_strcmp(argv[*i], "-u") == 0)
     {
       if (!argv[*i + 1])

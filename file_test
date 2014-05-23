@@ -1,1 +1,0 @@
-ls && pwd || cat -e 42sh

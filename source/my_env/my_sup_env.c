@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 13:10:10 2014 Pierrick Gicquelais
-** Last update Thu May 22 14:35:09 2014 Pierrick Gicquelais
+** Last update Fri May 23 11:59:58 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -18,6 +18,7 @@ t_env		*my_sup_env(t_env *env, char *name)
 
   if ((tmp = my_found_env(env, name)) != NULL)
     {
+      env = NULL;
       if (tmp->next != NULL)
 	{
 	  env = tmp->next;
