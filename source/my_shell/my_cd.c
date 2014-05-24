@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Fri May 23 18:04:35 2014 Pierrick Gicquelais
+** Last update Sat May 24 12:24:09 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,58 +13,72 @@
 #include	"my_shell.h"
 #include	"my_str.h"
 
-static int	my_toomany(void)
-{
-  my_putstr("cd: Too many arguments.\n", 1);
-  return (1);
-}
+#define		SIZE_BUF	2048
 
-static int	my_plasko(char *dir)
+static int	my_chdir(char *dir)
 {
+  if (dir == NULL)
+    return (1);
   if (chdir(dir) == -1)
     {
-      my_putstr("No such file or directory\n", 1);
+      my_putstr("No such file or directory\n", 2);
       return (1);
     }
   return (0);
 }
 
-static int	my_old(t_shell *shell)
+static int	my_old(t_env *env)
 {
-  if ((shell->env = my_found_env(shell->env, "OLDPWD")) == NULL)
-    return (1);
-  my_putstr(shell->env->value, 1);
-  my_putchar('\n', 1);
-  if ((chdir(shell->env->value)) == -1)
+  t_env		*oldpwd;
+
+  if ((oldpwd = my_found_env(env, "OLDPWD")) == NULL)
+    return (my_put_error("no OLDPWD set\n"));
+  if ((my_chdir(oldpwd->value)) == -1)
     return (1);
   return (0);
 }
 
-static int	my_home(t_shell *shell)
+static int	my_home(t_env *env)
 {
-  if ((shell->env = my_found_env(shell->env, "HOME")) == NULL)
+  t_env		*home;
+
+  if ((home = my_found_env(env, "HOME")) == NULL)
+    return (my_put_error("no HOME set\n"));
+  if ((my_chdir(home->value)) == -1)
     return (1);
-  if ((chdir(shell->env->value)) == -1)
-    return (1);
+  return (0);
+}
+
+static int	my_change_env(t_shell *shell, char buf[SIZE_BUF])
+{
+  shell->env = my_add_env(shell->env, "OLDPWD", buf);
+  if (getcwd(buf, SIZE_BUF) != buf)
+    return (my_put_error("fail getcwd\n"));;
+  shell->env = my_add_env(shell->env, "PWD", buf);
   return (0);
 }
 
 int		my_cd(t_shell *shell, t_fd *fd, char **argv)
 {
-  char		*old;
+  static char	buf[SIZE_BUF];
   int		len;
+  int		ret;
 
-  (void)fd;
-  if ((old = malloc(2048 * sizeof(char))) == NULL)
+  if (shell == NULL || fd == NULL || argv == NULL)
     return (1);
-  old = getcwd(old, 2048);
-  len = my_len_tab(argv);
-  if (len > 2)
-    return (my_toomany());
+  if ((len = my_len_tab(argv)) == 0)
+    return (1);
+  else if (len > 2)
+    return (my_put_error("cd : too many arguments\n"));
+  if (getcwd(buf, SIZE_BUF) != buf)
+    return (my_put_error("fail getcwd\n"));;
   if (len == 1)
-    return (my_home(shell));
+    ret = my_home(shell->env);
   else if (my_strcmp(argv[1], "-") == 0)
-    return (my_old(shell));
+    ret = my_old(shell->env);
   else
-    return (my_plasko(argv[1]));
+    ret = my_chdir(argv[1]);
+  if (ret != 0)
+    return (1);
+  return (my_change_env(shell, buf));
 }
