@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Sun May 18 23:00:18 2014 Antoine Plaskowski
+** Last update Sat May 24 14:04:51 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -17,21 +17,33 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
+static int	my_micro_management(char **tab, char **env, char *exe)
+{
+  if (exe != NULL)
+    if (execve(exe, tab, env))
+      my_putstr("fail exeve\n", 2);
+  return (1);
+}
+
 int		my_execve(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   char		**tab;
+  char		**env;
 
-  (void)shell;
+  if (shell == NULL)
+    return (1);
+  env = my_env_to_tab(shell->env);
   my_dup_fd(fd);
-  if (btree == NULL)
-    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
-  if ((tab = my_token_word_to_tab(btree->token)) == NULL)
-    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
-  if (tab[0] == NULL)
-    exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
-  execvp(tab[0], tab);
-  my_putstr(tab[0], 1);
-  my_putstr(": command not found\n", 1);
-  exit(EXIT_FAILURE); /* AUTORISE SEULEMENT DANS FORK */
+  if (btree != NULL)
+    if ((tab = my_token_word_to_tab(btree->token)) != NULL)
+      {
+	if (my_len_tab(tab) != 0)
+	  my_micro_management(tab, env, my_found_exe(shell->env, tab[0]));
+	my_free_tab(tab);
+      }
+  my_free_tab(env);
+  shell->exit = 1;
+  shell->exit_value = 1;
+  shell->exit_print = 0;
   return (1);
 }

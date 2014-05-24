@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:23:49 2014 Antoine Plaskowski
-** Last update Sun May 18 22:50:37 2014 Antoine Plaskowski
+** Last update Sat May 24 13:47:52 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -37,8 +37,7 @@ char		**my_env_to_tab(t_env *env)
   char		**env_tab;
   t_uint	i;
 
-  if ((env = my_first_env(env)) == NULL)
-    return (NULL);
+  env = my_first_env(env);
   if ((env_tab = my_malloc(sizeof(char *) * (my_len_env(env) + 1))) == NULL)
     return (NULL);
   i = 0;

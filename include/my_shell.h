@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Fri May 23 17:40:54 2014 Pierrick Gicquelais
+** Last update Sat May 24 13:07:24 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
@@ -23,6 +23,7 @@ struct		s_shell
   t_env		*env;
   int		exit_value;
   char		exit;
+  char		exit_print;
 };
 
 struct		s_fd

@@ -5,12 +5,13 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Mon May 19 03:06:08 2014 Antoine Plaskowski
+** Last update Sat May 24 13:49:23 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
 # define	MY_EXEC_H_
 
+# include	<dirent.h>
 # include	"my_shell.h"
 # include	"my_btree.h"
 
@@ -65,4 +66,16 @@ int		my_init_fd(t_fd *fd);
 
 int		my_dup_fd(t_fd *fd);
 
-#endif		/* !MY_EXEC_H_ */
+int		my_chdir(const char*path);
+
+DIR		*my_open_dir(const char*path);
+
+int		my_close_dir(DIR* dir);
+
+char		*my_cat_dir(const char*dir, const char*name);
+
+int		my_check_exe(char *exe);
+
+char		*my_found_exe(t_env *env, char *str);
+
+#endif		/*!MY_EXEC_H_*/

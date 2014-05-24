@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Sat May 24 12:24:09 2014 Antoine Plaskowski
+** Last update Sat May 24 14:06:39 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -53,7 +53,7 @@ static int	my_change_env(t_shell *shell, char buf[SIZE_BUF])
 {
   shell->env = my_add_env(shell->env, "OLDPWD", buf);
   if (getcwd(buf, SIZE_BUF) != buf)
-    return (my_put_error("fail getcwd\n"));;
+    return (my_put_error("fail getcwd\n"));
   shell->env = my_add_env(shell->env, "PWD", buf);
   return (0);
 }
@@ -71,7 +71,7 @@ int		my_cd(t_shell *shell, t_fd *fd, char **argv)
   else if (len > 2)
     return (my_put_error("cd : too many arguments\n"));
   if (getcwd(buf, SIZE_BUF) != buf)
-    return (my_put_error("fail getcwd\n"));;
+    return (my_put_error("fail getcwd\n"));
   if (len == 1)
     ret = my_home(shell->env);
   else if (my_strcmp(argv[1], "-") == 0)

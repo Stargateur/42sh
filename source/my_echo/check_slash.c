@@ -1,4 +1,3 @@
-
 /*
 ** check_slash.c for 42sh in /home/gicque_p/rendu/PSU_2013_42sh/source/my_echo
 ** 
@@ -6,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:50:08 2014 Pierrick Gicquelais
-** Last update Fri May 23 17:34:52 2014 Pierrick Gicquelais
+** Last update Sat May 24 14:05:58 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>

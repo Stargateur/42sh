@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:13:17 2014 Antoine Plaskowski
-** Last update Thu May 22 14:35:32 2014 Pierrick Gicquelais
+** Last update Sat May 24 13:06:03 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,5 +18,6 @@ int		my_shell(t_shell *shell, char **env)
   shell->env = my_copy_env(env);
   shell->exit = 0;
   shell->exit_value = 0;
+  shell->exit_print = 1;
   return (0);
 }
