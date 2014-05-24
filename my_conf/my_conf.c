@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 12:05:23 2014 Nayden Makusa
-** Last update Wed May 21 17:50:39 2014 Nayden Makusa
+** Last update Sat May 24 16:24:25 2014 Nayden Makusa
 */
 
 #include	<sys/types.h>
@@ -14,8 +14,6 @@
 #include	<stdio.h>
 #include	<stdlib.h>
 #include	"get_next_line.h"
-
-char		*g_my_prompt;
 
 int		my_conf(char *av)
 {
@@ -29,23 +27,8 @@ int		my_conf(char *av)
   count_alias = 0;
   while ((str = get_next_line(fd)) != NULL)
     {
-      if (my_strcmp_maj(str, "end") == 0)
-	count_alias = 2;
-      if (count_alias == 1)
-	{
-	  my_putstr(str);
-	  my_putchar('\n');
-	}
-      if (count_prompt == 1)
-	{
-	  g_my_prompt = str;
-	  count_prompt = 2;
-	}
-      if (my_strcmp_maj(str, "alias") == 0 && count_alias == 0) {
-	count_alias = 1;
-	my_putstr("Alias -> \n"); }
-      if (my_strcmp_maj(str, "prompt") == 0 && count_prompt == 0 && count_alias != 1)
-	count_prompt = 1;
+      my_putstr(str);
+      my_putchar('\n');
     }
   close(fd);
   return (0);
@@ -60,10 +43,9 @@ int		main(int ac, char **av)
     }
   if (my_check_open_file(av[1]) == 1)
     return (1);
-  if (my_check_file(av[1]) == 1)
+  if (my_check_flag(av[1]) == 1)
+    return (1);
+  if (my_check_order_flag(av[1]))
     return (1);
   my_conf(av[1]);
-  my_putstr("Prompt -> ");
-  my_putstr(g_my_prompt);
-  my_putchar('\n');
 }
