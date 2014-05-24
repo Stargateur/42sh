@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Mon May 19 10:27:57 2014 Nayden Makusa
-** Last update Sat May 24 16:33:50 2014 Nayden Makusa
+** Last update Sat May 24 17:51:39 2014 Nayden Makusa
 */
 
 #include	<sys/types.h>
@@ -24,6 +24,24 @@ int		my_check_open_file(char *av)
       return (1);
     }
   return (0);
+}
+
+int		my_check_order_flag_message(int verif_alias_end,
+				       int verif_equal, int no_alias)
+{
+  if (verif_alias_end != 2)
+    {
+      my_putstr("Error: the prompt must be appart from the alias.\n");
+      return (1);
+    }
+  if (verif_equal == 1)
+    {
+      my_putstr("Error: there isn't an equal in an ");
+      my_putstr("alias' line in the conf file.\n");
+      return (1);
+    }
+  if (no_alias == 0)
+    return (2);
 }
 
 int		my_check_flag_message(int verif_prompt, int verif_alias,
@@ -57,22 +75,27 @@ int		my_check_order_flag(char *av)
   int		fd;
   char		*str;
   int		verif_alias_end;
+  int		verif_equal;
+  int		no_alias;
 
   fd = open(av, O_RDONLY);
   verif_alias_end = 0;
+  no_alias = 0;
+  verif_equal = 0;
     while ((str = get_next_line(fd)) != NULL)
   {
+    if (my_strcmp_maj(str, "end") == 0 && verif_alias_end == 1)
+      verif_alias_end = 2;
+    if (my_check_equal(str) == 1 && verif_alias_end == 1)
+      verif_equal = 1;
+    if (my_check_equal(str) == 0 && verif_alias_end == 1)
+      no_alias = 1;
     if (my_strcmp_maj(str, "alias") == 0)
       verif_alias_end = 1;
-    if (my_strcmp_maj(str, "end") == 0 && verif_alias_end == 1)
-      verif_alias_end = 2;	
   }
   close(fd);
-  if (verif_alias_end != 2)
-    {
-      my_putstr("Error: the prompt must be appart from the alias.\n");
-      return (1);
-    }
+  if (my_check_order_flag_message(verif_alias_end, verif_equal, no_alias) == 1)
+    return (1);
   return (0);
 }
 
