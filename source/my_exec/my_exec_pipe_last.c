@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Mon May 19 03:30:25 2014 Antoine Plaskowski
+** Last update Sat May 24 14:31:58 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -27,13 +27,14 @@ static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
   return (my_execve(btree, fd, shell));
 }
 
-static int	my_father(t_btree *btree, t_fd *fd, int pid)
+static int	my_father(t_btree *btree, t_fd *fd, int pid, t_shell *shell)
 {
   int		ret;
 
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
   my_close_fd(fd);
+  my_wait_pid(shell->pid);
   waitpid(pid, &ret, WUNTRACED);
   return (WEXITSTATUS(ret));
 }
@@ -52,5 +53,5 @@ int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
     return (my_son(btree, fd, shell));
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
-  return (my_father(btree, fd, pid));
+  return (my_father(btree, fd, pid, shell));
 }

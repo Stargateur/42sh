@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sat May 24 14:19:33 2014 Antoine Plaskowski
+** Last update Sat May 24 14:31:32 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -28,7 +28,7 @@ static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
   return (my_execve(btree, fd, shell));
 }
 
-static int      my_father(t_btree *btree, t_fd *fd)
+static int      my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
 {
   int           tmp;
 
@@ -39,6 +39,8 @@ static int      my_father(t_btree *btree, t_fd *fd)
   my_close_fd(fd);
   my_init_fd(fd);
   fd->fd_pipe[0] = tmp;
+  if (shell != NULL)
+    shell->pid = my_append_pid(shell->pid, pid);
   return (0);
 }
 
@@ -59,7 +61,7 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
     return (my_put_error("can't fork ...\n"));
   close(fd->fd_pipe[0]);
   fd->fd_pipe[0] = fd_pipe[0];
-  return (my_father(btree, fd));
+  return (my_father(btree, fd, shell, pid));
 }
 
 static int	my_recur_pipe(t_btree *btree, t_fd *fd, t_shell *shell)

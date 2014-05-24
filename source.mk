@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sat May 24 13:42:19 2014 Antoine Plaskowski
+## Last update Sat May 24 14:36:07 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -44,6 +44,8 @@ SRC		+=	$(PATH_EXEC)my_init_fd.c
 SRC		+=	$(PATH_EXEC)my_found_exe.c
 SRC		+=	$(PATH_EXEC)my_check_exe.c
 SRC		+=	$(PATH_EXEC)my_dir.c
+SRC		+=	$(PATH_EXEC)my_append_pid.c
+SRC		+=	$(PATH_EXEC)my_wait_pid.c
 
 SRC		+=	$(PATH_ECHO)echo.c
 SRC		+=	$(PATH_ECHO)check.c

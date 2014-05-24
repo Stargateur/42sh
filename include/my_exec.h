@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Sat May 24 13:49:23 2014 Antoine Plaskowski
+** Last update Sat May 24 14:36:46 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -77,5 +77,7 @@ char		*my_cat_dir(const char*dir, const char*name);
 int		my_check_exe(char *exe);
 
 char		*my_found_exe(t_env *env, char *str);
+
+int		my_wait_pid(t_pid *pid);
 
 #endif		/*!MY_EXEC_H_*/
