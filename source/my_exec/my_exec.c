@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Sun May 18 23:02:35 2014 Antoine Plaskowski
+** Last update Sat May 24 14:08:41 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,7 +31,9 @@ int		my_exec(t_btree *btree, t_shell *shell)
 {
   t_uint	i;
 
-  if (btree == NULL || btree->token == NULL)
+  if (btree == NULL || btree->token == NULL || shell == NULL)
+    return (0);
+  if (shell->exit)
     return (0);
   i = 0;
   while (g_fct_exec[i].fct != NULL)

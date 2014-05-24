@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Mon May 19 03:30:37 2014 Antoine Plaskowski
+** Last update Sat May 24 14:19:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -82,6 +82,7 @@ int		my_exec_pipe(t_btree *btree, t_shell *shell)
   if (btree == NULL || btree->token == NULL || btree->token->type != O_PIPE)
     return (1);
   my_init_fd(&fd);
-  my_exec_pipe_first(btree->left, &fd, shell);
+  if (my_exec_pipe_first(btree->left, &fd, shell))
+    return (1);
   return (my_recur_pipe(btree->right, &fd, shell));
 }
