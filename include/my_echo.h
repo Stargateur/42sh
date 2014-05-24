@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:52:02 2014 Pierrick Gicquelais
-** Last update Fri May 23 17:29:52 2014 Pierrick Gicquelais
+** Last update Sat May 24 12:51:39 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_ECHO_H_
@@ -40,7 +40,7 @@ int	my_get_flag(char *, t_echo *, int);
 
 int	my_check_echo(char **,  t_echo *);
 
-int	norm_echo(char **, t_echo *);
+int	norm_echo(char **, t_echo *, int);
 
 void	my_err_mall(char *);
 

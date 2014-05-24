@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:48:04 2014 Pierrick Gicquelais
-** Last update Fri May 23 17:31:18 2014 Pierrick Gicquelais
+** Last update Sat May 24 12:52:28 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -31,17 +31,19 @@ void		get_opt(char *str, t_echo *opt)
 
 int		my_echo(t_shell *shell, t_fd *fd, char **argv)
 {
-  t_echo	*opt;
+  t_echo	opt;
 
-  (void)shell;
-  (void)fd;
-  if ((opt = malloc(sizeof(t_echo))) == NULL)
+  if (shell == NULL || fd == NULL || argv == NULL)
     return (1);
-  opt->t_n = 0;
-  opt->t_e = 0;
-  opt->start = 0;
-  my_check_echo(argv, opt);
-  norm_echo(argv, opt);
-  free(opt);
+  if (my_len_tab(argv) <= 1)
+    return (0);
+  opt.t_n = 0;
+  opt.t_e = 0;
+  opt.start = 0;
+  my_check_echo(argv, &opt);
+  if (fd->fd_1 != -1)
+    norm_echo(argv, &opt, fd->fd_1);
+  else
+    norm_echo(argv, &opt, 1);
   return (0);
 }

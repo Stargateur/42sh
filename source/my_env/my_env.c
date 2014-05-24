@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Fri May 23 12:02:18 2014 Pierrick Gicquelais
+** Last update Sat May 24 12:54:36 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -43,11 +43,17 @@ int		my_env(t_shell *shell, t_fd *fd, char **argv)
   int		len;
   int		i;
 
-  (void)fd;
+  if (shell == NULL || fd == NULL || argv == NULL)
+    return (1);
   i = 1;
   len = my_len_tab(argv);
   if (len == 1)
-    my_aff_all_env(shell->env, 1);
+    {
+      if (fd->fd_1 != -1)
+	my_aff_all_env(shell->env, fd->fd_1);
+      else
+	my_aff_all_env(shell->env, 1);
+    }
   else
     while (argv[i])
       if (check_option(shell, argv, &i))
