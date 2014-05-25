@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Wed Feb 12 15:22:30 2014 Antoine Plaskowski
-** Last update Sat May 17 02:36:20 2014 Antoine Plaskowski
+** Last update Sun May 25 14:55:07 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -86,7 +86,7 @@ char		*my_get_next_line(const int fd)
   char		*new_line;
 
   str = NULL;
-  while (str == NULL || i >= max)
+  while (42)
     {
       if (i >= max)
 	{
@@ -101,5 +101,5 @@ char		*my_get_next_line(const int fd)
       if (buf[i++] == '\n')
 	return (my_cat_str(str));
     }
-  return (my_cat_str(str));
+  return (NULL);
 }
