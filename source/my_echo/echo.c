@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:48:04 2014 Pierrick Gicquelais
-** Last update Sat May 24 12:52:28 2014 Antoine Plaskowski
+** Last update Sun May 25 21:16:56 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -36,7 +36,13 @@ int		my_echo(t_shell *shell, t_fd *fd, char **argv)
   if (shell == NULL || fd == NULL || argv == NULL)
     return (1);
   if (my_len_tab(argv) <= 1)
-    return (0);
+    {
+      if (fd->fd_1 != -1)
+	my_putchar('\n', fd->fd_1);
+      else
+	my_putchar('\n', 1);
+      return (0);
+    }
   opt.t_n = 0;
   opt.t_e = 0;
   opt.start = 0;
