@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Sun May 25 14:12:38 2014 Antoine Plaskowski
+** Last update Sun May 25 15:33:38 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -13,7 +13,9 @@
 
 # define	TYPE	"|&;<>"
 
-# define	CMD	(WORD | O_RLEFT | O_RDLEFT | O_RRIGHT | O_RDRIGHT)
+# define	REDIR	(O_RLEFT | O_RDLEFT | O_RRIGHT | O_RDRIGHT)
+
+# define	CMD	(WORD | REDIR | O_ESPE)
 
 # define	SEP	" \t\n"
 
@@ -26,7 +28,8 @@ typedef	enum	s_type
     WORD = 1,
     O_OR = WORD * 2,
     O_AND = O_OR * 2,
-    O_COMMA = O_AND * 2,
+    O_ESPE = O_AND * 2,
+    O_COMMA = O_ESPE * 2,
     O_PIPE = O_COMMA * 2,
     O_RLEFT = O_PIPE * 2,
     O_RDLEFT = O_RLEFT * 2,
@@ -40,6 +43,7 @@ typedef	enum	s_priority
     P_WORD = 0,
     P_O_OR = 2,
     P_O_AND = 3,
+    P_O_ESPE = 0,
     P_O_COMMA = 1,
     P_O_PIPE = 4,
     P_O_RLEFT = 0,

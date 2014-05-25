@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 18:16:42 2014 Antoine Plaskowski
-** Last update Sun May 25 14:47:10 2014 Antoine Plaskowski
+** Last update Sun May 25 15:32:33 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,12 +13,17 @@
 
 t_token		*my_esperluette_token(char *str, int *i)
 {
+  t_token       *token;
+
   if (str == NULL || i == NULL)
     return (NULL);
   if (str[(*i)++] != '&')
     return (NULL);
   if (str[*i] == '&')
     return (my_and_token(str, i));
-  (*i)--;
-  return (NULL);
+  if ((token = my_new_token()) == NULL)
+    return (NULL);
+  token->type = O_ESPE;
+  token->priority = P_O_ESPE;
+  return (token);
 }

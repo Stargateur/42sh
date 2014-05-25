@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sat May 24 14:24:45 2014 Antoine Plaskowski
-** Last update Sat May 24 14:27:22 2014 Antoine Plaskowski
+** Last update Sun May 25 15:39:05 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,6 +18,7 @@ t_pid		*my_append_pid(t_pid *old, int pid)
 
   if ((new = my_malloc(sizeof(t_pid))) == NULL)
     return (old);
+  new->wait = 1;
   new->pid = pid;
   new->next = old;
   return (new);

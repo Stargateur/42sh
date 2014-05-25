@@ -167,6 +167,8 @@ source/my_exec/my_append_pid.o: include/my_str.h
 source/my_exec/my_wait_pid.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_wait_pid.o: include/my_env.h include/my_typedef.h
 source/my_exec/my_wait_pid.o: include/my_token.h include/my_btree.h
+source/my_exec/my_wait_pid.o: include/my_str.h
+source/my_exec/my_aff_signal.o: include/my_str.h include/my_typedef.h
 source/my_echo/echo.o: include/my_shell.h include/my_env.h include/my_typedef.h
 source/my_echo/echo.o: include/my_token.h include/my_echo.h include/my_str.h
 source/my_echo/check.o: include/my_echo.h include/my_shell.h include/my_env.h
@@ -180,17 +182,24 @@ source/my_echo/norm_echo.o: include/my_env.h include/my_typedef.h
 source/my_echo/norm_echo.o: include/my_token.h include/my_str.h
 source/my_env/my_env.o: include/my_shell.h include/my_env.h
 source/my_env/my_env.o: include/my_typedef.h include/my_token.h
-source/my_env/my_env.o: include/my_str.h
+source/my_env/my_env.o: include/my_exec.h include/my_btree.h include/my_str.h
+source/my_env/my_exec_env.o: include/my_shell.h include/my_env.h
+source/my_env/my_exec_env.o: include/my_typedef.h include/my_token.h
+source/my_env/my_exec_env.o: include/my_exec.h include/my_btree.h
+source/my_env/my_exec_env.o: include/my_str.h
 source/my_env/my_new_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_new_env.o: include/my_str.h
 source/my_env/my_first_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_last_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_append_env.o: include/my_env.h include/my_typedef.h
+source/my_env/my_put_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_aff_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_aff_env.o: include/my_str.h
 source/my_env/my_free_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_copy_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_copy_env.o: include/my_str.h
+source/my_env/my_cpy_env.o: include/my_env.h include/my_typedef.h
+source/my_env/my_cpy_env.o: include/my_str.h
 source/my_env/my_len_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_env_to_tab.o: include/my_env.h include/my_typedef.h
 source/my_env/my_env_to_tab.o: include/my_str.h
@@ -259,6 +268,13 @@ source/my_token/my_redirection_double_left_token.o: include/my_token.h
 source/my_token/my_redirection_double_left_token.o: include/my_typedef.h
 source/my_token/my_redirection_double_right_token.o: include/my_token.h
 source/my_token/my_redirection_double_right_token.o: include/my_typedef.h
+source/my_token/my_nbr_token_o_rleft.o: include/my_token.h include/my_typedef.h
+source/my_token/my_nbr_token_o_rdleft.o: include/my_token.h
+source/my_token/my_nbr_token_o_rdleft.o: include/my_typedef.h
+source/my_token/my_nbr_token_o_rright.o: include/my_token.h
+source/my_token/my_nbr_token_o_rright.o: include/my_typedef.h
+source/my_token/my_nbr_token_o_rdright.o: include/my_token.h
+source/my_token/my_nbr_token_o_rdright.o: include/my_typedef.h
 source/my_str/my_putchar.o: include/my_str.h include/my_typedef.h
 source/my_str/my_putstr.o: include/my_str.h include/my_typedef.h
 source/my_str/my_putnbr.o: include/my_str.h include/my_typedef.h

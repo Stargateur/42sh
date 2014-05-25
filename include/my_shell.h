@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Sun May 25 13:49:19 2014 Antoine Plaskowski
+** Last update Sun May 25 15:40:33 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
@@ -40,6 +40,7 @@ struct		s_fd
 struct		s_pid
 {
   int		pid;
+  int		wait;
   t_pid		*next;
 };
 

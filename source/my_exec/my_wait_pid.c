@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sat May 24 14:32:24 2014 Antoine Plaskowski
-** Last update Sun May 25 14:39:21 2014 Antoine Plaskowski
+** Last update Sun May 25 15:38:32 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -24,14 +24,17 @@ int		my_wait_pid(t_pid *pid)
   while (pid != NULL)
     {
       tmp = pid;
-      if (waitpid(pid->pid, &ret, WUNTRACED) != pid->pid)
-	my_putstr("waitpid error\n", 2);
-      if (WIFSIGNALED(ret))
-	my_aff_signal(WTERMSIG(ret));
-      if (WIFSTOPPED(ret))
+      if (pid->wait)
 	{
-	  my_putstr("no job control we kill your prog\n", 2);
-	  kill(pid->pid, SIGKILL);
+	  if (waitpid(pid->pid, &ret, WUNTRACED) != pid->pid)
+	    my_putstr("waitpid error\n", 2);
+	  if (WIFSIGNALED(ret))
+	    my_aff_signal(WTERMSIG(ret));
+	  if (WIFSTOPPED(ret))
+	    {
+	      my_putstr("no job control we kill your prog\n", 2);
+	      kill(pid->pid, SIGKILL);
+	    }
 	}
       pid = pid->next;
       free(tmp);

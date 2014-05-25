@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:45:08 2014 Antoine Plaskowski
-** Last update Sat May 24 14:29:25 2014 Antoine Plaskowski
+** Last update Sun May 25 15:41:50 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -43,6 +43,8 @@ static int	my_father(t_shell *shell, t_btree *btree, t_fd *fd, int pid)
   fd->fd_pipe[0] = tmp;
   if (shell != NULL)
     shell->pid = my_append_pid(NULL, pid);
+  if (my_found_token(btree->token, O_ESPE) != NULL && shell->pid != NULL)
+    shell->pid->wait = 0;
   return (0);
 }
 

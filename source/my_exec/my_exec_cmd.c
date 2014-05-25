@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 25 12:34:34 2014 Antoine Plaskowski
+** Last update Sun May 25 15:37:44 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -34,6 +34,8 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid)
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
   my_close_fd(fd);
+  if (my_found_token(btree->token, O_ESPE) != NULL)
+    return (0);
   if (waitpid(pid, &ret, WUNTRACED) != pid)
     my_putstr("waitpid error\n", 2);
   if (WIFEXITED(ret))
