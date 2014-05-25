@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:50:32 2014 Pierrick Gicquelais
-** Last update Fri May 23 16:51:11 2014 Pierrick Gicquelais
+** Last update Sun May 25 21:33:16 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,19 +14,11 @@
 
 int		my_get_flag(char *str, t_echo *opt, int x)
 {
-  int		i;
-
-  if (str == NULL)
+  opt->start = x;
+  if (str == NULL || str[0] == '\0' || str[1] == '\0')
     return (FAIL);
-  i = 0;
-  while (str[++i])
-    {
-      if (str[i] != 'n' && str[i] != 'e' && str[i] != 'E')
-	{
-	  opt->start = x;
-	  return (FAIL);
-	}
-    }
+  if (str[1] != 'n' && str[1] != 'e' && str[1] != 'E')
+    return (FAIL);
   get_opt(str, opt);
   return (OK);
 }
@@ -37,11 +29,12 @@ int		my_check_echo(char **tab, t_echo *opt)
 
   if (tab[0] == NULL)
     return (FAIL);
-  i = 0;
-  while (tab[++i] && tab[i][0] == '-')
+  i = 1;
+  while (tab[i] && tab[i][0] == '-')
     {
       if (my_get_flag(tab[i], opt, i) == FAIL)
 	return (FAIL);
+      i++;
     }
   opt->start = i;
   return (OK);
