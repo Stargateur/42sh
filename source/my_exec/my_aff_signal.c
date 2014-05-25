@@ -5,11 +5,11 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 25 12:26:26 2014 Antoine Plaskowski
-** Last update Sun May 25 14:39:48 2014 Antoine Plaskowski
+** Last update Sun May 25 20:39:28 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
-#include        <signal.h>
+#include	<signal.h>
 #include	"my_str.h"
 
 int		my_aff_signal(int signal)

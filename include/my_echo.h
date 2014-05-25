@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:52:02 2014 Pierrick Gicquelais
-** Last update Sat May 24 12:51:39 2014 Antoine Plaskowski
+** Last update Sun May 25 20:31:02 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_ECHO_H_
@@ -23,7 +23,7 @@
 # define	READ_MAX	64
 # define	BUFFER		100
 
-typedef struct	s_echo
+typedef	struct	s_echo
 {
   int		t_e;
   int		t_n;
@@ -48,4 +48,4 @@ int	my_put_nbr(int );
 
 void	my_free(char **);
 
-#endif
+#endif		/* !MY_ECHO_H_ */
