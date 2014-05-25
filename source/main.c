@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 25 14:15:34 2014 Antoine Plaskowski
+** Last update Sun May 25 14:30:16 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -42,6 +42,18 @@ static t_btree	*my_parse(char *str)
   return (btree);
 }
 
+int		my_ignore_signal(void)
+{
+  if (isatty(0))
+    {
+      if ((signal(SIGINT, SIG_IGN)) == SIG_ERR)
+	my_putstr("can't set ignore sigint\n", 2);
+      if ((signal(SIGTSTP, SIG_IGN)) == SIG_ERR)
+	my_putstr("can't set ignore sigstop\n", 2);
+    }
+  return (0);
+}
+
 int		main(int argc, char **argv, char **env)
 {
   t_shell	shell;
@@ -50,10 +62,7 @@ int		main(int argc, char **argv, char **env)
 
   (void)argc;
   (void)argv;
-  if ((signal(SIGINT, SIG_IGN)) == SIG_ERR)
-    my_putstr("can't set ignore sigint\n", 2);
-  if ((signal(SIGTSTP, SIG_IGN)) == SIG_ERR)
-    my_putstr("can't set ignore sigstop\n", 2);
+  my_ignore_signal();
   my_shell(&shell, env);
   while (shell.exit == 0 && (str = my_promt()) != NULL)
     {
