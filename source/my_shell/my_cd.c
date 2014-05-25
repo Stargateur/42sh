@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Sun May 25 20:52:10 2014 Pierrick Gicquelais
+** Last update Sun May 25 21:02:17 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -60,7 +60,7 @@ static int	my_change_env(t_shell *shell, char buf[SIZE_BUF])
 
 int		my_cd(t_shell *shell, t_fd *fd, char **argv)
 {
-  static char	buf[SIZE_BUF];
+  static char	buf[SIZE_BUF + 1];
   int		len;
   int		ret;
 
