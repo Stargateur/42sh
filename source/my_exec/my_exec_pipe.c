@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 25 16:40:47 2014 Antoine Plaskowski
+** Last update Sun May 25 20:46:01 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -29,9 +29,9 @@ static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
   return (my_execve(btree, fd, shell));
 }
 
-static int      my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
+static int	my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
 {
-  int           tmp;
+  int		tmp;
 
   if (fd->fd_redir[1] != -1)
     my_aff_redir_dleft(fd);
