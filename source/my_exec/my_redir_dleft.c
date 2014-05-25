@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sun May 25 14:32:16 2014 Antoine Plaskowski
+** Last update Sun May 25 16:34:59 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,6 +13,20 @@
 #include        <signal.h>
 #include	"my_exec.h"
 #include	"my_str.h"
+
+int		my_aff_redir_dleft(t_fd *fd)
+{
+  if (fd == NULL || fd->fd_redir[1] == -1)
+    return (1);
+  if ((signal(SIGPIPE, SIG_IGN)) == SIG_ERR)
+    my_putstr("can't set ignore sigpipe\n", 2);
+  my_aff_all_str(fd->str, fd->fd_redir[1]);
+  my_free_all_str(fd->str);
+  fd->str = NULL;
+  if ((signal(SIGPIPE, SIG_DFL)) == SIG_ERR)
+    my_putstr("can't set default sigpipe\n", 2);
+  return (1);
+}
 
 int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
 {
@@ -23,16 +37,11 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
     return (1);
   if ((token = token->next) == NULL || token->type != WORD)
     return (1);
-  if ((signal(SIGPIPE, SIG_IGN)) == SIG_ERR)
-    my_putstr("can't set ignore sigpipe\n", 2);
   str = NULL;
   while ((tmp = my_get_next_line(0)) && my_strcmp(tmp, token->attribute))
     str = my_append_str(str, tmp);
   free(tmp);
-  my_aff_all_str(str, fd->fd_redir[1]);
-  my_free_all_str(str);
-  if ((signal(SIGPIPE, SIG_DFL)) == SIG_ERR)
-    my_putstr("can't set default sigpipe\n", 2);
+  fd->str = str;
   return (0);
 }
 

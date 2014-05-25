@@ -5,13 +5,14 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Sun May 25 15:40:33 2014 Antoine Plaskowski
+** Last update Sun May 25 16:36:16 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
 # define	MY_SHELL_H_
 
 # include	"my_env.h"
+# include	"my_str.h"
 # include	"my_token.h"
 
 typedef	struct	s_fd	t_fd;
@@ -34,6 +35,7 @@ struct		s_fd
   int		fd_1;
   int		fd_pipe[2];
   int		fd_redir[2];
+  t_str		*str;
   t_token	*dleft;
 };
 

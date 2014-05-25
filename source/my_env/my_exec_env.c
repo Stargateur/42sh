@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Sun May 25 14:03:27 2014 Antoine Plaskowski
+** Last update Sun May 25 16:43:00 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -57,8 +57,11 @@ static int	my_exec_son(char **argv, t_fd *fd, t_env *env, t_shell *shell)
 static int	my_son(t_env *env, char **argv, t_fd *fd, t_shell *shell)
 {
   if (fd->fd_redir[1] != -1)
-    close(fd->fd_redir[1]);
-  fd->fd_redir[1] = -1;
+    {
+      my_free_all_str(fd->str);
+      close(fd->fd_redir[1]);
+      fd->fd_redir[1] = -1;
+    }
   return (my_exec_son(argv, fd, env, shell));
 }
 
@@ -67,7 +70,7 @@ static int	my_father(t_fd *fd, int pid)
   int		ret;
 
   if (fd->fd_redir[1] != -1)
-    my_redir_dleft_in_father(fd->dleft, fd);
+    my_aff_redir_dleft(fd);
   my_close_fd(fd);
   if (waitpid(pid, &ret, WUNTRACED) != pid)
     my_putstr("waitpid error\n", 2);

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 25 15:41:36 2014 Antoine Plaskowski
+** Last update Sun May 25 16:40:47 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -20,6 +20,7 @@ static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
 
   if (fd->fd_redir[1] != -1)
     {
+      my_free_all_str(fd->str);
       close(fd->fd_redir[1]);
       fd->fd_redir[1] = -1;
     }
@@ -33,7 +34,7 @@ static int      my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
   int           tmp;
 
   if (fd->fd_redir[1] != -1)
-    my_redir_dleft_in_father(btree->token, fd);
+    my_aff_redir_dleft(fd);
   tmp = fd->fd_pipe[0];
   fd->fd_pipe[0] = -1;
   my_close_fd(fd);
@@ -57,6 +58,8 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
     return (1);
   fd->fd_pipe[1] = fd_pipe[1];
   my_redirection(btree->token, fd);
+  if (fd->fd_redir[1] != -1)
+    my_redir_dleft_in_father(btree->token, fd);
   if ((pid = fork()) == 0)
     return (my_son(btree, shell, fd));
   else if (pid == -1)
