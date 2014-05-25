@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 15:14:12 2014 Antoine Plaskowski
-** Last update Fri May 23 13:38:57 2014 Pierrick Gicquelais
+** Last update Sun May 25 14:12:38 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TOKEN_H_
@@ -95,6 +95,14 @@ t_token		*my_redirection_double_right_token(char *str, int *i);
 t_token		*my_or_token(char *str, int *i);
 
 t_token		*my_and_token(char *str, int *i);
+
+int		my_nbr_token_o_rleft(t_token *token);
+
+int		my_nbr_token_o_rdleft(t_token *token);
+
+int		my_nbr_token_o_rright(t_token *token);
+
+int		my_nbr_token_o_rdright(t_token *token);
 
 /*
 **		my_free_token.c

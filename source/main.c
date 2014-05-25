@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 25 14:05:03 2014 Antoine Plaskowski
+** Last update Sun May 25 14:15:34 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -37,7 +37,7 @@ static t_btree	*my_parse(char *str)
   if (my_check_btree(btree))
     {
       my_free_all_btree(btree);
-      return (my_put_error_null("message will come\n"));
+      return (my_put_error_null("Ambiguous redirect\n"));
     }
   return (btree);
 }

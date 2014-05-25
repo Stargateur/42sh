@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sun May 25 13:49:06 2014 Antoine Plaskowski
+## Last update Sun May 25 14:13:12 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -104,6 +104,10 @@ SRC		+=	$(PATH_TOKEN)my_redirection_left_token.c
 SRC		+=	$(PATH_TOKEN)my_redirection_right_token.c
 SRC		+=	$(PATH_TOKEN)my_redirection_double_left_token.c
 SRC		+=	$(PATH_TOKEN)my_redirection_double_right_token.c
+SRC		+=	$(PATH_TOKEN)my_nbr_token_o_rleft.c
+SRC		+=	$(PATH_TOKEN)my_nbr_token_o_rdleft.c
+SRC		+=	$(PATH_TOKEN)my_nbr_token_o_rright.c
+SRC		+=	$(PATH_TOKEN)my_nbr_token_o_rdright.c
 
 SRC		+=	$(PATH_STR)my_putchar.c
 SRC		+=	$(PATH_STR)my_putstr.c
