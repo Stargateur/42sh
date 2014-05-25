@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Sun May 25 13:58:31 2014 Antoine Plaskowski
+** Last update Sun May 25 16:16:14 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,10 +16,12 @@
 
 static int	check_option(t_env **env, char **argv, int *i)
 {
+  if (argv[*i] == NULL)
+    return (1);
   if (my_strcmp(argv[*i], "-i") == 0)
     while (*env != NULL)
       *env = my_sup_env(*env, (*env)->name);
-  else if (argv[*i] && my_strcmp(argv[*i], "-u") == 0)
+  else if (my_strcmp(argv[*i], "-u") == 0)
     {
       if (!argv[++(*i)])
 	{
