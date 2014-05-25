@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sat May 24 14:32:24 2014 Antoine Plaskowski
-** Last update Sun May 25 12:32:32 2014 Antoine Plaskowski
+** Last update Sun May 25 12:34:25 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -25,7 +25,7 @@ int		my_wait_pid(t_pid *pid)
     {
       tmp = pid;
       if (waitpid(pid->pid, &ret, WUNTRACED) != pid->pid)
-	my_putstr("waitpid error\n", 2);;
+	my_putstr("waitpid error\n", 2);
       if (WIFEXITED(ret))
 	return (WEXITSTATUS(ret));
       if (WIFSIGNALED(ret))

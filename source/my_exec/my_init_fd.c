@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:55:12 2014 Antoine Plaskowski
-** Last update Sun May 18 04:44:51 2014 Antoine Plaskowski
+** Last update Sun May 25 13:42:47 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -15,6 +15,7 @@ int		my_init_fd(t_fd *fd)
 {
   if (fd == NULL)
     return (1);
+  fd->dleft = NULL;
   fd->fd_0 = -1;
   fd->fd_1 = -1;
   fd->fd_pipe[0] = -1;

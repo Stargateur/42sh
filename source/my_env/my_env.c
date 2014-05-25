@@ -5,58 +5,64 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Sat May 24 12:54:36 2014 Antoine Plaskowski
+** Last update Sun May 25 13:58:31 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_shell.h"
+#include	"my_exec.h"
 #include	"my_env.h"
 #include	"my_str.h"
 
-static int	check_option(t_shell *shell, char **argv, int *i)
+static int	check_option(t_env **env, char **argv, int *i)
 {
-  if (argv[*i] && my_strcmp(argv[*i], "-i") == 0)
-    my_putstr("Env not implemented !\n", 1);
+  if (my_strcmp(argv[*i], "-i") == 0)
+    while (*env != NULL)
+      *env = my_sup_env(*env, (*env)->name);
   else if (argv[*i] && my_strcmp(argv[*i], "-u") == 0)
     {
-      if (!argv[*i + 1])
+      if (!argv[++(*i)])
 	{
 	  my_putstr("env: option requires an argument -- 'u'\n", 1);
 	  return (1);
 	}
-      (*i)++;
-      shell->env = my_sup_env(shell->env, argv[*i]);
+      *env = my_sup_env(*env, argv[*i]);
     }
-  else
+  else if (*argv[*i] == '-')
     {
       my_putstr("env: invalid option -- ", 1);
       my_putstr(argv[*i], 1);
       my_putchar('\n', 1);
-      return (1);
     }
-  (*i)++;
+  else
+    return (2);
   return (0);
 }
 
 int		my_env(t_shell *shell, t_fd *fd, char **argv)
 {
+  t_env		*env;
+  int		ret;
   int		len;
   int		i;
 
   if (shell == NULL || fd == NULL || argv == NULL)
     return (1);
-  i = 1;
+  env = my_cpy_env(shell->env);
   len = my_len_tab(argv);
-  if (len == 1)
+  i = 1;
+  ret = 0;
+  while (i < len && (ret = check_option(&env, argv, &i)) == 0)
+    i++;
+  if (ret == 0)
     {
       if (fd->fd_1 != -1)
-	my_aff_all_env(shell->env, fd->fd_1);
+	my_aff_all_env(env, fd->fd_1);
       else
-	my_aff_all_env(shell->env, 1);
+	my_aff_all_env(env, 1);
     }
-  else
-    while (argv[i])
-      if (check_option(shell, argv, &i))
-	return (1);
-  return (0);
+  else if (ret == 2)
+    ret = my_env_exec(env, my_cpy_tab(argv + i), fd, shell);
+  my_free_all_env(env);
+  return (ret);
 }

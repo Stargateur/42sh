@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sun May 25 12:30:12 2014 Antoine Plaskowski
+## Last update Sun May 25 13:49:06 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -54,13 +54,16 @@ SRC		+=	$(PATH_ECHO)check_slash.c
 SRC		+=	$(PATH_ECHO)norm_echo.c
 
 SRC		+=	$(PATH_ENV)my_env.c
+SRC		+=	$(PATH_ENV)my_exec_env.c
 SRC		+=	$(PATH_ENV)my_new_env.c
 SRC		+=	$(PATH_ENV)my_first_env.c
 SRC		+=	$(PATH_ENV)my_last_env.c
 SRC		+=	$(PATH_ENV)my_append_env.c
+SRC		+=	$(PATH_ENV)my_put_env.c
 SRC		+=	$(PATH_ENV)my_aff_env.c
 SRC		+=	$(PATH_ENV)my_free_env.c
 SRC		+=	$(PATH_ENV)my_copy_env.c
+SRC		+=	$(PATH_ENV)my_cpy_env.c
 SRC		+=	$(PATH_ENV)my_len_env.c
 SRC		+=	$(PATH_ENV)my_env_to_tab.c
 SRC		+=	$(PATH_ENV)my_add_env.c

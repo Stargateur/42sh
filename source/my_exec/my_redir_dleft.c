@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sun May 18 04:43:37 2014 Antoine Plaskowski
+** Last update Sun May 25 13:42:30 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -40,6 +40,7 @@ int		my_redir_dleft(t_token *token, t_fd *fd)
 {
   if (token == NULL || token->type != WORD || fd == NULL)
     return (1);
+  fd->dleft = token;
   if (fd->fd_redir[0] != -1)
     close(fd->fd_redir[0]);
   if (fd->fd_redir[1] != -1)

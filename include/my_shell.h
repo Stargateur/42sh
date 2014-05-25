@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Sat May 24 14:26:58 2014 Antoine Plaskowski
+** Last update Sun May 25 13:49:19 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
@@ -34,6 +34,7 @@ struct		s_fd
   int		fd_1;
   int		fd_pipe[2];
   int		fd_redir[2];
+  t_token	*dleft;
 };
 
 struct		s_pid

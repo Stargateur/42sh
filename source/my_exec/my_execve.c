@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Sun May 25 10:53:17 2014 Antoine Plaskowski
+** Last update Sun May 25 14:04:41 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -27,6 +27,7 @@ static int	my_micro_management(char **tab, char **env, char *exe)
   if (exe != NULL)
     if (execve(exe, tab, env))
       my_putstr("fail exeve\n", 2);
+  free(exe);
   return (1);
 }
 

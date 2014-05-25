@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Wed May  7 19:12:31 2014 Antoine Plaskowski
-** Last update Sun May 18 23:18:50 2014 Antoine Plaskowski
+** Last update Sun May 25 13:29:41 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -32,7 +32,9 @@ t_token		*my_word_token(char *str, int *i)
 
   if (str == NULL || i == NULL)
     return (NULL);
-  n = 0;
+  if (str[*i] == '\0')
+    return (NULL);
+  n = 1;
   while (str[*i + n] != '\0')
     {
       if (my_char_in_str(str[*i + n], TYPE) != -1)

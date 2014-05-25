@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:50:18 2014 Antoine Plaskowski
-** Last update Fri May 23 17:42:00 2014 Pierrick Gicquelais
+** Last update Sun May 25 12:54:01 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -48,9 +48,9 @@ int		my_check_builtin(t_token *token)
 
 int		my_builtin(t_shell *shell, t_token *token, t_fd *fd)
 {
-  int		i;
   char		**tab;
   int		ret;
+  int		i;
 
   if ((i = my_check_builtin(token)) == -1)
     return (1);
