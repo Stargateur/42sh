@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 13:41:16 2014 Pierrick Gicquelais
-** Last update Sun May 25 14:27:08 2014 Antoine Plaskowski
+** Last update Sun May 25 14:32:16 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -26,7 +26,6 @@ int		my_redir_dleft_in_father(t_token *token, t_fd *fd)
   if ((signal(SIGPIPE, SIG_IGN)) == SIG_ERR)
     my_putstr("can't set ignore sigpipe\n", 2);
   str = NULL;
-  my_putstr("go redir\n", 2);
   while ((tmp = my_get_next_line(0)) && my_strcmp(tmp, token->attribute))
     str = my_append_str(str, tmp);
   free(tmp);
