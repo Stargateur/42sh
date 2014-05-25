@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 25 14:30:16 2014 Antoine Plaskowski
+** Last update Sun May 25 16:14:51 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -42,7 +42,7 @@ static t_btree	*my_parse(char *str)
   return (btree);
 }
 
-int		my_ignore_signal(void)
+static int	my_ignore_signal(void)
 {
   if (isatty(0))
     {
