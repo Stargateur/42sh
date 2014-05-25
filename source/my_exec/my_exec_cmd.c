@@ -5,13 +5,16 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Mon May 19 03:13:20 2014 Antoine Plaskowski
+** Last update Sun May 25 12:30:52 2014 Antoine Plaskowski
 */
+
+#define		_POSIX_SOURCE
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
 #include	<stdlib.h>
 #include	<unistd.h>
+#include	<signal.h>
 #include	"my_exec.h"
 #include	"my_btree.h"
 #include	"my_str.h"
@@ -31,8 +34,18 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid)
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
   my_close_fd(fd);
-  waitpid(pid, &ret, WUNTRACED);
-  return (WEXITSTATUS(ret));
+  if (waitpid(pid, &ret, WUNTRACED) != pid)
+    my_putstr("waitpid error\n", 2);;
+  if (WIFEXITED(ret))
+    return (WEXITSTATUS(ret));
+  if (WIFSIGNALED(ret))
+    my_aff_signal(WTERMSIG(ret));
+  if (WIFSTOPPED(ret))
+    {
+      my_putstr("no job control we kill your prog\n", 2);
+      kill(pid, SIGKILL);
+    }
+  return (1);
 }
 
 int		my_exec_cmd(t_btree *btree, t_shell *shell)
