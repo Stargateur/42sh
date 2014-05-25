@@ -1,6 +1,0 @@
-PROMPT
-42sh $>
-ALIAS
-ls=lol
-pwd=ww
-END
