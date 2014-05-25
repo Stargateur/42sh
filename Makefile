@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Mon May 19 13:38:05 2014 Pierrick Gicquelais
+## Last update Sun May 25 16:57:01 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -48,17 +48,17 @@ OBJ			=	$(SRC:.c=.o)
 all			:	$(NAME)
 
 $(NAME)			:	$(OBJ)
-				@$(ECHO) -e "$(GREEN)\n\t>> COMPILATION SUCCESSFUL\n$(WHITE)"
+				-@$(ECHO) -e "$(GREEN)\n\t>> COMPILATION SUCCESSFUL\n$(WHITE)"
 				$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
-				@$(ECHO) -e "$(YELLOW)\n\t>> LINKING SUCCESSFUL\n$(WHITE)"
+				-@$(ECHO) -e "$(YELLOW)\n\t>> LINKING SUCCESSFUL\n$(WHITE)"
 
 clean			:
-				$(RM) $(OBJ)
-				@$(ECHO) -e "$(RED)\n\t>> CLEANING OBJECTS SUCCESSFUL\n$(WHITE)"
+				-$(RM) $(OBJ)
+				-@$(ECHO) -e "$(RED)\n\t>> CLEANING OBJECTS SUCCESSFUL\n$(WHITE)"
 
 fclean			:	clean
-				$(RM) $(NAME)
-				@$(ECHO) -e "$(RED)\n\t>> CLEANING BINAIRIE SUCCESSFUL\n$(WHITE)"
+				-$(RM) $(NAME)
+				-@$(ECHO) -e "$(RED)\n\t>> CLEANING BINAIRIE SUCCESSFUL\n$(WHITE)"
 
 re			:	fclean all
 
@@ -78,36 +78,41 @@ depend			:
 # DO NOT DELETE
 
 source/main.o: include/my_shell.h include/my_env.h include/my_typedef.h
-source/main.o: include/my_token.h include/my_btree.h include/my_str.h
+source/main.o: include/my_str.h include/my_token.h include/my_btree.h
 source/main.o: include/my_exec.h
 source/my_shell/my_shell.o: include/my_shell.h include/my_env.h
-source/my_shell/my_shell.o: include/my_typedef.h include/my_token.h
+source/my_shell/my_shell.o: include/my_typedef.h include/my_str.h
+source/my_shell/my_shell.o: include/my_token.h
 source/my_shell/my_exit.o: include/my_shell.h include/my_env.h
-source/my_shell/my_exit.o: include/my_typedef.h include/my_token.h
-source/my_shell/my_exit.o: include/my_str.h
+source/my_shell/my_exit.o: include/my_typedef.h include/my_str.h
+source/my_shell/my_exit.o: include/my_token.h
 source/my_shell/my_cd.o: include/my_shell.h include/my_env.h
-source/my_shell/my_cd.o: include/my_typedef.h include/my_token.h
-source/my_shell/my_cd.o: include/my_str.h
+source/my_shell/my_cd.o: include/my_typedef.h include/my_str.h
+source/my_shell/my_cd.o: include/my_token.h
 source/my_shell/my_builtin.o: include/my_token.h include/my_typedef.h
 source/my_shell/my_builtin.o: include/my_shell.h include/my_env.h
-source/my_shell/my_builtin.o: include/my_exec.h include/my_btree.h
-source/my_shell/my_builtin.o: include/my_echo.h include/my_str.h
+source/my_shell/my_builtin.o: include/my_str.h include/my_exec.h
+source/my_shell/my_builtin.o: include/my_btree.h include/my_echo.h
 source/my_exec/my_exec.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec.o: include/my_exec.h include/my_btree.h include/my_str.h
+source/my_exec/my_exec.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec.o: include/my_btree.h
 source/my_exec/my_exec_pipe.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec_pipe.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec_pipe.o: include/my_exec.h include/my_btree.h
-source/my_exec/my_exec_pipe.o: include/my_str.h
+source/my_exec/my_exec_pipe.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec_pipe.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec_pipe.o: include/my_btree.h
 source/my_exec/my_exec_comma.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_exec_comma.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_exec_comma.o: include/my_token.h include/my_btree.h
+source/my_exec/my_exec_comma.o: include/my_str.h include/my_token.h
+source/my_exec/my_exec_comma.o: include/my_btree.h
 source/my_exec/my_exec_or.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec_or.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec_or.o: include/my_exec.h include/my_btree.h
+source/my_exec/my_exec_or.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec_or.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec_or.o: include/my_btree.h
 source/my_exec/my_exec_and.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec_and.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec_and.o: include/my_exec.h include/my_btree.h
+source/my_exec/my_exec_and.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec_and.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec_and.o: include/my_btree.h
 source/my_exec/my_redir_right.o: include/my_str.h include/my_typedef.h
 source/my_exec/my_redir_right.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_redir_right.o: include/my_env.h include/my_token.h
@@ -122,71 +127,73 @@ source/my_exec/my_redir_left.o: include/my_env.h include/my_token.h
 source/my_exec/my_redir_left.o: include/my_btree.h
 source/my_exec/my_redir_dleft.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_redir_dleft.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_redir_dleft.o: include/my_token.h include/my_btree.h
-source/my_exec/my_redir_dleft.o: include/my_str.h
+source/my_exec/my_redir_dleft.o: include/my_str.h include/my_token.h
+source/my_exec/my_redir_dleft.o: include/my_btree.h
 source/my_exec/my_exec_cmd.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_exec_cmd.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_exec_cmd.o: include/my_token.h include/my_btree.h
-source/my_exec/my_exec_cmd.o: include/my_str.h
+source/my_exec/my_exec_cmd.o: include/my_str.h include/my_token.h
+source/my_exec/my_exec_cmd.o: include/my_btree.h
 source/my_exec/my_execve.o: include/my_shell.h include/my_env.h
-source/my_exec/my_execve.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_execve.o: include/my_exec.h include/my_btree.h
-source/my_exec/my_execve.o: include/my_str.h
+source/my_exec/my_execve.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_execve.o: include/my_token.h include/my_exec.h
+source/my_exec/my_execve.o: include/my_btree.h
 source/my_exec/my_redirection.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_redirection.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_redirection.o: include/my_token.h include/my_btree.h
-source/my_exec/my_redirection.o: include/my_str.h
+source/my_exec/my_redirection.o: include/my_str.h include/my_token.h
+source/my_exec/my_redirection.o: include/my_btree.h
 source/my_exec/my_close_fd.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_close_fd.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_close_fd.o: include/my_token.h include/my_btree.h
+source/my_exec/my_close_fd.o: include/my_str.h include/my_token.h
+source/my_exec/my_close_fd.o: include/my_btree.h
 source/my_exec/my_dup_fd.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_dup_fd.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_dup_fd.o: include/my_token.h include/my_btree.h
-source/my_exec/my_dup_fd.o: include/my_str.h
+source/my_exec/my_dup_fd.o: include/my_str.h include/my_token.h
+source/my_exec/my_dup_fd.o: include/my_btree.h
 source/my_exec/my_exec_pipe_first.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec_pipe_first.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec_pipe_first.o: include/my_exec.h include/my_btree.h
-source/my_exec/my_exec_pipe_first.o: include/my_str.h
+source/my_exec/my_exec_pipe_first.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec_pipe_first.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec_pipe_first.o: include/my_btree.h
 source/my_exec/my_exec_pipe_last.o: include/my_shell.h include/my_env.h
-source/my_exec/my_exec_pipe_last.o: include/my_typedef.h include/my_token.h
-source/my_exec/my_exec_pipe_last.o: include/my_exec.h include/my_btree.h
-source/my_exec/my_exec_pipe_last.o: include/my_str.h
+source/my_exec/my_exec_pipe_last.o: include/my_typedef.h include/my_str.h
+source/my_exec/my_exec_pipe_last.o: include/my_token.h include/my_exec.h
+source/my_exec/my_exec_pipe_last.o: include/my_btree.h
 source/my_exec/my_init_fd.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_init_fd.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_init_fd.o: include/my_token.h include/my_btree.h
+source/my_exec/my_init_fd.o: include/my_str.h include/my_token.h
+source/my_exec/my_init_fd.o: include/my_btree.h
 source/my_exec/my_found_exe.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_found_exe.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_found_exe.o: include/my_token.h include/my_btree.h
-source/my_exec/my_found_exe.o: include/my_str.h
+source/my_exec/my_found_exe.o: include/my_str.h include/my_token.h
+source/my_exec/my_found_exe.o: include/my_btree.h
 source/my_exec/my_check_exe.o: include/my_str.h include/my_typedef.h
 source/my_exec/my_dir.o: include/my_str.h include/my_typedef.h
 source/my_exec/my_append_pid.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_append_pid.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_append_pid.o: include/my_token.h include/my_btree.h
-source/my_exec/my_append_pid.o: include/my_str.h
+source/my_exec/my_append_pid.o: include/my_str.h include/my_token.h
+source/my_exec/my_append_pid.o: include/my_btree.h
 source/my_exec/my_wait_pid.o: include/my_exec.h include/my_shell.h
 source/my_exec/my_wait_pid.o: include/my_env.h include/my_typedef.h
-source/my_exec/my_wait_pid.o: include/my_token.h include/my_btree.h
-source/my_exec/my_wait_pid.o: include/my_str.h
+source/my_exec/my_wait_pid.o: include/my_str.h include/my_token.h
+source/my_exec/my_wait_pid.o: include/my_btree.h
 source/my_exec/my_aff_signal.o: include/my_str.h include/my_typedef.h
 source/my_echo/echo.o: include/my_shell.h include/my_env.h include/my_typedef.h
-source/my_echo/echo.o: include/my_token.h include/my_echo.h include/my_str.h
+source/my_echo/echo.o: include/my_str.h include/my_token.h include/my_echo.h
 source/my_echo/check.o: include/my_echo.h include/my_shell.h include/my_env.h
-source/my_echo/check.o: include/my_typedef.h include/my_token.h
-source/my_echo/check.o: include/my_str.h
+source/my_echo/check.o: include/my_typedef.h include/my_str.h
+source/my_echo/check.o: include/my_token.h
 source/my_echo/check_slash.o: include/my_echo.h include/my_shell.h
 source/my_echo/check_slash.o: include/my_env.h include/my_typedef.h
-source/my_echo/check_slash.o: include/my_token.h include/my_str.h
+source/my_echo/check_slash.o: include/my_str.h include/my_token.h
 source/my_echo/norm_echo.o: include/my_echo.h include/my_shell.h
 source/my_echo/norm_echo.o: include/my_env.h include/my_typedef.h
-source/my_echo/norm_echo.o: include/my_token.h include/my_str.h
+source/my_echo/norm_echo.o: include/my_str.h include/my_token.h
 source/my_env/my_env.o: include/my_shell.h include/my_env.h
-source/my_env/my_env.o: include/my_typedef.h include/my_token.h
-source/my_env/my_env.o: include/my_exec.h include/my_btree.h include/my_str.h
+source/my_env/my_env.o: include/my_typedef.h include/my_str.h
+source/my_env/my_env.o: include/my_token.h include/my_exec.h include/my_btree.h
 source/my_env/my_exec_env.o: include/my_shell.h include/my_env.h
-source/my_env/my_exec_env.o: include/my_typedef.h include/my_token.h
-source/my_env/my_exec_env.o: include/my_exec.h include/my_btree.h
-source/my_env/my_exec_env.o: include/my_str.h
+source/my_env/my_exec_env.o: include/my_typedef.h include/my_str.h
+source/my_env/my_exec_env.o: include/my_token.h include/my_exec.h
+source/my_env/my_exec_env.o: include/my_btree.h
 source/my_env/my_new_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_new_env.o: include/my_str.h
 source/my_env/my_first_env.o: include/my_env.h include/my_typedef.h
@@ -210,11 +217,11 @@ source/my_env/my_found_env.o: include/my_str.h
 source/my_env/my_sup_env.o: include/my_env.h include/my_typedef.h
 source/my_env/my_sup_env.o: include/my_str.h
 source/my_env/my_setenv.o: include/my_shell.h include/my_env.h
-source/my_env/my_setenv.o: include/my_typedef.h include/my_token.h
-source/my_env/my_setenv.o: include/my_str.h
+source/my_env/my_setenv.o: include/my_typedef.h include/my_str.h
+source/my_env/my_setenv.o: include/my_token.h
 source/my_env/my_unsetenv.o: include/my_shell.h include/my_env.h
-source/my_env/my_unsetenv.o: include/my_typedef.h include/my_token.h
-source/my_env/my_unsetenv.o: include/my_str.h
+source/my_env/my_unsetenv.o: include/my_typedef.h include/my_str.h
+source/my_env/my_unsetenv.o: include/my_token.h
 source/my_btree/my_btree.o: include/my_btree.h include/my_token.h
 source/my_btree/my_btree.o: include/my_typedef.h include/my_str.h
 source/my_btree/my_new_btree.o: include/my_btree.h include/my_token.h
