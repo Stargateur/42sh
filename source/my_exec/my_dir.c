@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Fri Nov 29 11:05:43 2013 Antoine Plaskowski
-** Last update Sat May 24 13:56:59 2014 Antoine Plaskowski
+** Last update Sun May 25 10:42:27 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -15,6 +15,8 @@
 
 int		my_chdir(const char *path)
 {
+  if (path == NULL)
+    return (1);
   if (chdir(path))
     {
       my_putstr(path, 2);

@@ -5,12 +5,13 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Sat May 24 14:04:51 2014 Antoine Plaskowski
+** Last update Sun May 25 10:53:17 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
 #include	<stdlib.h>
+#include	<signal.h>
 #include	<unistd.h>
 #include	"my_shell.h"
 #include	"my_exec.h"
@@ -19,6 +20,10 @@
 
 static int	my_micro_management(char **tab, char **env, char *exe)
 {
+  if (signal(SIGINT, SIG_DFL) == SIG_ERR)
+    my_putstr("error signal\n", 2);
+  if (signal(SIGTSTP, SIG_DFL) == SIG_ERR)
+    my_putstr("error signal\n", 2);
   if (exe != NULL)
     if (execve(exe, tab, env))
       my_putstr("fail exeve\n", 2);
