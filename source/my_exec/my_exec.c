@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Sat May 24 14:08:41 2014 Antoine Plaskowski
+** Last update Wed May 28 21:41:40 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -42,5 +42,5 @@ int		my_exec(t_btree *btree, t_shell *shell)
 	return (g_fct_exec[i].fct(btree, shell));
       i++;
     }
-  return (my_put_error("you can't be here... 42sh>git blame\n"));
+  return (my_put_error("you can't be here... git blame\n"));
 }

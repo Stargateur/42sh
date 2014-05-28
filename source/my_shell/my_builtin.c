@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:50:18 2014 Antoine Plaskowski
-** Last update Sun May 25 12:54:01 2014 Antoine Plaskowski
+** Last update Wed May 28 20:42:59 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -14,6 +14,7 @@
 #include	"my_exec.h"
 #include	"my_env.h"
 #include	"my_echo.h"
+#include	"my_history.h"
 #include	"my_str.h"
 
 static t_fbuil	g_builtin[] =
@@ -24,6 +25,7 @@ static t_fbuil	g_builtin[] =
     {&my_unsetenv, "unsetenv"},
     {&my_echo, "echo"},
     {&my_cd, "cd"},
+    {&my_aff_all_history, "history"},
     {NULL, NULL}
   };
 

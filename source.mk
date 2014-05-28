@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Sun May 25 14:13:12 2014 Antoine Plaskowski
+## Last update Wed May 28 21:25:57 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -14,6 +14,7 @@ PATH_TOKEN	=	$(PATH_SRC)my_token/
 PATH_BTREE	=	$(PATH_SRC)my_btree/
 PATH_ENV	=	$(PATH_SRC)my_env/
 PATH_ECHO	=	$(PATH_SRC)my_echo/
+PATH_HISTO	=	$(PATH_SRC)my_history/
 PATH_EXEC	=	$(PATH_SRC)my_exec/
 PATH_SHELL	=	$(PATH_SRC)my_shell/
 
@@ -47,6 +48,14 @@ SRC		+=	$(PATH_EXEC)my_dir.c
 SRC		+=	$(PATH_EXEC)my_append_pid.c
 SRC		+=	$(PATH_EXEC)my_wait_pid.c
 SRC		+=	$(PATH_EXEC)my_aff_signal.c
+
+SRC		+=	$(PATH_HISTO)my_history.c
+SRC		+=	$(PATH_HISTO)my_new_history.c
+SRC		+=	$(PATH_HISTO)my_node_history.c
+SRC		+=	$(PATH_HISTO)my_append_history.c
+SRC		+=	$(PATH_HISTO)my_aff_history.c
+SRC		+=	$(PATH_HISTO)my_free_history.c
+SRC		+=	$(PATH_HISTO)my_check_history.c
 
 SRC		+=	$(PATH_ECHO)echo.c
 SRC		+=	$(PATH_ECHO)check.c
@@ -119,8 +128,10 @@ SRC		+=	$(PATH_STR)my_strcmp.c
 SRC		+=	$(PATH_STR)my_strncmp.c
 SRC		+=	$(PATH_STR)my_strcpy.c
 SRC		+=	$(PATH_STR)my_strncpy.c
+SRC		+=	$(PATH_STR)my_strlcpy.c
 SRC		+=	$(PATH_STR)my_strdup.c
 SRC		+=	$(PATH_STR)my_strndup.c
+SRC		+=	$(PATH_STR)my_strldup.c
 SRC		+=	$(PATH_STR)my_getnbr.c
 SRC		+=	$(PATH_STR)my_getnbr_base.c
 SRC		+=	$(PATH_STR)my_malloc.c
@@ -146,3 +157,4 @@ SRC		+=	$(PATH_STR)my_str_in_tab.c
 SRC		+=	$(PATH_STR)my_strcmp_icase.c
 SRC		+=	$(PATH_STR)my_pipe.c
 SRC		+=	$(PATH_STR)my_dup2.c
+SRC		+=	$(PATH_STR)is_positive.c

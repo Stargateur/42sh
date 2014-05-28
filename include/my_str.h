@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Sun May 18 05:47:43 2014 Antoine Plaskowski
+** Last update Wed May 28 19:26:36 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_STR_H_
@@ -38,6 +38,8 @@ int		my_strcpy(char *dest, const char *src);
 
 int		my_strncpy(char *dest, const char *src, t_uint n);
 
+int		my_strlcpy(char *dest, char *src, char delim, int start);
+
 int		my_getnbr(const char *str);
 
 int		my_getnbr_base(const char *str, const char *base);
@@ -49,6 +51,8 @@ int		my_is_num(const char *str);
 char		*my_strdup(const char *str);
 
 char		*my_strndup(const char *str, t_uint n);
+
+char		*my_strldup(char *str, char delim, int start);
 
 char		*my_strcat(const char *str1, const char *str2);
 
@@ -81,6 +85,8 @@ int		my_check_overflow_int(const char *str);
 int		my_pipe(int *fd_pipe);
 
 int		my_dup2(int src, int dest);
+
+int		is_positive(char *str);
 
 char		*my_nbr_to_str(int nbr);
 
