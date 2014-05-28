@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:45:08 2014 Antoine Plaskowski
-** Last update Sun May 25 16:38:37 2014 Antoine Plaskowski
+** Last update Tue May 27 17:31:13 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,7 +19,7 @@ static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
   int		builtin;
 
   if ((builtin = my_check_builtin(btree->token)) != -1)
-    return (my_builtin(shell, btree->token, fd));
+    exit (my_builtin(shell, btree->token, fd));
   if (fd->fd_redir[1] != -1)
     {
       my_free_all_str(fd->str);
