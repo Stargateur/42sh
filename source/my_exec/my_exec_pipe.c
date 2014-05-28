@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Sun May 25 20:46:01 2014 Pierrick Gicquelais
+** Last update Tue May 27 17:31:27 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -25,7 +25,7 @@ static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
       fd->fd_redir[1] = -1;
     }
   if ((builtin = my_check_builtin(btree->token)) != -1)
-    return (my_builtin(shell, btree->token, fd));
+    exit (my_builtin(shell, btree->token, fd));
   return (my_execve(btree, fd, shell));
 }
 
