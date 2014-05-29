@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:13:17 2014 Antoine Plaskowski
-** Last update Thu May 29 14:41:17 2014 Antoine Plaskowski
+** Last update Thu May 29 16:16:11 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -17,6 +17,7 @@ int		my_shell(t_shell *shell, char **env)
   if (shell == NULL)
     return (1);
   shell->env = my_copy_env(env);
+  shell->env = my_put_ps1(shell->env);
   shell->term = term_init(shell->env);
   shell->history = NULL;
   shell->pid = NULL;

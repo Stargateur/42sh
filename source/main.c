@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 15:25:16 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:20:20 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -19,10 +19,21 @@
 #include	"my_env.h"
 #include	"my_history.h"
 
-static char	*my_promt(void)
+static void	my_put_prompt(t_env *env)
+{
+  env = my_first_env(env);
+  while (env && my_strcmp(env->name, "PS1"))
+    env = env->next;
+  if (env == NULL)
+    my_putstr("42sh> ", 1);
+  else
+    my_putstr(env->value, 1);
+}
+
+static char	*my_promt(t_env *env)
 {
   if (isatty(0))
-    my_putstr("42sh> ", 1);
+    my_put_prompt(env);
   return (my_get_next_line(0));
 }
 
@@ -65,7 +76,7 @@ int		main(int argc, char **argv, char **env)
   (void)argv;
   my_ignore_signal();
   my_shell(&shell, env);
-  while (shell.exit == 0 && (str = my_promt()) != NULL)
+  while (shell.exit == 0 && (str = my_promt(shell.env)) != NULL)
     {
       shell.history = my_history(shell.history, str);
       str = check_line(shell.history, str);

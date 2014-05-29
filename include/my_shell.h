@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Thu May 29 14:39:15 2014 Antoine Plaskowski
+** Last update Thu May 29 16:17:07 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_SHELL_H_
@@ -77,5 +77,7 @@ int		my_check_builtin(t_token *token);
 int		my_builtin(t_shell *shell, t_token *token, t_fd *fd);
 
 t_pid		*my_append_pid(t_pid *old, int pid);
+
+t_env		*my_put_ps1(t_env *env);
 
 #endif		/* !MY_SHELL_H_ */
