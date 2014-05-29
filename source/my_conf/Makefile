@@ -7,7 +7,7 @@
 ## Started on  Fri May 16 12:12:42 CEST 2014 Nayden Makusa
 ##
 
-CC		=	gcc -g
+CC		=	gcc
 
 RM		=	rm -f
 
