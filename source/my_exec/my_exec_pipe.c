@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Tue May 27 17:31:27 2014 Antoine Plaskowski
+** Last update Thu May 29 16:36:35 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,7 +14,7 @@
 #include	"my_exec.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
+static void	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
 {
   int		builtin;
 
@@ -26,7 +26,7 @@ static int	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
     }
   if ((builtin = my_check_builtin(btree->token)) != -1)
     exit (my_builtin(shell, btree->token, fd));
-  return (my_execve(btree, fd, shell));
+  my_execve(btree, fd, shell);
 }
 
 static int	my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
@@ -60,8 +60,8 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
   my_redirection(btree->token, fd);
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
-  if ((pid = fork()) == 0)
-    return (my_son(btree, shell, fd));
+  if ((pid = vfork()) == 0)
+    my_son(btree, shell, fd);
   else if (pid == -1)
     return (my_put_error("can't fork ...\n"));
   close(fd->fd_pipe[0]);

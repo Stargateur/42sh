@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 25 16:39:14 2014 Antoine Plaskowski
+** Last update Thu May 29 16:27:09 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -19,7 +19,7 @@
 #include	"my_btree.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
+static void	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   if (fd->fd_redir[1] != -1)
     {
@@ -65,10 +65,8 @@ int		my_exec_cmd(t_btree *btree, t_shell *shell)
   my_redirection(btree->token, &fd);
   if (fd.fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, &fd);
-  if ((builtin = my_check_builtin(btree->token)) != -1)
-    return (my_builtin(shell, btree->token, &fd));
-  if ((pid = fork()) == 0)
-    return (my_son(btree, &fd, shell));
+  if ((pid = vfork()) == 0)
+    my_son(btree, &fd, shell);
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
   return (my_father(btree, &fd, pid));

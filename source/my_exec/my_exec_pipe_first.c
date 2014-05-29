@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:45:08 2014 Antoine Plaskowski
-** Last update Wed May 28 22:30:47 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:36:56 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,7 +14,7 @@
 #include	"my_exec.h"
 #include	"my_str.h"
 
-static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
+static void	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   int		builtin;
 
@@ -28,7 +28,7 @@ static int	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
     }
   close(fd->fd_pipe[0]);
   fd->fd_pipe[0] = -1;
-  return (my_execve(btree, fd, shell));
+  my_execve(btree, fd, shell);
 }
 
 static int	my_father(t_shell *shell, t_btree *btree, t_fd *fd, int pid)
@@ -60,8 +60,8 @@ int		my_exec_pipe_first(t_btree *btree, t_fd *fd, t_shell *shell)
   my_redirection(btree->token, fd);
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
-  if ((pid = fork()) == 0)
-    return (my_son(btree, fd, shell));
+  if ((pid = vfork()) == 0)
+    my_son(btree, fd, shell);
   else if (pid == -1)
     return (my_put_error("can't fork ...\n"));
   return (my_father(shell, btree, fd, pid));

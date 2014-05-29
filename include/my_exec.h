@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Sun May 25 16:35:30 2014 Antoine Plaskowski
+** Last update Thu May 29 16:24:11 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -54,7 +54,7 @@ int		my_redir_dleft(t_token *token, t_fd *fd);
 
 int		my_exec_cmd(t_btree *btree, t_shell *shell);
 
-int		my_execve(t_btree *btree, t_fd *fd, t_shell *shell);
+void		my_execve(t_btree *btree, t_fd *fd, t_shell *shell);
 
 int		my_redirection(t_token *token, t_fd *fd);
 
