@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 14:35:22 2014 Antoine Plaskowski
+## Last update Thu May 29 14:42:28 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -161,6 +161,7 @@ SRC		+=	$(PATH_STR)my_pipe.c
 SRC		+=	$(PATH_STR)my_dup2.c
 SRC		+=	$(PATH_STR)is_positive.c
 SRC		+=	$(PATH_STR)is_alpha.c
+SRC		+=	$(PATH_STR)is_dir.c
 
 SRC		+=	$(PATH_TERM)my_echo_off.c
 SRC		+=	$(PATH_TERM)my_putint.c
