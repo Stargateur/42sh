@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:48:36 2014 Antoine Plaskowski
-** Last update Wed May 28 21:41:40 2014 Pierrick Gicquelais
+** Last update Thu May 29 15:33:23 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,11 +19,7 @@ static t_fct_e	g_fct_exec[] =
     {&my_exec_comma, O_COMMA},
     {&my_exec_and, O_AND},
     {&my_exec_or, O_OR},
-    {&my_exec_cmd, O_RRIGHT},
-    {&my_exec_cmd, O_RDRIGHT},
-    {&my_exec_cmd, O_RLEFT},
-    {&my_exec_cmd, O_RDLEFT},
-    {&my_exec_cmd, WORD},
+    {&my_exec_cmd, CMD},
     {NULL, NONE}
   };
 
@@ -38,7 +34,7 @@ int		my_exec(t_btree *btree, t_shell *shell)
   i = 0;
   while (g_fct_exec[i].fct != NULL)
     {
-      if (g_fct_exec[i].type == btree->token->type)
+      if (g_fct_exec[i].type & btree->token->type)
 	return (g_fct_exec[i].fct(btree, shell));
       i++;
     }

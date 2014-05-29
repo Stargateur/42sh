@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 15:25:16 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:06:48 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -19,11 +19,19 @@
 #include	"my_env.h"
 #include	"my_history.h"
 
-static char	*my_promt(void)
+static char	*my_promt(t_shell *shell)
 {
+  char		*str;
+  char		*ret;
+
   if (isatty(0))
     my_putstr("42sh> ", 1);
-  return (my_get_next_line(0));
+  str = my_get_next_line(0);
+  shell->history = my_history(shell->history, str);
+  if ((ret = check_line(shell->history, str)) == NULL)
+    return (str);
+  free(str);
+  return (ret);
 }
 
 static t_btree	*my_parse(char *str)
@@ -65,10 +73,8 @@ int		main(int argc, char **argv, char **env)
   (void)argv;
   my_ignore_signal();
   my_shell(&shell, env);
-  while (shell.exit == 0 && (str = my_promt()) != NULL)
+  while (shell.exit == 0 && (str = my_promt(&shell)) != NULL)
     {
-      shell.history = my_history(shell.history, str);
-      str = check_line(shell.history, str);
       if ((btree = my_parse(str)) != NULL)
 	my_exec(btree, &shell);
       my_free_all_btree(btree);

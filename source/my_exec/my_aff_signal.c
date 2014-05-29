@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 25 12:26:26 2014 Antoine Plaskowski
-** Last update Thu May 29 15:21:49 2014 Antoine Plaskowski
+** Last update Thu May 29 15:32:38 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,7 +13,7 @@
 #include	"my_signal.h"
 #include	"my_str.h"
 
-t_signal	tab_signal[] =
+static t_signal	tab_signal[] =
   {
     {SIGHUP, "Hangup detected on controlling terminal or \
 death of controlling process\n"},
@@ -64,12 +64,8 @@ int		my_aff_signal(int signal)
   while (tab_signal[i].signal != 0)
     {
       if (tab_signal[i].signal == signal)
-	{
-	  my_putstr(tab_signal[i].str, 2);
-	  return (0);
-	}
+	return (my_putstr(tab_signal[i].str, 2));
       i++;
     }
-  my_putstr(" : Process terminal by this signal (unknow)\n", 2);
-  return (0);
+  return (my_putstr(" : Process terminal by this signal (unknow)\n", 2));
 }
