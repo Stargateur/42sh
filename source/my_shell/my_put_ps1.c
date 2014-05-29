@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 16:15:04 2014 Pierrick Gicquelais
-** Last update Thu May 29 16:31:17 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:36:54 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -17,7 +17,7 @@ t_env		*my_put_ps1(t_env *env)
   char		*ps1;
   char		*ps2;
 
-  tmp = my_found_env(env, "HOME");
+  tmp = my_found_env(env, "PWD");
   if (tmp != NULL)
     {
       ps1 = my_strcat("[", tmp->value);
