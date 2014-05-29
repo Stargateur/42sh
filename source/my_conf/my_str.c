@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 15:54:37 2014 Nayden Makusa
-** Last update Thu May 29 15:18:27 2014 Nayden Makusa
+** Last update Thu May 29 16:21:24 2014 Nayden Makusa
 */
 
 #include	<unistd.h>
@@ -67,7 +67,7 @@ int		my_strlen(char *str)
     return (i);
 }
 
-int		my_check_alias(char *str)
+int		my_check_equal_alias(char *str)
 {
   if (str == NULL)
     return (1);
