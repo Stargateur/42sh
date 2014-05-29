@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Thu May 29 21:57:27 2014 Antoine Plaskowski
-** Last update Fri May 30 00:07:23 2014 Antoine Plaskowski
+** Last update Fri May 30 00:11:03 2014 Antoine Plaskowski
 */
 
 #include	<stdio.h>
@@ -46,12 +46,6 @@ static t_edit	*my_read_line(void)
   i = 0;
   while (my_read_buf(buf))
     {
-      /* my_putnbr(buf[0], 1); */
-      /* my_putstr(" ", 1); */
-      /* my_putnbr(buf[1], 1); */
-      /* my_putstr(" ", 1); */
-      /* my_putnbr(buf[2], 1); */
-      /* my_putstr("\n", 1); */
       if (buf[0] >= ' ' && buf[0] <= '~')
 	edit = my_ins(edit, i++, buf[0]);
       else if (buf[0] == 4 || buf[0] == '\n')
