@@ -5,15 +5,26 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Thu May 29 12:56:05 2014 Nayden Makusa
-** Last update Thu May 29 12:57:15 2014 Nayden Makusa
+** Last update Thu May 29 17:11:19 2014 Nayden Makusa
 */
 
-int		my_check_order_flag_message(int verif)
+int		my_check_order_flag_message(int verif, int mul_alias,
+					    int mul_end, int mul_prompt)
 {
   if (verif != 3)
     {
       my_putstr("Error: You must write 'alias' then 'end' and 'prompt' ");
       my_putstr(" after in the conf file.\n");
+      return (1);
+    }
+  if (mul_alias != 1 || mul_end != 1 || mul_prompt != 1)
+    {
+      if (mul_alias != 1)
+	my_putstr("Multiple declaration of 'alias' int the conf file.\n");
+      if (mul_end != 1)
+	my_putstr("Multiple declaration of 'end' int the conf file.\n");
+      if (mul_prompt != 1)
+	my_putstr("Multiple declaration of 'prompt' int the conf file.\n");
       return (1);
     }
   return (0);
