@@ -79,7 +79,7 @@ depend			:
 
 source/main.o: include/my_shell.h include/my_env.h include/my_typedef.h
 source/main.o: include/my_history.h include/my_str.h include/my_token.h
-source/main.o: include/my_btree.h include/my_exec.h
+source/main.o: include/my_btree.h include/my_exec.h include/my_edit.h
 source/my_shell/my_shell.o: include/my_shell.h include/my_env.h
 source/my_shell/my_shell.o: include/my_typedef.h include/my_history.h
 source/my_shell/my_shell.o: include/my_str.h include/my_token.h
@@ -89,7 +89,8 @@ source/my_shell/my_exit.o: include/my_typedef.h include/my_history.h
 source/my_shell/my_exit.o: include/my_str.h include/my_token.h
 source/my_shell/my_cd.o: include/my_shell.h include/my_env.h
 source/my_shell/my_cd.o: include/my_typedef.h include/my_history.h
-source/my_shell/my_cd.o: include/my_str.h include/my_token.h
+source/my_shell/my_cd.o: include/my_str.h include/my_token.h include/my_exec.h
+source/my_shell/my_cd.o: include/my_btree.h
 source/my_shell/my_builtin.o: include/my_token.h include/my_typedef.h
 source/my_shell/my_builtin.o: include/my_shell.h include/my_env.h
 source/my_shell/my_builtin.o: include/my_history.h include/my_str.h
@@ -362,5 +363,27 @@ source/my_termcaps/my_tgetent.o: include/my_str.h include/my_typedef.h
 source/my_termcaps/my_tgetent.o: include/my_termcaps.h
 source/my_termcaps/my_tgetstr.o: include/my_str.h include/my_typedef.h
 source/my_termcaps/my_tgetstr.o: include/my_termcaps.h
+source/my_edit/my_new_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_new_char.o: include/my_typedef.h include/my_str.h
+source/my_edit/my_first_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_first_char.o: include/my_typedef.h
+source/my_edit/my_last_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_last_char.o: include/my_typedef.h
+source/my_edit/my_append_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_append_char.o: include/my_typedef.h
+source/my_edit/my_sup_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_sup_char.o: include/my_typedef.h
+source/my_edit/my_ins_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_ins_char.o: include/my_typedef.h
+source/my_edit/my_aff_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_aff_char.o: include/my_typedef.h include/my_str.h
+source/my_edit/my_free_char.o: include/my_edit.h include/my_env.h
+source/my_edit/my_free_char.o: include/my_typedef.h
+source/my_edit/my_len_edit.o: include/my_edit.h include/my_env.h
+source/my_edit/my_len_edit.o: include/my_typedef.h
+source/my_edit/my_edit_to_str.o: include/my_edit.h include/my_env.h
+source/my_edit/my_edit_to_str.o: include/my_typedef.h include/my_str.h
 source/my_edit/term_init.o: include/my_env.h include/my_typedef.h
 source/my_edit/term_init.o: include/my_termcaps.h
+source/my_edit/my_edit_line.o: include/my_termcaps.h include/my_edit.h
+source/my_edit/my_edit_line.o: include/my_env.h include/my_typedef.h

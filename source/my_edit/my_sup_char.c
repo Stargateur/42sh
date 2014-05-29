@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 18:55:47 2014 Pierrick Gicquelais
-** Last update Thu May 29 20:06:10 2014 Pierrick Gicquelais
+** Last update Thu May 29 23:58:26 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,22 +13,22 @@
 
 t_edit		*my_sup_char(t_edit *edit)
 {
-  t_edit	*tmp;
+  t_edit	*ret;
 
-  tmp = edit;
-  if (tmp != NULL)
+  ret = NULL;
+  if (edit != NULL)
     {
-      if (tmp->next != NULL)
+      if (edit->next != NULL)
 	{
-	  edit = tmp->next;
-	  tmp->next->prev = tmp->prev;
+	  ret = edit->next;
+	  edit->next->prev = edit->prev;
 	}
-      if (tmp->prev != NULL)
+      if (edit->prev != NULL)
 	{
-	  edit = tmp->prev;
-	  tmp->prev->next = tmp->next;
+	  ret = edit->prev;
+	  edit->prev->next = edit->next;
 	}
-      my_free_char(tmp);
+      my_free_char(edit);
     }
-  return (edit);
+  return (ret);
 }

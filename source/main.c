@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 18:48:58 2014 Antoine Plaskowski
+** Last update Thu May 29 22:58:39 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,6 +18,7 @@
 #include	"my_exec.h"
 #include	"my_env.h"
 #include	"my_history.h"
+#include	"my_edit.h"
 
 static void	my_put_prompt(t_env *env)
 {
@@ -25,9 +26,9 @@ static void	my_put_prompt(t_env *env)
   while (env && my_strcmp(env->name, "PS1"))
     env = env->next;
   if (env == NULL)
-    my_putstr("42sh> ", 1);
+    my_putstr("42sh> ", 0);
   else
-    my_putstr(env->value, 1);
+    my_putstr(env->value, 0);
 }
 
 static char	*my_promt(t_shell *shell)
@@ -36,8 +37,12 @@ static char	*my_promt(t_shell *shell)
   char		*ret;
 
   if (isatty(0))
-    my_put_prompt(shell->env);
-  str = my_get_next_line(0);
+    {
+      my_put_prompt(shell->env);
+      str = my_edit_line();
+    }
+  else
+    str = my_get_next_line(0);
   shell->history = my_history(shell->history, str);
   if ((ret = check_line(shell->history, str)) == NULL)
     return (str);
@@ -85,7 +90,6 @@ int		main(int argc, char **argv, char **env)
   (void)argv;
   my_ignore_signal();
   my_shell(&shell, env);
-  my_test();
   while (shell.exit == 0 && (str = my_promt(&shell)) != NULL)
     {
       if ((btree = my_parse(str)) != NULL)
@@ -97,6 +101,6 @@ int		main(int argc, char **argv, char **env)
   my_free_all_env(shell.env);
   my_free_all_history(shell.history);
   if (shell.exit_print && isatty(0))
-    my_putstr("exit\n", 1);
+    my_putstr("exit\n", 0);
   return (shell.exit_value);
 }

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 18:54:11 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:55:37 2014 Pierrick Gicquelais
+** Last update Thu May 29 22:00:21 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,7 +22,7 @@ void		my_free_all_char(t_edit *edit)
   t_edit	*tmp;
 
   edit = my_first_char(edit);
-  while (edit)
+  while (edit != NULL)
     {
       tmp = edit;
       edit = edit->next;

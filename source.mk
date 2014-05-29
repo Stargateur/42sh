@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 19:06:24 2014 Antoine Plaskowski
+## Last update Thu May 29 23:51:06 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -179,7 +179,11 @@ SRC		+=	$(PATH_EDIT)my_first_char.c
 SRC		+=	$(PATH_EDIT)my_last_char.c
 SRC		+=	$(PATH_EDIT)my_append_char.c
 SRC		+=	$(PATH_EDIT)my_sup_char.c
+SRC		+=	$(PATH_EDIT)my_ins_char.c
 SRC		+=	$(PATH_EDIT)my_aff_char.c
 SRC		+=	$(PATH_EDIT)my_free_char.c
+SRC		+=	$(PATH_EDIT)my_len_edit.c
+SRC		+=	$(PATH_EDIT)my_edit_to_str.c
 SRC		+=	$(PATH_EDIT)term_init.c
-SRC		+=	$(PATH_EDIT)my_test.c
+SRC		+=	$(PATH_EDIT)my_edit_line.c
+SRC		+=	$(PATH_EDIT)my_tool_edit.c
