@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 14:21:15 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:32:42 2014 Pierrick Gicquelais
+** Last update Thu May 29 18:33:22 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -20,7 +20,7 @@ int		is_alpha(char *s)
     {
       if (!((s[i] >= '0' && s[i] <= '9') || \
 	    (s[i] >= 'a' && s[i] <= 'z') || \
-	    (s[i] >= 'A' && s[i] <= 'Z') ||
+	    (s[i] >= 'A' && s[i] <= 'Z') || \
 	    (s[i] == '_')))
 	return (1);
       i++;
