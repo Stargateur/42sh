@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 19 14:42:28 2014 Pierrick Gicquelais
-** Last update Wed May 28 22:23:42 2014 Pierrick Gicquelais
+** Last update Thu May 29 15:26:09 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -28,13 +28,18 @@ static int	check_exist_history(t_histo *history)
 static char	*check_minus(t_histo *history, char *s)
 {
   char		*att;
+  int		cmp;
 
+  cmp = my_len_history(history);
   if ((att = my_strldup(s, '\0', 2)) == NULL)
     return (NULL);
   if (s[1] && s[1] == '-')
     {
-      while (history && history->id != my_getnbr(att))
-	history = history->prev;
+      while (history && cmp != my_getnbr(att))
+	{
+	  history = history->prev;
+	  cmp--;
+	}
       free(att);
       if (check_exist_history(history))
 	return (NULL);
@@ -84,16 +89,17 @@ static char	*check_string(t_histo *history, char *s)
 
 char		*check_line(t_histo *history, char *s)
 {
+  t_histo	*tmp;
   char		*new_s;
 
+  tmp = my_last_history(history);
   if (s[0] && s[0] == '!')
     {
-      history = my_last_history(history);
-      if ((new_s = check_minus(history, s)))
+      if ((new_s = check_minus(tmp, s)))
 	return (new_s);
-      else if ((new_s = check_nbr(history, s)))
+      else if ((new_s = check_nbr(tmp, s)))
 	return (new_s);
-      else if ((new_s = check_string(history, s)))
+      else if ((new_s = check_string(tmp, s)))
 	return (new_s);
     }
   return (s);

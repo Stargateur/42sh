@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 14:42:28 2014 Pierrick Gicquelais
+## Last update Thu May 29 15:07:07 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -58,6 +58,7 @@ SRC		+=	$(PATH_HISTO)my_append_history.c
 SRC		+=	$(PATH_HISTO)my_aff_history.c
 SRC		+=	$(PATH_HISTO)my_free_history.c
 SRC		+=	$(PATH_HISTO)my_check_history.c
+SRC		+=	$(PATH_HISTO)my_len_history.c
 
 SRC		+=	$(PATH_ECHO)echo.c
 SRC		+=	$(PATH_ECHO)check.c

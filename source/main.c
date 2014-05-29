@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Wed May 28 22:29:12 2014 Pierrick Gicquelais
+** Last update Thu May 29 15:25:16 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -67,8 +67,8 @@ int		main(int argc, char **argv, char **env)
   my_shell(&shell, env);
   while (shell.exit == 0 && (str = my_promt()) != NULL)
     {
-      /* shell.history = my_history(shell.history, str); */
-      /* str = check_line(shell.history, str); */
+      shell.history = my_history(shell.history, str);
+      str = check_line(shell.history, str);
       if ((btree = my_parse(str)) != NULL)
 	my_exec(btree, &shell);
       my_free_all_btree(btree);
