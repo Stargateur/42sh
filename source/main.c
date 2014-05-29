@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 16:33:45 2014 Pierrick Gicquelais
+** Last update Thu May 29 17:39:50 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -79,6 +79,7 @@ int		main(int argc, char **argv, char **env)
   t_shell	shell;
   t_btree	*btree;
   char		*str;
+  int		ret;
 
   (void)argc;
   (void)argv;
@@ -87,7 +88,8 @@ int		main(int argc, char **argv, char **env)
   while (shell.exit == 0 && (str = my_promt(&shell)) != NULL)
     {
       if ((btree = my_parse(str)) != NULL)
-	my_exec(btree, &shell);
+	if ((ret = my_exec(btree, &shell)))
+	  shell.exit_value = ret;
       my_free_all_btree(btree);
       free(str);
     }

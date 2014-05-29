@@ -5,11 +5,11 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:06:51 2014 Antoine Plaskowski
+** Last update Thu May 29 17:42:24 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
-
+#define		_BSD_SOURCE
 #include	<sys/types.h>
 #include	<sys/wait.h>
 #include	<stdlib.h>

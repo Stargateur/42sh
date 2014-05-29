@@ -5,9 +5,10 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Thu May 29 17:11:45 2014 Antoine Plaskowski
+** Last update Thu May 29 17:42:45 2014 Antoine Plaskowski
 */
 
+#define		_BSD_SOURCE
 #include	<stdlib.h>
 #include	<unistd.h>
 #include	"my_shell.h"

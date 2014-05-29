@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:29:37 2014 Antoine Plaskowski
+** Last update Thu May 29 17:41:23 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -37,13 +37,17 @@ int		my_env_exec(t_env *env, char **argv, t_shell *shell)
 {
   char		**env_tab;
   int		ret;
+  char		*exe;
 
   ret = 1;
   if (shell != NULL)
     {
       env_tab = my_env_to_tab(env);
       if (my_len_tab(argv) != 0)
-	ret = my_micro_management(argv, env_tab, my_found_exe(shell->env, argv[0]));
+	{
+	  exe = my_found_exe(shell->env, argv[0]);
+	  ret = my_micro_management(argv, env_tab, exe);
+	}
       my_free_tab(env_tab);
     }
   exit(ret);
