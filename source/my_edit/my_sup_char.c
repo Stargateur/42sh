@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 18:55:47 2014 Pierrick Gicquelais
-** Last update Thu May 29 19:03:05 2014 Pierrick Gicquelais
+** Last update Thu May 29 20:06:10 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -18,7 +18,6 @@ t_edit		*my_sup_char(t_edit *edit)
   tmp = edit;
   if (tmp != NULL)
     {
-      edit = NULL;
       if (tmp->next != NULL)
 	{
 	  edit = tmp->next;
