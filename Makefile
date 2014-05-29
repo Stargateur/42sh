@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.net>
 ## 
 ## Started on  Tue Mar 25 13:37:17 2014 Antoine Plaskowski
-## Last update Sun May 25 16:57:01 2014 Antoine Plaskowski
+## Last update Thu May 29 14:24:14 2014 Antoine Plaskowski
 ##
 
 CC			=	gcc
@@ -35,7 +35,7 @@ ifeq ($(DEBUG), yes)
 CFLAGS			+=	-g
 endif
 
-LDFLAGS			=
+LDFLAGS			=	-l ncurses
 
 DFLAGS			=	-Yinclude/ -w80
 

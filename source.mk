@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 14:23:45 2014 Pierrick Gicquelais
+## Last update Thu May 29 14:30:52 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -17,6 +17,7 @@ PATH_ECHO	=	$(PATH_SRC)my_echo/
 PATH_HISTO	=	$(PATH_SRC)my_history/
 PATH_EXEC	=	$(PATH_SRC)my_exec/
 PATH_SHELL	=	$(PATH_SRC)my_shell/
+PATH_TERM	=	$(PATH_SRC)my_termcaps/
 
 SRC		=	$(PATH_SRC)main.c
 
@@ -159,3 +160,11 @@ SRC		+=	$(PATH_STR)my_pipe.c
 SRC		+=	$(PATH_STR)my_dup2.c
 SRC		+=	$(PATH_STR)is_positive.c
 SRC		+=	$(PATH_STR)is_alpha.c
+
+SRC		+=	$(PATH_TERM)my_echo_off.c
+SRC		+=	$(PATH_TERM)my_putint.c
+SRC		+=	$(PATH_TERM)my_raw_mode.c
+SRC		+=	$(PATH_TERM)my_reset.c
+SRC		+=	$(PATH_TERM)my_tcgetattr.c
+SRC		+=	$(PATH_TERM)my_tgetent.c
+SRC		+=	$(PATH_TERM)my_tgetstr.c
