@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Thu May 29 16:24:11 2014 Antoine Plaskowski
+** Last update Thu May 29 17:03:53 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -67,6 +67,8 @@ int		my_close_fd(t_fd *fd);
 int		my_init_fd(t_fd *fd);
 
 int		my_dup_fd(t_fd *fd);
+
+int		my_cpy_fd(t_fd *dest, t_fd *src);
 
 int		my_chdir(const char*path);
 

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Thu May 29 16:36:35 2014 Antoine Plaskowski
+** Last update Thu May 29 17:11:45 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -14,19 +14,15 @@
 #include	"my_exec.h"
 #include	"my_str.h"
 
-static void	my_son(t_btree *btree, t_shell *shell, t_fd *fd)
+static void	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
-  int		builtin;
+  t_fd		cpy;
 
-  if (fd->fd_redir[1] != -1)
-    {
-      my_free_all_str(fd->str);
-      close(fd->fd_redir[1]);
-      fd->fd_redir[1] = -1;
-    }
-  if ((builtin = my_check_builtin(btree->token)) != -1)
-    exit (my_builtin(shell, btree->token, fd));
-  my_execve(btree, fd, shell);
+  my_cpy_fd(&cpy, fd);
+  if (cpy.fd_redir[1] != -1)
+    close(cpy.fd_redir[1]);
+  cpy.fd_redir[1] = -1;
+  my_execve(btree, &cpy, shell);
 }
 
 static int	my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
@@ -61,7 +57,7 @@ static int	my_exec_pipe_fork(t_btree *btree, t_fd *fd, t_shell *shell)
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
   if ((pid = vfork()) == 0)
-    my_son(btree, shell, fd);
+    my_son(btree, fd, shell);
   else if (pid == -1)
     return (my_put_error("can't fork ...\n"));
   close(fd->fd_pipe[0]);

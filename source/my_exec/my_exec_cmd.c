@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 16:27:09 2014 Antoine Plaskowski
+** Last update Thu May 29 17:06:51 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -21,13 +21,13 @@
 
 static void	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
-  if (fd->fd_redir[1] != -1)
-    {
-      my_free_all_str(fd->str);
-      close(fd->fd_redir[1]);
-      fd->fd_redir[1] = -1;
-    }
-  return (my_execve(btree, fd, shell));
+  t_fd		cpy;
+
+  my_cpy_fd(&cpy, fd);
+  if (cpy.fd_redir[1] != -1)
+    close(cpy.fd_redir[1]);
+  cpy.fd_redir[1] = -1;
+  my_execve(btree, &cpy, shell);
 }
 
 static int	my_father(t_btree *btree, t_fd *fd, int pid)
@@ -57,7 +57,6 @@ int		my_exec_cmd(t_btree *btree, t_shell *shell)
 {
   t_fd		fd;
   int		pid;
-  int		builtin;
 
   if (btree == NULL || btree->token == NULL)
     return (1);

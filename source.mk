@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 16:16:28 2014 Pierrick Gicquelais
+## Last update Thu May 29 17:08:28 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -42,6 +42,7 @@ SRC		+=	$(PATH_EXEC)my_execve.c
 SRC		+=	$(PATH_EXEC)my_redirection.c
 SRC		+=	$(PATH_EXEC)my_close_fd.c
 SRC		+=	$(PATH_EXEC)my_dup_fd.c
+SRC		+=	$(PATH_EXEC)my_cpy_fd.c
 SRC		+=	$(PATH_EXEC)my_exec_pipe_first.c
 SRC		+=	$(PATH_EXEC)my_exec_pipe_last.c
 SRC		+=	$(PATH_EXEC)my_init_fd.c

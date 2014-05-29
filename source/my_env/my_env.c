@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Sun May 25 16:16:14 2014 Antoine Plaskowski
+** Last update Thu May 29 16:39:32 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -57,12 +57,7 @@ int		my_env(t_shell *shell, t_fd *fd, char **argv)
   while (i < len && (ret = check_option(&env, argv, &i)) == 0)
     i++;
   if (ret == 0)
-    {
-      if (fd->fd_1 != -1)
-	my_aff_all_env(env, fd->fd_1);
-      else
-	my_aff_all_env(env, 1);
-    }
+    my_aff_all_env(env, 1);
   else if (ret == 2)
     ret = my_env_exec(env, my_cpy_tab(argv + i), fd, shell);
   my_free_all_env(env);

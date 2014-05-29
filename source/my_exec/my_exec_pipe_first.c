@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:45:08 2014 Antoine Plaskowski
-** Last update Thu May 29 16:36:56 2014 Antoine Plaskowski
+** Last update Thu May 29 17:07:05 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -16,19 +16,16 @@
 
 static void	my_son(t_btree *btree, t_fd *fd, t_shell *shell)
 {
-  int		builtin;
+  t_fd		cpy;
 
-  if ((builtin = my_check_builtin(btree->token)) != -1)
-    exit (my_builtin(shell, btree->token, fd));
-  if (fd->fd_redir[1] != -1)
-    {
-      my_free_all_str(fd->str);
-      close(fd->fd_redir[1]);
-      fd->fd_redir[1] = -1;
-    }
-  close(fd->fd_pipe[0]);
-  fd->fd_pipe[0] = -1;
-  my_execve(btree, fd, shell);
+  my_cpy_fd(&cpy, fd);
+  if (cpy.fd_redir[1] != -1)
+    close(cpy.fd_redir[1]);
+  if (cpy.fd_pipe[0] != -1)
+    close(fd->fd_pipe[0]);
+  cpy.fd_redir[1] = -1;
+  cpy.fd_pipe[0] = -1;
+  my_execve(btree, &cpy, shell);
 }
 
 static int	my_father(t_shell *shell, t_btree *btree, t_fd *fd, int pid)

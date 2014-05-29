@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:48:06 2014 Antoine Plaskowski
-** Last update Sun May 18 05:41:08 2014 Antoine Plaskowski
+** Last update Thu May 29 16:49:46 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -22,8 +22,6 @@ int		my_dup_fd(t_fd *fd)
     my_dup2(fd->fd_1, 1);
   if (fd->fd_redir[0] != -1)
     my_dup2(fd->fd_redir[0], 0);
-  if (fd->fd_redir[1] != -1)
-    my_dup2(fd->fd_redir[1], 1);
   if (fd->fd_pipe[0] != -1)
     my_dup2(fd->fd_pipe[0], 0);
   if (fd->fd_pipe[1] != -1)
