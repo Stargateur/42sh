@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Wed May 28 21:25:57 2014 Pierrick Gicquelais
+## Last update Thu May 29 14:23:45 2014 Pierrick Gicquelais
 ##
 
 PATH_SRC	=	source/
@@ -158,3 +158,4 @@ SRC		+=	$(PATH_STR)my_strcmp_icase.c
 SRC		+=	$(PATH_STR)my_pipe.c
 SRC		+=	$(PATH_STR)my_dup2.c
 SRC		+=	$(PATH_STR)is_positive.c
+SRC		+=	$(PATH_STR)is_alpha.c

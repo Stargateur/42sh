@@ -5,11 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 03:45:08 2014 Antoine Plaskowski
-<<<<<<< HEAD
-** Last update Mon May 26 15:12:33 2014 Pierrick Gicquelais
-=======
-** Last update Tue May 27 17:31:13 2014 Antoine Plaskowski
->>>>>>> b8920a6bc80d3e39fe4cfd01b3669cc6f24ea407
+** Last update Wed May 28 22:30:47 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
