@@ -5,7 +5,7 @@
 ## Login   <plasko_a@epitech.eu>
 ## 
 ## Started on  Tue May  6 13:27:09 2014 Antoine Plaskowski
-## Last update Thu May 29 14:30:52 2014 Pierrick Gicquelais
+## Last update Thu May 29 14:35:22 2014 Antoine Plaskowski
 ##
 
 PATH_SRC	=	source/
@@ -18,6 +18,7 @@ PATH_HISTO	=	$(PATH_SRC)my_history/
 PATH_EXEC	=	$(PATH_SRC)my_exec/
 PATH_SHELL	=	$(PATH_SRC)my_shell/
 PATH_TERM	=	$(PATH_SRC)my_termcaps/
+PATH_EDIT	=	$(PATH_SRC)my_edit/
 
 SRC		=	$(PATH_SRC)main.c
 
@@ -168,3 +169,5 @@ SRC		+=	$(PATH_TERM)my_reset.c
 SRC		+=	$(PATH_TERM)my_tcgetattr.c
 SRC		+=	$(PATH_TERM)my_tgetent.c
 SRC		+=	$(PATH_TERM)my_tgetstr.c
+
+SRC		+=	$(PATH_EDIT)term_init.c
