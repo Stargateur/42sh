@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Thu May 29 16:17:07 2014 Pierrick Gicquelais
+** Last update Thu May 29 17:21:11 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
@@ -52,29 +52,29 @@ struct		s_pid
 
 struct		s_fbuil
 {
-  int		(*fct)(t_shell *shell, t_fd *fd, char **argv);
+  int		(*fct)(t_shell *shell, char **argv);
   char		*name;
 };
 
 int		my_shell(t_shell *shell, char **env_tab);
 
-int		my_exit(t_shell *shell, t_fd *fd, char **argv);
+int		my_exit(t_shell *shell, char **argv);
 
-int		my_env(t_shell *shell, t_fd *fd, char **argv);
+int		my_env(t_shell *shell, char **argv);
 
-int		my_setenv(t_shell *shell, t_fd *fd, char **argv);
+int		my_setenv(t_shell *shell, char **argv);
 
-int		my_unsetenv(t_shell *shell, t_fd *fd, char **argv);
+int		my_unsetenv(t_shell *shell, char **argv);
 
-int		my_echo(t_shell *shell, t_fd *fd, char **argv);
+int		my_echo(t_shell *shell, char **argv);
 
-int		my_cd(t_shell *shell, t_fd *fd, char **argv);
+int		my_cd(t_shell *shell, char **argv);
 
-int		my_aff_all_history(t_shell *shell, t_fd *fd, char **argv);
+int		my_aff_all_history(t_shell *shell, char **argv);
 
 int		my_check_builtin(t_token *token);
 
-int		my_builtin(t_shell *shell, t_token *token, t_fd *fd);
+int		my_builtin(t_shell *shell, t_token *token);
 
 t_pid		*my_append_pid(t_pid *old, int pid);
 

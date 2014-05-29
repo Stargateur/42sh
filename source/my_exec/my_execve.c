@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Wed May 14 00:42:32 2014 Antoine Plaskowski
-** Last update Thu May 29 16:37:31 2014 Antoine Plaskowski
+** Last update Thu May 29 17:22:03 2014 Antoine Plaskowski
 */
 
 #include	<sys/types.h>
@@ -40,7 +40,7 @@ void		my_execve(t_btree *btree, t_fd *fd, t_shell *shell)
   ret = 1;
   my_dup_fd(fd);
   if (my_check_builtin(btree->token) != -1)
-    ret = my_builtin(shell, btree->token, fd);
+    ret = my_builtin(shell, btree->token);
   else
     if (btree != NULL && shell != NULL)
       if ((tab = my_token_word_to_tab(btree->token)) != NULL)

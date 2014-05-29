@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 15:36:41 2014 Pierrick Gicquelais
-** Last update Thu May 29 14:37:57 2014 Pierrick Gicquelais
+** Last update Thu May 29 17:30:07 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,11 +13,12 @@
 #include	"my_env.h"
 #include	"my_str.h"
 
-int		my_setenv(t_shell *shell, t_fd *fd, char **argv)
+int		my_setenv(t_shell *shell, char **argv)
 {
   int		len;
 
-  (void)fd;
+  if (shell == NULL)
+    return (1);
   len = my_len_tab(argv);
   if (len == 1)
     return (0);

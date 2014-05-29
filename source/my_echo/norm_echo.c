@@ -5,14 +5,14 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 16:49:44 2014 Pierrick Gicquelais
-** Last update Sat May 24 12:53:07 2014 Antoine Plaskowski
+** Last update Thu May 29 17:19:51 2014 Antoine Plaskowski
 */
 
 #include	<stdio.h>
 #include	"my_echo.h"
 #include	"my_str.h"
 
-int		norm_echo(char **tab, t_echo *opt, int fd)
+int		norm_echo(char **tab, t_echo *opt)
 {
   int		k;
 
@@ -26,11 +26,11 @@ int		norm_echo(char **tab, t_echo *opt, int fd)
     {
       while (tab[++k] != NULL)
 	{
-	  my_putstr(tab[k], fd);
-	  my_putchar(' ', fd);
+	  my_putstr(tab[k], 1);
+	  my_putchar(' ', 1);
 	}
     }
   if (opt->t_n == 0)
-    my_putchar('\n', fd);
+    my_putchar('\n', 1);
   return (0);
 }

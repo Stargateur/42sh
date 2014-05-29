@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Sun May 25 21:02:17 2014 Pierrick Gicquelais
+** Last update Thu May 29 17:16:48 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -58,13 +58,13 @@ static int	my_change_env(t_shell *shell, char buf[SIZE_BUF])
   return (0);
 }
 
-int		my_cd(t_shell *shell, t_fd *fd, char **argv)
+int		my_cd(t_shell *shell,  char **argv)
 {
   static char	buf[SIZE_BUF + 1];
   int		len;
   int		ret;
 
-  if (shell == NULL || fd == NULL || argv == NULL)
+  if (shell == NULL || argv == NULL)
     return (1);
   if ((len = my_len_tab(argv)) == 0)
     return (1);

@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Fri May  9 14:50:34 2014 Antoine Plaskowski
-** Last update Thu May 29 17:03:53 2014 Antoine Plaskowski
+** Last update Thu May 29 17:23:11 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_EXEC_H_
@@ -86,6 +86,6 @@ int		my_wait_pid(t_pid *pid);
 
 int		my_aff_signal(int signal);
 
-int		my_env_exec(t_env *env, char **argv, t_fd *fd, t_shell *shell);
+int		my_env_exec(t_env *env, char **argv, t_shell *shell);
 
 #endif		/*!MY_EXEC_H_*/

@@ -5,16 +5,16 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May 19 02:32:40 2014 Antoine Plaskowski
-** Last update Sat May 24 13:02:02 2014 Antoine Plaskowski
+** Last update Thu May 29 17:18:37 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	"my_shell.h"
 #include	"my_str.h"
 
-int		my_exit(t_shell *shell, t_fd *fd, char **argv)
+int		my_exit(t_shell *shell, char **argv)
 {
-  if (shell == NULL || fd == NULL || argv == NULL)
+  if (shell == NULL || argv == NULL)
     return (1);
   shell->exit = 1;
   if (argv[0] != NULL)

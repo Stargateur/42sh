@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Wed May 28 18:37:22 2014 Pierrick Gicquelais
-** Last update Thu May 29 14:48:48 2014 Pierrick Gicquelais
+** Last update Thu May 29 17:18:54 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -25,11 +25,10 @@ void		my_aff_history(t_histo *history)
     }
 }
 
-int		my_aff_all_history(t_shell *shell, t_fd *fd, char **argv)
+int		my_aff_all_history(t_shell *shell, char **argv)
 {
   t_histo	*tmp;
 
-  (void)fd;
   (void)argv;
   tmp = my_first_history(shell->history);
   while (tmp != NULL)

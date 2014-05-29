@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Thu May 29 16:39:32 2014 Antoine Plaskowski
+** Last update Thu May 29 17:20:44 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -41,14 +41,14 @@ static int	check_option(t_env **env, char **argv, int *i)
   return (0);
 }
 
-int		my_env(t_shell *shell, t_fd *fd, char **argv)
+int		my_env(t_shell *shell, char **argv)
 {
   t_env		*env;
   int		ret;
   int		len;
   int		i;
 
-  if (shell == NULL || fd == NULL || argv == NULL)
+  if (shell == NULL || argv == NULL)
     return (1);
   env = my_cpy_env(shell->env);
   len = my_len_tab(argv);
@@ -59,7 +59,7 @@ int		my_env(t_shell *shell, t_fd *fd, char **argv)
   if (ret == 0)
     my_aff_all_env(env, 1);
   else if (ret == 2)
-    ret = my_env_exec(env, my_cpy_tab(argv + i), fd, shell);
+    ret = my_env_exec(env, my_cpy_tab(argv + i), shell);
   my_free_all_env(env);
   return (ret);
 }

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 22 14:42:17 2014 Pierrick Gicquelais
-** Last update Sun May 25 16:43:00 2014 Antoine Plaskowski
+** Last update Thu May 29 17:29:37 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -33,67 +33,18 @@ static int	my_micro_management(char **tab, char **env, char *exe)
   return (1);
 }
 
-static int	my_exec_son(char **argv, t_fd *fd, t_env *env, t_shell *shell)
+int		my_env_exec(t_env *env, char **argv, t_shell *shell)
 {
   char		**env_tab;
-
-  if (shell == NULL)
-    return (1);
-  env_tab = my_env_to_tab(env);
-  my_dup_fd(fd);
-  if (argv != NULL)
-    {
-      if (my_len_tab(argv) != 0)
-	my_micro_management(argv, env_tab, my_found_exe(shell->env, argv[0]));
-      my_free_tab(argv);
-    }
-  my_free_tab(env_tab);
-  shell->exit = 1;
-  shell->exit_value = 1;
-  shell->exit_print = 0;
-  return (1);
-}
-
-static int	my_son(t_env *env, char **argv, t_fd *fd, t_shell *shell)
-{
-  if (fd->fd_redir[1] != -1)
-    {
-      my_free_all_str(fd->str);
-      close(fd->fd_redir[1]);
-      fd->fd_redir[1] = -1;
-    }
-  return (my_exec_son(argv, fd, env, shell));
-}
-
-static int	my_father(t_fd *fd, int pid)
-{
   int		ret;
 
-  if (fd->fd_redir[1] != -1)
-    my_aff_redir_dleft(fd);
-  my_close_fd(fd);
-  if (waitpid(pid, &ret, WUNTRACED) != pid)
-    my_putstr("waitpid error\n", 2);
-  if (WIFEXITED(ret))
-    return (WEXITSTATUS(ret));
-  if (WIFSIGNALED(ret))
-    my_aff_signal(WTERMSIG(ret));
-  if (WIFSTOPPED(ret))
+  ret = 1;
+  if (shell != NULL)
     {
-      my_putstr("no job control we kill your prog\n", 2);
-      kill(pid, SIGKILL);
+      env_tab = my_env_to_tab(env);
+      if (my_len_tab(argv) != 0)
+	ret = my_micro_management(argv, env_tab, my_found_exe(shell->env, argv[0]));
+      my_free_tab(env_tab);
     }
-  return (1);
-}
-
-int		my_env_exec(t_env *env, char **argv, t_fd *fd, t_shell *shell)
-{
-  int		pid;
-
-  if ((pid = fork()) == 0)
-    return (my_son(env, argv, fd, shell));
-  else if (pid == -1)
-    return (my_put_error("can't fork... \n"));
-  my_free_tab(argv);
-  return (my_father(fd, pid));
+  exit(ret);
 }

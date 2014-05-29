@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:08:06 2014 Antoine Plaskowski
+** Last update Thu May 29 17:31:31 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -59,7 +59,6 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid, t_shell *shell)
 
 int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
 {
-  int		builtin;
   int		pid;
 
   if (btree == NULL || fd == NULL)
@@ -67,8 +66,6 @@ int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
   my_redirection(btree->token, fd);
   if (fd->fd_redir[1] != -1)
     my_redir_dleft_in_father(btree->token, fd);
-  if ((builtin = my_check_builtin(btree->token)) != -1)
-    return (my_builtin(shell, btree->token, fd));
   if ((pid = vfork()) == 0)
     my_son(btree, fd, shell);
   else if (pid == -1)
