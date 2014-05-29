@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:42:24 2014 Antoine Plaskowski
+** Last update Thu May 29 18:10:52 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -57,6 +57,7 @@ int		my_exec_cmd(t_btree *btree, t_shell *shell)
 {
   t_fd		fd;
   int		pid;
+  int		ret;
 
   if (btree == NULL || btree->token == NULL)
     return (1);
@@ -68,5 +69,12 @@ int		my_exec_cmd(t_btree *btree, t_shell *shell)
     my_son(btree, &fd, shell);
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
-  return (my_father(btree, &fd, pid));
+  ret = my_father(btree, &fd, pid);
+  if (shell->cd != NULL)
+    {
+      chdir(shell->cd);
+      free(shell->cd);
+      shell->cd = NULL;
+    }
+  return (ret);
 }

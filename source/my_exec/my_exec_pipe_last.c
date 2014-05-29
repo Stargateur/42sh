@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:42:57 2014 Antoine Plaskowski
+** Last update Thu May 29 18:08:11 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -61,6 +61,7 @@ static int	my_father(t_btree *btree, t_fd *fd, int pid, t_shell *shell)
 int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
 {
   int		pid;
+  int		ret;
 
   if (btree == NULL || fd == NULL)
     return (1);
@@ -71,5 +72,12 @@ int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
     my_son(btree, fd, shell);
   else if (pid == -1)
     return (my_put_error("can't fork... \n"));
-  return (my_father(btree, fd, pid, shell));
+  ret = my_father(btree, fd, pid, shell);
+  if (shell->cd != NULL)
+    {
+      chdir(shell->cd);
+      free(shell->cd);
+      shell->cd = NULL;
+    }
+  return (ret);
 }

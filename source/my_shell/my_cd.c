@@ -5,15 +5,13 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:16:48 2014 Antoine Plaskowski
+** Last update Thu May 29 18:02:14 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	<unistd.h>
 #include	"my_shell.h"
 #include	"my_str.h"
-
-#define		SIZE_BUF	2048
 
 static int	my_chdir(char *dir)
 {
@@ -33,9 +31,7 @@ static int	my_old(t_env *env)
 
   if ((oldpwd = my_found_env(env, "OLDPWD")) == NULL)
     return (my_put_error("no OLDPWD set\n"));
-  if ((my_chdir(oldpwd->value)) == -1)
-    return (1);
-  return (0);
+  return (my_chdir(oldpwd->value));
 }
 
 static int	my_home(t_env *env)
@@ -44,23 +40,22 @@ static int	my_home(t_env *env)
 
   if ((home = my_found_env(env, "HOME")) == NULL)
     return (my_put_error("no HOME set\n"));
-  if ((my_chdir(home->value)) == -1)
-    return (1);
-  return (0);
+  return (my_chdir(home->value));
 }
 
-static int	my_change_env(t_shell *shell, char buf[SIZE_BUF])
+static int	my_change_env(t_shell *shell, char buf[2048])
 {
   shell->env = my_add_env(shell->env, "OLDPWD", buf);
-  if (getcwd(buf, SIZE_BUF) != buf)
+  if (getcwd(buf, 2048) != buf)
     return (my_put_error("fail getcwd\n"));
   shell->env = my_add_env(shell->env, "PWD", buf);
+  shell->cd = my_strdup(buf);
   return (0);
 }
 
 int		my_cd(t_shell *shell,  char **argv)
 {
-  static char	buf[SIZE_BUF + 1];
+  static char	buf[2048 + 1];
   int		len;
   int		ret;
 
@@ -70,7 +65,7 @@ int		my_cd(t_shell *shell,  char **argv)
     return (1);
   else if (len > 2)
     return (my_put_error("cd : too many arguments\n"));
-  if (getcwd(buf, SIZE_BUF) != buf)
+  if (getcwd(buf, 2048) != buf)
     return (my_put_error("fail getcwd\n"));
   if (len == 1)
     ret = my_home(shell->env);

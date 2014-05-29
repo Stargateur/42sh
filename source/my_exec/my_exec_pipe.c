@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Thu May 29 17:42:45 2014 Antoine Plaskowski
+** Last update Thu May 29 18:09:37 2014 Antoine Plaskowski
 */
 
 #define		_BSD_SOURCE
@@ -41,6 +41,12 @@ static int	my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
     shell->pid = my_append_pid(shell->pid, pid);
   if (my_found_token(btree->token, O_ESPE) != NULL && shell->pid != NULL)
     shell->pid->wait = 0;
+  if (shell->cd != NULL)
+    {
+      chdir(shell->cd);
+      free(shell->cd);
+      shell->cd = NULL;
+    }
   return (0);
 }
 

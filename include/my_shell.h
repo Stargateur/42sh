@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Thu May 29 17:21:11 2014 Antoine Plaskowski
+** Last update Thu May 29 17:51:11 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_SHELL_H_
@@ -27,6 +27,7 @@ struct		s_shell
   t_histo	*history;
   t_pid		*pid;
   char		*s;
+  char		*cd;
   int		exit_value;
   char		exit;
   char		exit_print;
