@@ -5,7 +5,7 @@
 ** Login   <costa_b@epitech.net>
 ** 
 ** Started on  Thu May 29 13:43:51 2014 Kevin Costa
-** Last update Thu May 29 14:37:15 2014 Antoine Plaskowski
+** Last update Thu May 29 14:44:12 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -18,7 +18,7 @@ int		term_init(t_env *env)
 
   if ((term = my_found_env(env, "TERM")) == NULL)
     return (1);
-  if (my_tgetent(env->value))
+  if (my_tgetent(term->value))
     return (1);
   return (0);
 }
