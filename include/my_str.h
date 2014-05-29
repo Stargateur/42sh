@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Fri Apr 25 03:16:39 2014 Antoine Plaskowski
-** Last update Thu May 29 14:24:01 2014 Pierrick Gicquelais
+** Last update Thu May 29 14:42:43 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_STR_H_
@@ -89,6 +89,8 @@ int		my_dup2(int src, int dest);
 int		is_positive(char *str);
 
 int		is_alpha(char *str);
+
+int		is_dir(char *str);
 
 char		*my_nbr_to_str(int nbr);
 

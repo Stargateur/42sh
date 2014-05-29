@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Sun Dec 15 19:55:20 2013 Antoine Plaskowski
-** Last update Sat May 24 14:05:10 2014 Antoine Plaskowski
+** Last update Thu May 29 14:42:16 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -55,9 +55,7 @@ char		*my_found_exe(t_env *env, char *str)
 
   if (str == NULL)
     return (NULL);
-  if (my_strncmp(str, "/", 1) == 0 ||
-      my_strncmp(str, "./", 2) == 0 ||
-      my_strncmp(str, "../", 3) == 0)
+  if (!is_dir(str))
     ret = my_strdup(str);
   else if ((ret = my_check_path(env, str)) == NULL)
     {
