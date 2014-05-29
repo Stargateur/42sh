@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Wed May 28 18:37:03 2014 Pierrick Gicquelais
-** Last update Wed May 28 20:34:10 2014 Pierrick Gicquelais
+** Last update Thu May 29 15:39:53 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -21,11 +21,10 @@ t_histo		*my_append_history(t_histo *old, char *att)
     return (NULL);
   if ((old = my_last_history(old)) != NULL)
     old->next = new;
-  new->id = id;
+  new->id = id++;
   if ((new->att = my_strdup(att)) == NULL)
     return (NULL);
   new->prev = old;
   new->next = NULL;
-  id++;
   return (new);
 }

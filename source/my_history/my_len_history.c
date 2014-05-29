@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 15:05:43 2014 Pierrick Gicquelais
-** Last update Thu May 29 15:06:53 2014 Pierrick Gicquelais
+** Last update Thu May 29 15:40:46 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,14 +13,13 @@
 
 int		my_len_history(t_histo *history)
 {
-  t_histo	*tmp;
   int		cmp;
 
   cmp = 0;
-  tmp = my_first_history(history);
-  while (tmp)
+  history = my_first_history(history);
+  while (history)
     {
-      tmp = tmp->next;
+      history = history->next;
       cmp++;
     }
   return (cmp);

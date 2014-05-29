@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Wed May 28 20:31:22 2014 Pierrick Gicquelais
-** Last update Wed May 28 22:14:08 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:00:43 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -13,9 +13,9 @@
 #include	"my_shell.h"
 #include	"my_str.h"
 
-t_histo		*my_history(t_histo *history, char *s)
+t_histo		*my_history(t_histo *history, char *str)
 {
-  if (s[0] && s[0] != '!')
-    history = my_append_history(history, s);
+  if (str != NULL && *str != '!')
+    history = my_append_history(history, str);
   return (history);
 }

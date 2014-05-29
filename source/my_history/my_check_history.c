@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 19 14:42:28 2014 Pierrick Gicquelais
-** Last update Thu May 29 15:26:09 2014 Pierrick Gicquelais
+** Last update Thu May 29 16:09:36 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -25,82 +25,54 @@ static int	check_exist_history(t_histo *history)
   return (0);
 }
 
-static char	*check_minus(t_histo *history, char *s)
+static char	*check_minus(t_histo *history, int nbr)
 {
-  char		*att;
-  int		cmp;
-
-  cmp = my_len_history(history);
-  if ((att = my_strldup(s, '\0', 2)) == NULL)
+  history = my_last_history(history);
+  while (history != NULL && ++nbr < 0)
+    history = history->prev;
+  if (check_exist_history(history))
     return (NULL);
-  if (s[1] && s[1] == '-')
-    {
-      while (history && cmp != my_getnbr(att))
-	{
-	  history = history->prev;
-	  cmp--;
-	}
-      free(att);
-      if (check_exist_history(history))
-	return (NULL);
-      return (history->att);
-    }
-  free(att);
-  return (NULL);
+  return (my_strdup(history->att));
 }
 
-static char	*check_nbr(t_histo *history, char *s)
+static char	*check_nbr(t_histo *history, int nbr)
 {
-  char		*att;
-
-  if ((att = my_strldup(s, '\0', 1)) == NULL)
+  history = my_first_history(history);
+  while (history != NULL && history->id != nbr)
+    history = history->next;
+  if (check_exist_history(history))
     return (NULL);
-  if (!is_positive(att))
-    {
-      while (history && history->id != my_getnbr(att))
-	history = history->prev;
-      free(att);
-      if (check_exist_history(history))
-	return (NULL);
-      return (history->att);
-    }
-  free(att);
-  return (NULL);
+  return (my_strdup(history->att));
 }
 
-static char	*check_string(t_histo *history, char *s)
+static char	*check_string(t_histo *history, char *str)
 {
-  char		*att;
+  int		len;
 
-  if ((att = my_strldup(s, '\0', 1)) == NULL)
+  len = my_strlen(str);
+  history = my_last_history(history);
+  while (history != NULL && my_strncmp(history->att, str, len))
+    history = history->prev;
+  if (check_exist_history(history))
     return (NULL);
-  if (my_is_num(att))
-    {
-      while (history && my_strncmp(history->att, att, my_strlen(att)))
-	history = history->prev;
-      free(att);
-      if (check_exist_history(history))
-	return (NULL);
-      return (history->att);
-    }
-  free(att);
-  return (NULL);
+  return (my_strdup(history->att));
 }
 
-char		*check_line(t_histo *history, char *s)
+char		*check_line(t_histo *history, char *str)
 {
-  t_histo	*tmp;
-  char		*new_s;
+  int		nbr;
 
-  tmp = my_last_history(history);
-  if (s[0] && s[0] == '!')
+  if (str == NULL)
+    return (NULL);
+  if (*str == '!')
     {
-      if ((new_s = check_minus(tmp, s)))
-	return (new_s);
-      else if ((new_s = check_nbr(tmp, s)))
-	return (new_s);
-      else if ((new_s = check_string(tmp, s)))
-	return (new_s);
+      nbr = my_getnbr(str + 1);
+      if (nbr < 0)
+	return (check_minus(history, nbr));
+      else if (nbr > 0)
+	return (check_nbr(history, nbr));
+      else
+	return (check_string(history, str + 1));
     }
-  return (s);
+  return (my_strdup(str));
 }
