@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Fri Nov 29 11:05:43 2013 Antoine Plaskowski
-** Last update Thu May 29 18:23:44 2014 Antoine Plaskowski
+** Last update Thu May 29 18:26:32 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -22,7 +22,7 @@ int		my_chdir(const char *path)
     {
       my_putstr(path, 2);
       if (errno == EACCES)
-	my_putstr(" : permission non accordee\n", 2);
+	my_putstr(" : permission denied\n", 2);
       else
 	my_putstr(" : can't find\n", 2);
       return (1);
