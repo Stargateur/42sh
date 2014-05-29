@@ -5,13 +5,14 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Sun May 18 22:09:47 2014 Antoine Plaskowski
-** Last update Sun May 25 16:36:16 2014 Antoine Plaskowski
+** Last update Wed May 28 22:28:21 2014 Pierrick Gicquelais
 */
 
 #ifndef		MY_SHELL_H_
 # define	MY_SHELL_H_
 
 # include	"my_env.h"
+# include	"my_history.h"
 # include	"my_str.h"
 # include	"my_token.h"
 
@@ -23,7 +24,9 @@ typedef	struct	s_fbuil	t_fbuil;
 struct		s_shell
 {
   t_env		*env;
+  t_histo	*history;
   t_pid		*pid;
+  char		*s;
   int		exit_value;
   char		exit;
   char		exit_print;
@@ -65,6 +68,8 @@ int		my_unsetenv(t_shell *shell, t_fd *fd, char **argv);
 int		my_echo(t_shell *shell, t_fd *fd, char **argv);
 
 int		my_cd(t_shell *shell, t_fd *fd, char **argv);
+
+int		my_aff_all_history(t_shell *shell, t_fd *fd, char **argv);
 
 int		my_check_builtin(t_token *token);
 

@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Sun May 25 16:39:59 2014 Antoine Plaskowski
+** Last update Mon May 26 15:00:58 2014 Pierrick Gicquelais
 */
 
 #define		_POSIX_SOURCE

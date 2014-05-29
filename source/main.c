@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Sun May 25 16:14:51 2014 Antoine Plaskowski
+** Last update Wed May 28 22:29:12 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -17,6 +17,7 @@
 #include	"my_str.h"
 #include	"my_exec.h"
 #include	"my_env.h"
+#include	"my_history.h"
 
 static char	*my_promt(void)
 {
@@ -66,12 +67,15 @@ int		main(int argc, char **argv, char **env)
   my_shell(&shell, env);
   while (shell.exit == 0 && (str = my_promt()) != NULL)
     {
+      /* shell.history = my_history(shell.history, str); */
+      /* str = check_line(shell.history, str); */
       if ((btree = my_parse(str)) != NULL)
 	my_exec(btree, &shell);
       my_free_all_btree(btree);
       free(str);
     }
   my_free_all_env(shell.env);
+  my_free_all_history(shell.history);
   if (shell.exit_print && isatty(0))
     my_putstr("exit\n", 1);
   return (shell.exit_value);
