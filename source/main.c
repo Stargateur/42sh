@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 17:39:50 2014 Antoine Plaskowski
+** Last update Thu May 29 18:48:58 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -85,6 +85,7 @@ int		main(int argc, char **argv, char **env)
   (void)argv;
   my_ignore_signal();
   my_shell(&shell, env);
+  my_test();
   while (shell.exit == 0 && (str = my_promt(&shell)) != NULL)
     {
       if ((btree = my_parse(str)) != NULL)

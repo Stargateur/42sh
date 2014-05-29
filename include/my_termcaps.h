@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Thu May 29 14:09:43 2014 Antoine Plaskowski
-** Last update Thu May 29 14:28:00 2014 Antoine Plaskowski
+** Last update Thu May 29 19:00:09 2014 Antoine Plaskowski
 */
 
 #ifndef		MY_TERMCAPS_H_
@@ -24,5 +24,6 @@ int		my_tcgetattr(t_ter *t);
 int		my_tcsetattr(t_ter *t);
 int		my_tgetent(char *str);
 char		*my_tgetstr(char *str);
+int		my_putint(int i);
 
 #endif		/* !MY_TERMCAPS_H_ */
