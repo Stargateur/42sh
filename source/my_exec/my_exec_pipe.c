@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Tue May 13 21:51:25 2014 Antoine Plaskowski
-** Last update Thu May 29 18:09:37 2014 Antoine Plaskowski
+** Last update Thu May 29 18:17:23 2014 Antoine Plaskowski
 */
 
 #define		_BSD_SOURCE
@@ -43,7 +43,7 @@ static int	my_father(t_btree *btree, t_fd *fd, t_shell *shell, int pid)
     shell->pid->wait = 0;
   if (shell->cd != NULL)
     {
-      chdir(shell->cd);
+      my_chdir(shell->cd);
       free(shell->cd);
       shell->cd = NULL;
     }

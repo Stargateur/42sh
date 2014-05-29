@@ -5,25 +5,14 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Fri May 23 17:37:14 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:02:14 2014 Antoine Plaskowski
+** Last update Thu May 29 18:20:07 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
 #include	<unistd.h>
 #include	"my_shell.h"
 #include	"my_str.h"
-
-static int	my_chdir(char *dir)
-{
-  if (dir == NULL)
-    return (1);
-  if (chdir(dir) == -1)
-    {
-      my_putstr("No such file or directory\n", 2);
-      return (1);
-    }
-  return (0);
-}
+#include	"my_exec.h"
 
 static int	my_old(t_env *env)
 {
@@ -43,7 +32,7 @@ static int	my_home(t_env *env)
   return (my_chdir(home->value));
 }
 
-static int	my_change_env(t_shell *shell, char buf[2048])
+static int	my_change_env(t_shell *shell, char *buf)
 {
   shell->env = my_add_env(shell->env, "OLDPWD", buf);
   if (getcwd(buf, 2048) != buf)

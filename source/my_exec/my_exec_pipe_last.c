@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:08:11 2014 Antoine Plaskowski
+** Last update Thu May 29 18:17:44 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -75,7 +75,7 @@ int		my_exec_pipe_last(t_btree *btree, t_fd *fd, t_shell *shell)
   ret = my_father(btree, fd, pid, shell);
   if (shell->cd != NULL)
     {
-      chdir(shell->cd);
+      my_chdir(shell->cd);
       free(shell->cd);
       shell->cd = NULL;
     }
