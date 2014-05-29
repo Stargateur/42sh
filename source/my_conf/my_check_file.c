@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Mon May 19 10:27:57 2014 Nayden Makusa
-** Last update Thu May 29 17:21:34 2014 Nayden Makusa
+** Last update Thu May 29 22:15:57 2014 Nayden Makusa
 */
 
 #include	<sys/types.h>
@@ -93,3 +93,30 @@ int		my_check_flag(char *av)
     return (1);
   return (0);
 }
+
+int		my_check_equal_liste(char *av)
+{
+  int		fd;
+  char		*str;
+  int		verif_equal;
+  int		verif;
+
+  verif_equal = 0;
+  verif = 0;
+  fd = open(av, O_RDONLY);
+  while ((str = get_next_line(fd)) != NULL)
+    {
+      if (my_strcmp_maj(str, "end") == 0 && verif_equal == 1)
+	verif_equal = 2;
+      if ((my_check_equal(str) == 1 || my_check_equal_alias(str) == 1)
+	  && verif_equal == 1)
+	verif = 1;
+      if (my_strcmp_maj(str, "alias") == 0)
+	verif_equal = 1;
+    }
+  close(fd);
+  if (my_check_equal_liste_msg(verif, 0) == 1)
+    return (1);
+  return (0);
+}
+

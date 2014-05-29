@@ -5,7 +5,7 @@
 ** Login   <makusa_n@epitech.net>
 ** 
 ** Started on  Fri May 16 12:05:23 2014 Nayden Makusa
-** Last update Thu May 29 20:21:18 2014 Nayden Makusa
+** Last update Thu May 29 21:16:26 2014 Nayden Makusa
 */
 
 #include	<sys/types.h>
@@ -85,6 +85,8 @@ int		main(int ac, char **av)
   if (my_check_flag(av[1]) == 1)
     return (1);
   if (my_check_order_flag(av[1]) == 1)
+    return (1);
+  if (my_check_equal_liste(av[1]) == 1)
     return (1);
   chain = my_conf(av[1], chain);
   aff_list(chain);
