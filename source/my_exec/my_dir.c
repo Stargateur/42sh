@@ -5,10 +5,11 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Fri Nov 29 11:05:43 2013 Antoine Plaskowski
-** Last update Sun May 25 10:42:27 2014 Antoine Plaskowski
+** Last update Thu May 29 18:23:44 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
+#include	<errno.h>
 #include	<unistd.h>
 #include	<dirent.h>
 #include	"my_str.h"
@@ -20,7 +21,10 @@ int		my_chdir(const char *path)
   if (chdir(path))
     {
       my_putstr(path, 2);
-      my_putstr(" : can't find\n", 2);
+      if (errno == EACCES)
+	my_putstr(" : permission non accordee\n", 2);
+      else
+	my_putstr(" : can't find\n", 2);
       return (1);
     }
   return (0);
