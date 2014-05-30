@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Tue Jan 14 15:12:45 2014 Antoine PLASKOWSKI
-** Last update Thu May 29 14:28:26 2014 Antoine Plaskowski
+** Last update Fri May 30 09:56:09 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>

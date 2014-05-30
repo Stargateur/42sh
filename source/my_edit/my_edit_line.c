@@ -5,7 +5,7 @@
 ** Login   <plasko_a@epitech.eu>
 ** 
 ** Started on  Thu May 29 21:57:27 2014 Antoine Plaskowski
-** Last update Fri May 30 00:11:03 2014 Antoine Plaskowski
+** Last update Fri May 30 10:18:04 2014 Pierrick Gicquelais
 */
 
 #include	<stdio.h>
@@ -77,9 +77,9 @@ char		*my_edit_line(void)
   my_echo_off(&t);
   str = my_tgetstr("sc");
   tputs(str, 0, &my_putint);
-  if ((edit = my_read_line()) == NULL)
-    return (NULL);
-  str = my_edit_to_str(edit);
+  str = NULL;
+  if ((edit = my_read_line()) != NULL)
+    str = my_edit_to_str(edit);
   my_free_all_char(edit);
   my_reset(&save);
   return (str);
