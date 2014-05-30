@@ -1,6 +1,0 @@
-ALIAS
-chat=chien
-ls=aff_file
-ll=aff_detail
-END
-PROMPT
