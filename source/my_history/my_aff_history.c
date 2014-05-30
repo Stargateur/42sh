@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Wed May 28 18:37:22 2014 Pierrick Gicquelais
-** Last update Thu May 29 17:18:54 2014 Antoine Plaskowski
+** Last update Fri May 30 09:35:07 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -21,7 +21,6 @@ void		my_aff_history(t_histo *history)
       my_putnbr(history->id, 1);
       my_putchar('\t', 1);
       my_putstr(history->att, 1);
-      my_putchar('\n', 1);
     }
 }
 
