@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Tue May 13 12:46:13 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:17:02 2014 Antoine Plaskowski
+** Last update Fri May 30 09:01:03 2014 Antoine Plaskowski
 */
 
 #define		_POSIX_SOURCE
@@ -14,7 +14,6 @@
 #include	<sys/wait.h>
 #include	<stdlib.h>
 #include	<unistd.h>
-#include	<signal.h>
 #include	"my_exec.h"
 #include	"my_btree.h"
 #include	"my_str.h"

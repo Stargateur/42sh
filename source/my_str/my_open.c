@@ -5,15 +5,13 @@
 ** Login   <plasko_a@epitech.net>
 ** 
 ** Started on  Thu Oct 24 16:05:36 2013 Antoine Plaskowski
-** Last update Sat May 17 03:00:11 2014 Antoine Plaskowski
+** Last update Fri May 30 09:02:59 2014 Antoine Plaskowski
 */
 
 #include	<sys/stat.h>
 #include	<fcntl.h>
 #include	<unistd.h>
 #include	"my_str.h"
-
-#define		FLAGS_RIGHT	S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 
 int		my_open_rdonly(const char *str)
 {
@@ -35,7 +33,8 @@ int		my_open_wrap(const char *str)
 
   if (str == NULL)
     return (-1);
-  if ((fd = open(str, O_CREAT | O_WRONLY | O_APPEND, FLAGS_RIGHT)) == -1)
+  if ((fd = open(str, O_CREAT | O_WRONLY | O_APPEND,
+		 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1)
     {
       my_putstr(str, 2);
       my_putstr(" : can't open\n", 2);
@@ -49,7 +48,8 @@ int		my_open_wrtr(const char *str)
 
   if (str == NULL)
     return (-1);
-  if ((fd = open(str, O_CREAT | O_WRONLY | O_TRUNC, FLAGS_RIGHT)) == -1)
+  if ((fd = open(str, O_CREAT | O_WRONLY | O_TRUNC,
+		 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) == -1)
     {
       my_putstr(str, 2);
       my_putstr(" : can't open\n", 2);
