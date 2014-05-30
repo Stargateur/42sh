@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Thu May 29 14:21:15 2014 Pierrick Gicquelais
-** Last update Thu May 29 18:33:22 2014 Pierrick Gicquelais
+** Last update Fri May 30 09:37:06 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -15,6 +15,8 @@ int		is_alpha(char *s)
 {
   int		i;
 
+  if (s == NULL)
+    return (1);
   i = 0;
   while (s[i])
     {
