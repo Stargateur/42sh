@@ -323,7 +323,6 @@ source/my_str/my_strncpy.o: include/my_typedef.h
 source/my_str/my_strlcpy.o: include/my_str.h include/my_typedef.h
 source/my_str/my_strdup.o: include/my_str.h include/my_typedef.h
 source/my_str/my_strndup.o: include/my_str.h include/my_typedef.h
-source/my_str/my_strldup.o: include/my_str.h include/my_typedef.h
 source/my_str/my_getnbr.o: include/my_str.h include/my_typedef.h
 source/my_str/my_getnbr_base.o: include/my_str.h include/my_typedef.h
 source/my_str/my_malloc.o: include/my_typedef.h include/my_str.h
@@ -387,3 +386,7 @@ source/my_edit/term_init.o: include/my_env.h include/my_typedef.h
 source/my_edit/term_init.o: include/my_termcaps.h
 source/my_edit/my_edit_line.o: include/my_termcaps.h include/my_edit.h
 source/my_edit/my_edit_line.o: include/my_env.h include/my_typedef.h
+source/my_edit/my_edit_line.o: include/my_str.h
+source/my_edit/my_tool_edit.o: include/my_edit.h include/my_env.h
+source/my_edit/my_tool_edit.o: include/my_typedef.h include/my_str.h
+source/my_edit/my_tool_edit.o: include/my_termcaps.h
