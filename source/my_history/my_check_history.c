@@ -5,7 +5,7 @@
 ** Login   <gicque_p@epitech.net>
 ** 
 ** Started on  Mon May 19 14:42:28 2014 Pierrick Gicquelais
-** Last update Thu May 29 16:09:36 2014 Antoine Plaskowski
+** Last update Fri May 30 09:36:09 2014 Pierrick Gicquelais
 */
 
 #include	<stdlib.h>
@@ -19,9 +19,7 @@ static int	check_exist_history(t_histo *history)
       my_putstr("History: event not found\n", 1);
       return (1);
     }
-  my_putstr("You want to access to history: ", 1);
   my_putstr(history->att, 1);
-  my_putchar('\n', 1);
   return (0);
 }
 
