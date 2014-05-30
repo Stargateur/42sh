@@ -13,6 +13,8 @@ RM		=	rm -f
 
 NAME		=	my_conf
 
+CFLAGS		=	-Wall -Wextra
+
 SRCS		=	my_conf.c \
 			get_next_line.c \
 			my_str.c \

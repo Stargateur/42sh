@@ -5,7 +5,7 @@
 ** Login   <antoine.plaskowski@epitech.eu>
 ** 
 ** Started on  Mon May  5 14:47:16 2014 Antoine Plaskowski
-** Last update Thu May 29 22:58:39 2014 Antoine Plaskowski
+** Last update Fri May 30 07:56:31 2014 Antoine Plaskowski
 */
 
 #include	<stdlib.h>
@@ -37,10 +37,9 @@ static char	*my_promt(t_shell *shell)
   char		*ret;
 
   if (isatty(0))
-    {
-      my_put_prompt(shell->env);
-      str = my_edit_line();
-    }
+    my_put_prompt(shell->env);
+  if (shell->term == 0 && isatty(0))
+    str = my_edit_line();
   else
     str = my_get_next_line(0);
   shell->history = my_history(shell->history, str);
